@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "r00t",
+    "database": "EventScheduler",
+    "jwtTokenSecret": "shhh_its_a_secret",
+    "jwtTokenLifespan": 60
+}
