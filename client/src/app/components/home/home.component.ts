@@ -20,15 +20,16 @@ export class HomeComponent implements OnInit {
     public username: string = (() => {
         return this.utilityService.getToken().username;
     })();
+    public about: any;
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
         private utilityService: UtilityService,
-        private router: Router,
     ) {
     }
 
     public ngOnInit(): void {
+        this.eventSchedulerService.getApiInformation().subscribe(x => this.about = x);
     }
 
 }

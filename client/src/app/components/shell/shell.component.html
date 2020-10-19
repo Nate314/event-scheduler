@@ -1,0 +1,29 @@
+<app-login *ngIf="isOnLogin()"></app-login>
+<mat-drawer-container *ngIf="!isOnLogin()" class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <mat-list>
+            <ng-container *ngFor="let link of sidenavLinks">
+                <mat-list-item matRipple (click)="btnSidenav(link)">
+                    {{link.label}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-container>
+          </mat-list>
+    </mat-drawer>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+            (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Event Scheduler</span>
+        <span class="example-spacer"></span>
+        <button *ngFor="let link of toolbarLinks" mat-icon-button [attr.aria-label]="link.label"
+            (click)="btnToolbar(link)">
+            <mat-icon>{{link.icon}}</mat-icon>
+        </button>
+    </mat-toolbar>
+    <br />
+    <router-outlet></router-outlet>
+    <br />
+</mat-drawer-container>

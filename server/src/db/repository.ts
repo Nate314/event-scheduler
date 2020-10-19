@@ -1,4 +1,5 @@
 import { Database, Query } from './database';
+import * as config from '../config.json';
 import { MysqlError } from 'mysql';
 import { DBUser } from './models';
 import {
@@ -9,8 +10,13 @@ export class Repository {
 
     database: Database;
 
-    constructor(database: Database) {
-        this.database = database;
+    constructor() {
+        this.database = new Database({
+            host: config.host,
+            user: config.user,
+            password: config.password,
+            database: config.database,
+        });
     }
 
     private promisifiedDBTransaction<T>(query: Query<T>, obj: T, genericConstructor: (x: any) => T, first?: boolean) {

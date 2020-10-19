@@ -20,12 +20,14 @@ export class LoginComponent implements OnInit {
         private eventSchedulerService: EventSchedulerService,
         private utilityService: UtilityService,
         private router: Router,
-    ) {
-    }
+    ) { }
 
     public ngOnInit(): void {
-        if (!this.utilityService.getToken().isExpired()) {
+        const token = this.utilityService.getToken();
+        if (token && !token.isExpired()) {
             this.router.navigate(['/home']);
+        } else {
+            this.utilityService.deleteToken();
         }
     }
 
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
                 this.passwordFormControl.value,
             ).subscribe(resp => {
                 if (resp) {
+                    this.utilityService.setToken(resp);
                     this.router.navigate(['/home']);
                 } else {
                     alert('Incorrect credentials');

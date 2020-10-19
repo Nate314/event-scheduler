@@ -23,7 +23,20 @@ export class UtilityService {
 
     constructor() { }
 
+    public setToken(token: string): void {
+        localStorage.setItem('token', token);
+    }
+
+    public getRawToken(): string {
+        return localStorage.getItem('token');
+    }
+
     public getToken(): Token {
-        return new Token(jwt_decode(localStorage.getItem('token')));
+        const lsToken = this.getRawToken();
+        return lsToken ? new Token(jwt_decode(lsToken)) : null;
+    }
+
+    public deleteToken(): void {
+        localStorage.removeItem('token');
     }
 }
