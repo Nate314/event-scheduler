@@ -1,5 +1,8 @@
 import { EventSchedulerService } from './services/event-scheduler/event-scheduler.service';
+import { EventCreateComponent } from './components/event-create/event-create.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
+import { EventListComponent } from './components/event-list/event-list.component';
+import { EventViewComponent } from './components/event-view/event-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
@@ -24,6 +27,10 @@ import {
     MatDividerModule,
     MatRippleModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
 } from '@angular/material';
 
 @NgModule({
@@ -39,6 +46,10 @@ import {
         MatDividerModule,
         MatRippleModule,
         MatSnackBarModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatExpansionModule,
+        MatProgressSpinnerModule,
     ],
     exports: [
         MatCardModule,
@@ -52,6 +63,10 @@ import {
         MatDividerModule,
         MatRippleModule,
         MatSnackBarModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatExpansionModule,
+        MatProgressSpinnerModule,
     ],
 })
 class MaterialModule { }
@@ -59,6 +74,9 @@ class MaterialModule { }
 @NgModule({
     declarations: [
         HomeComponent,
+        EventCreateComponent,
+        EventListComponent,
+        EventViewComponent,
     ],
     imports: [
         BrowserAnimationsModule,

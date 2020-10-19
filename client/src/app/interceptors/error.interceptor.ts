@@ -14,7 +14,7 @@ import {
 export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(
-        private _snackBar: MatSnackBar
+        private snackBar: MatSnackBar
     ) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -28,7 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     } else {
                         console.log('this is server side error');
                         errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-                        this._snackBar.open(errorMsg, '', { duration: 5000 });
+                        this.snackBar.open(errorMsg, '', { duration: 5000 });
                     }
                     console.log(errorMsg);
                     return throwError(errorMsg);

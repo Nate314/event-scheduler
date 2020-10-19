@@ -1,0 +1,8 @@
+<div *ngIf="!eventIDs || eventIDs.length === 0">
+    There are no events in the queue
+</div>
+<div *ngIf="eventIDs && eventIDs.length !== 0">
+    <app-event-view *ngFor="let eventID of eventIDs"
+        [eventID]="eventID">
+    </app-event-view>
+</div>

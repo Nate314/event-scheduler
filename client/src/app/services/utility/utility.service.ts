@@ -39,4 +39,12 @@ export class UtilityService {
     public deleteToken(): void {
         localStorage.removeItem('token');
     }
+
+    public formatDateToString(date: Date): string {
+        const d = date.getDate();
+        const m = date.getMonth() + 1; // Month from 0 to 11
+        const y = date.getFullYear();
+        const padWithZero = x => x <= 9 ? '0' + x : x;
+        return `${y}-${padWithZero(m)}-${padWithZero(d)}`;
+    }
 }

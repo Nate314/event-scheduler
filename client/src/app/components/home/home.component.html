@@ -1,6 +1,11 @@
 
 <mat-card class="mat-elevation-z6">
-    {{ greeting }}, {{ username }}
+    <h2>{{ greeting }}, {{ username }}</h2>
     <br />
     {{ about | json }}
 </mat-card>
+<br/>
+<app-event-create></app-event-create>
+<br/>
+<app-event-list></app-event-list>
+<br/>

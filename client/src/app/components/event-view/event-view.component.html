@@ -1,0 +1,24 @@
+<mat-expansion-panel (afterExpand)="btnExpand()" class="mat-elevation-z6">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{eventID.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <ng-container *ngIf="eventInformation && !isEditMode">
+        <b>Title: </b>{{eventInformation.title}}<br />
+        <b>Description: </b>{{eventInformation.description}}<br />
+        <b>Date: </b>{{eventInformation.date}}<br />
+        <mat-action-row>
+            <button mat-button color="primary" (click)="btnEdit()">Edit</button>
+            <button mat-button color="warn" (click)="btnDelete()">Delete</button>
+        </mat-action-row>
+    </ng-container>
+    <app-event-create *ngIf="isEditMode"
+        [eventInformation]="eventInformation" [isEditMode]="true">
+    </app-event-create>
+    <ng-container *ngIf="!eventInformation">
+        <mat-spinner></mat-spinner>
+    </ng-container>
+</mat-expansion-panel>

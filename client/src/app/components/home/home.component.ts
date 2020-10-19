@@ -1,7 +1,7 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-home',
