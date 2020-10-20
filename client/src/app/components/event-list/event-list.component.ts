@@ -1,7 +1,6 @@
-import { EventInformation } from '../../../../../shared-models/event/event-information.model';
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { DBEvent } from '../../../../../shared-models/db/event.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-event-list',
@@ -10,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class EventListComponent implements OnInit {
 
-    eventIDs: EventInformation[];
+    eventIDs: DBEvent[];
 
     constructor(
         private eventSchedulerService: EventSchedulerService,

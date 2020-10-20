@@ -1,8 +1,11 @@
 <ng-container *ngIf="!isFormVisible && !isEditMode">
-    <button mat-raised-button color="primary"
-        (click)="isFormVisible = !isFormVisible">
-        Add Event
-    </button>
+    <div class="text-center">
+        <button mat-raised-button color="primary"
+            (click)="isFormVisible = !isFormVisible">
+            Add Event
+        </button>
+    </div>
+    <br />
 </ng-container>
 <ng-container *ngIf="isFormVisible || isEditMode">
     <mat-card class="mat-elevation-z6">
@@ -45,7 +48,7 @@
             </div>
         </div>
         <br />
-        <button mat-raised-button color="primary" (click)="btnAdd()">
+        <button mat-raised-button color="primary" (click)="btnSave()">
             Save
         </button>
     </mat-card>

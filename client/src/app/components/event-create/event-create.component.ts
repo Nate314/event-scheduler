@@ -1,7 +1,7 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
-import { EventInformation } from '../../../../../shared-models/event/event-information.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility/utility.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -11,13 +11,28 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class EventCreateComponent implements OnInit {
 
-    @Input() eventInformation: EventInformation = { id: null } as EventInformation;
+    @Input() eventInformation: DBEvent = { id: null } as DBEvent;
     @Input() isEditMode: boolean;
-    tempNextID = 1;
-    isFormVisible: boolean;
-    titleFormControl: FormControl = new FormControl('', [Validators.required]);
-    dateFormControl: FormControl = new FormControl('', [Validators.required]);
-    descriptionFormControl: FormControl = new FormControl('', [Validators.required]);
+    @Output() onClose: EventEmitter<boolean> = new EventEmitter();
+    public titleFormControl: FormControl = new FormControl('', [Validators.required]);
+    public dateFormControl: FormControl = new FormControl('', [Validators.required]);
+    public descriptionFormControl: FormControl = new FormControl('', [Validators.required]);
+    private PisFormVisible: boolean;
+    public get isFormVisible(): boolean {
+        return this.PisFormVisible;
+    }
+    public set isFormVisible(value: boolean) {
+        this.PisFormVisible = value;
+        if (value === false) {
+            [
+                this.titleFormControl,
+                this.dateFormControl,
+                this.descriptionFormControl,
+            ]
+            .forEach(x => x.setValue(''));
+            this.onClose.next(true);
+        }
+    }
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
@@ -31,14 +46,19 @@ export class EventCreateComponent implements OnInit {
         console.log(this.eventInformation);
     }
 
-    public btnAdd(): void {
-        this.eventSchedulerService.postEventCreate({
-            id: this.tempNextID++,
+    public btnSave(): void {
+        const event = {
+            id: this.isEditMode ? this.eventInformation.id : null,
             title: this.titleFormControl.value,
-            date: this.utilityService.formatDateToString(this.dateFormControl.value),
+            date: this.utilityService.formatDateToString(new Date(this.dateFormControl.value)),
             description: this.descriptionFormControl.value,
-        }).subscribe(resp => {
+        } as DBEvent;
+        (this.isEditMode
+            ? this.eventSchedulerService.putEventUpdate(event)
+            : this.eventSchedulerService.postEventCreate(event)
+        ).subscribe(resp => {
             console.log(resp);
+            this.isFormVisible = false;
         });
     }
 }

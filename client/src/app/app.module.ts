@@ -1,3 +1,4 @@
+import { EventViewDetailsComponent } from './components/event-view/event-view-details/event-view-details.component';
 import { EventSchedulerService } from './services/event-scheduler/event-scheduler.service';
 import { EventCreateComponent } from './components/event-create/event-create.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
@@ -77,6 +78,7 @@ class MaterialModule { }
         EventCreateComponent,
         EventListComponent,
         EventViewComponent,
+        EventViewDetailsComponent,
     ],
     imports: [
         BrowserAnimationsModule,

@@ -1,9 +1,11 @@
+import { DBEvent } from '../../../shared-models/db/event.model';
+import { DBUser } from '../../../shared-models/db/user.model';
 import { Database, Query } from './database';
 import * as config from '../config.json';
 import { MysqlError } from 'mysql';
-import { DBUser } from './models';
 import {
     INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD,
+    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID,
 } from './queries';
 
 export class Repository {
@@ -54,4 +56,28 @@ export class Repository {
     public selectUserWhereUsernameAndPassword(user: DBUser): Promise<DBUser> {
         return this.promisifiedDBTransaction(SELECT_USER_WHERE_USERNAME_AND_PASSWORD, user, user.convertFromAny, true);
     }
+
+    public insertEvent(event: DBEvent): Promise<any> {
+        return this.promisifiedDBTransaction(INSERT_EVENT, event, event.convertFromAny)
+    }
+
+    public updateEvent(event: DBEvent): Promise<any> {
+        return this.promisifiedDBTransaction(UPDATE_EVENT, event, event.convertFromAny)
+    }
+
+    public deleteEvent(userID: number, eventID: number): Promise<any> {
+        const event = new DBEvent(eventID, userID);
+        return this.promisifiedDBTransaction(DELETE_EVENT, event, event.convertFromAny)
+    }
+
+    public selectEvents(userID: number): Promise<DBEvent[]> {
+        const event = new DBEvent(null, userID);
+        return this.promisifiedDBTransaction(SELECT_EVENTS, event, event.convertFromAny)
+    }
+
+    public selectEventWhereID(userID: number, eventID: number): Promise<DBEvent> {
+        const event = new DBEvent(eventID, userID);
+        return this.promisifiedDBTransaction(SELECT_EVENT_WHERE_ID, event, event.convertFromAny, true)
+    }
+
 }

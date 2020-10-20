@@ -1,9 +1,5 @@
 import mysql from 'mysql';
 
-export interface Table<T> {
-    convertFromAny(x: any): T;
-}
-
 export class Query<T> {
 
     public sql: string;

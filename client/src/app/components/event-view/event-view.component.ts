@@ -1,5 +1,5 @@
-import { EventInformation } from '../../../../../shared-models/event/event-information.model';
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
+import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,8 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EventViewComponent implements OnInit {
 
-    @Input() eventID: EventInformation;
-    eventInformation: EventInformation;
+    @Input() eventID: DBEvent;
+    eventInformation: DBEvent;
     isEditMode: boolean;
 
     constructor(
@@ -26,10 +26,6 @@ export class EventViewComponent implements OnInit {
             this.eventInformation = resp;
             console.log(resp);
         });
-    }
-
-    public btnEdit(): void {
-        this.isEditMode = !this.isEditMode;
     }
 
     public btnDelete(): void {

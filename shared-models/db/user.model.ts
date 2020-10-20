@@ -1,4 +1,4 @@
-import { Table } from './database';
+import { Table } from './table.interface';
 
 export class DBUser implements Table<DBUser> {
 
@@ -17,7 +17,11 @@ export class DBUser implements Table<DBUser> {
     }
 
     public convertFromAny(x: any): DBUser {
-        return new DBUser(x.UserID, x.Username, x.Password);
+        return new DBUser(
+            x.UserID,
+            x.Username,
+            x.Password,
+        );
     }
 
 }

@@ -7,16 +7,16 @@
         </mat-panel-description>
     </mat-expansion-panel-header>
     <ng-container *ngIf="eventInformation && !isEditMode">
-        <b>Title: </b>{{eventInformation.title}}<br />
-        <b>Description: </b>{{eventInformation.description}}<br />
-        <b>Date: </b>{{eventInformation.date}}<br />
+        <app-event-view-details [eventInformation]="eventInformation">
+        </app-event-view-details>
         <mat-action-row>
-            <button mat-button color="primary" (click)="btnEdit()">Edit</button>
+            <button mat-button color="primary" (click)="isEditMode = !isEditMode">Edit</button>
             <button mat-button color="warn" (click)="btnDelete()">Delete</button>
         </mat-action-row>
     </ng-container>
     <app-event-create *ngIf="isEditMode"
-        [eventInformation]="eventInformation" [isEditMode]="true">
+        [eventInformation]="eventInformation" [isEditMode]="true"
+        (onClose)="isEditMode = !isEditMode">
     </app-event-create>
     <ng-container *ngIf="!eventInformation">
         <mat-spinner></mat-spinner>

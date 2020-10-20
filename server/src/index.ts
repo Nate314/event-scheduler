@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import middleware from './midleware';
 import {
-    authController
+    authController,
+    eventsController,
 } from './controllers';
 
 const app = express();
@@ -21,11 +22,14 @@ app.use(middleware.jwtAuthentication);
 
 const api = express.Router();
 api.get('/', (req, res) => {
+    console.log('req.headers');
+    console.log(req.headers);
     res.json({
         version: process.version,
     });
 });
 api.use('/auth', authController);
+api.use('/events', eventsController);
 api.get('/asdf', (req, res) => {
     throw Error('exception thrown');
 });

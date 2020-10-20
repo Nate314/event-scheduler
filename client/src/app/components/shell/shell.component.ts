@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class ShellComponent implements OnInit {
 
     public toolbarLinks: { icon: string, label: string }[] = [
-        { icon: 'favorite', label: 'favorite' },
         { icon: 'exit_to_app', label: 'Sign out' },
     ];
     public sidenavLinks: { label: string }[] = [

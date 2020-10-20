@@ -13,6 +13,8 @@ const jwtAuthentication: RequestHandler = (req, res, next) => {
             const authHeader = req.headers.authorization;
             const token = authHeader.split('Bearer ')[1];
             console.log(jwt.verify(token, config.jwtTokenSecret));
+            const decodedToken = jwt.decode(token) as { userID: number };
+            req.headers.userID = `${decodedToken.userID}`;
         }
         next();
     } catch (error) {

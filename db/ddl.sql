@@ -9,3 +9,14 @@ CREATE TABLE Users (
     Password VARCHAR(200) NOT NULL,
     PRIMARY KEY (UserID)
 );
+
+-- Events Table
+CREATE TABLE events (
+    id INT NOT NULL AUTO_INCREMENT,
+    userID INT NOT NULL,
+    title VARCHAR(40) NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    date DATE NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userID) REFERENCES Users(UserID)
+);
