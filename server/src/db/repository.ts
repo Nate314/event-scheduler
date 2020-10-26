@@ -5,8 +5,10 @@ import * as config from '../config.json';
 import { MysqlError } from 'mysql';
 import {
     INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD,
-    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID,
+    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
+    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE,
 } from './queries';
+import { DBNote } from '../../../shared-models/db/note.model';
 
 export class Repository {
 
@@ -57,8 +59,8 @@ export class Repository {
         return this.promisifiedDBTransaction(SELECT_USER_WHERE_USERNAME_AND_PASSWORD, user, user.convertFromAny, true);
     }
 
-    public insertEvent(event: DBEvent): Promise<any> {
-        return this.promisifiedDBTransaction(INSERT_EVENT, event, event.convertFromAny)
+    public insertEvent(event: DBEvent): Promise<DBEvent> {
+        return this.promisifiedDBTransaction(INSERT_EVENT, event, event.convertFromAny);
     }
 
     public updateEvent(event: DBEvent): Promise<any> {
@@ -78,6 +80,34 @@ export class Repository {
     public selectEventWhereID(userID: number, eventID: number): Promise<DBEvent> {
         const event = new DBEvent(eventID, userID);
         return this.promisifiedDBTransaction(SELECT_EVENT_WHERE_ID, event, event.convertFromAny, true)
+    }
+
+    public selectEventMaxIDWhereUserID(userID: number): Promise<DBEvent> {
+        const event = new DBEvent(null, userID);
+        return this.promisifiedDBTransaction(SELECT_EVENT_MAX_ID_WHERE_USER_ID, event, event.convertFromAny, true)
+    }
+
+    public insertNote(note: DBNote): Promise<DBNote> {
+        return this.promisifiedDBTransaction(INSERT_NOTE, note, note.convertFromAny);
+    }
+
+    public selectNote(noteID: number): Promise<DBNote> {
+        const note = new DBNote(noteID);
+        return this.promisifiedDBTransaction(SELECT_NOTE, note, note.convertFromAny, true);
+    }
+
+    public selectNotesWhereEventID(eventID: number): Promise<DBNote> {
+        const note = new DBNote(null, null, eventID);
+        return this.promisifiedDBTransaction(SELECT_NOTES_WHERE_EVENT_ID, note, note.convertFromAny);
+    }
+
+    public updateNote(note: DBNote): Promise<DBNote> {
+        return this.promisifiedDBTransaction(UPDATE_NOTE, note, note.convertFromAny);
+    }
+
+    public deleteNote(noteID: number): Promise<DBNote> {
+        const note = new DBNote(noteID);
+        return this.promisifiedDBTransaction(DELETE_NOTE, note, note.convertFromAny);
     }
 
 }

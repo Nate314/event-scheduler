@@ -1,21 +1,16 @@
 <ng-container *ngIf="!isFormVisible && !isEditMode">
     <div class="text-center">
         <button mat-raised-button color="primary"
-            (click)="isFormVisible = !isFormVisible">
-            Add Event
+            (click)="isFormVisible = true">
+            <mat-icon>add</mat-icon> Event
         </button>
     </div>
     <br />
 </ng-container>
 <ng-container *ngIf="isFormVisible || isEditMode">
     <mat-card class="mat-elevation-z6">
-        <button mat-button style="float: right; font-size: 2.5rem;"
-            (click)="isFormVisible = !isFormVisible">
-            &times;
-        </button>
-        <br />
         <div class="row">
-            <div class="col-6">
+            <div class="col-5">
                 <mat-form-field>
                     <mat-label>Title</mat-label>
                     <input matInput [formControl]="titleFormControl" placeholder="Event Title" />
@@ -24,32 +19,35 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <mat-form-field>
-                    <mat-label>Date</mat-label>
+                    <mat-label>Follow up Date</mat-label>
                     <input matInput [matDatepicker]="datePicker" [formControl]="dateFormControl">
                     <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
                     <mat-datepicker #datePicker></mat-datepicker>
                     <mat-error *ngIf="dateFormControl.hasError('required')">
                         Required
                     </mat-error>
-                  </mat-form-field>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field>
-                    <mat-label>Description</mat-label>
-                    <textarea matInput [formControl]="descriptionFormControl" placeholder="Event Description . . ."></textarea>
-                    <mat-error *ngIf="descriptionFormControl.hasError('required')">
-                        Required
-                    </mat-error>
                 </mat-form-field>
             </div>
+            <div class="col-2">
+                <button mat-button style="font-size: 2.5rem;"
+                    (click)="isFormVisible = false">
+                    &times;
+                </button>
+            </div>
         </div>
+        <app-notes-create
+            [isEditMode]="isEditMode"
+            [eventID]="eventInformation.id"
+            [savingEventID]="savingEventID"
+            [isFormVisible]="isFormVisible">
+        </app-notes-create>
         <br />
-        <button mat-raised-button color="primary" (click)="btnSave()">
-            Save
-        </button>
+        <mat-card-actions>
+            <div class="text-right">
+                <button mat-button color="primary" (click)="btnSave()">Save</button>
+            </div>
+        </mat-card-actions>
     </mat-card>
 </ng-container>

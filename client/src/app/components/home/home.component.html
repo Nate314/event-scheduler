@@ -1,11 +1,33 @@
-
-<mat-card class="mat-elevation-z6">
-    <h2>{{ greeting }}, {{ username }}</h2>
-    <br />
-    {{ about | json }}
-</mat-card>
+<h2 class="text-center">{{ greeting }}, {{ username }}</h2>
 <br/>
 <app-event-create></app-event-create>
 <br/>
-<app-event-list></app-event-list>
+<mat-tab-group mat-stretch-tabs selectedIndex="1">
+    <mat-tab label="Past">
+        <ng-container *ngTemplateOutlet="listTemplate;context:pastEvents"></ng-container>
+    </mat-tab>
+    <mat-tab label="Today">
+        <ng-container *ngTemplateOutlet="listTemplate;context:todayEvents"></ng-container>
+    </mat-tab>
+    <mat-tab label="Future">
+        <ng-container *ngTemplateOutlet="listTemplate;context:futureEvents"></ng-container>
+    </mat-tab>
+</mat-tab-group>
 <br/>
+
+<ng-template #listTemplate let-events="events">
+    <div class="mx-3">
+        <br />
+        <div *ngIf="!events || events.length === 0">
+            There are no events in the queue
+        </div>
+        <div *ngIf="events && events.length !== 0">
+            <ng-container *ngFor="let eventID of events">
+                <app-event-view
+                    [eventID]="eventID">
+                </app-event-view>
+                <br />
+            </ng-container>
+        </div>
+    </div>
+</ng-template>

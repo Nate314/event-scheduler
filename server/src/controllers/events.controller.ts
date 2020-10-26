@@ -15,7 +15,6 @@ function getEventFromRequest(req: any): DBEvent {
         req.body.id,
         req.body.userID,
         req.body.title,
-        req.body.description,
         req.body.date,
     ) : null;
 }
@@ -25,10 +24,10 @@ router.post('/', async (req, res) => {
     if (event && event.title && event.title.trim() && event.date) {
         event.id = null;
         event.title = event.title.trim();
-        event.description = event.description || null;
         event.userID = getUserIDFromRequest(req);
         if (await repository.insertEvent(event)) {
-            res.json(true);
+            const createdEvent = await repository.selectEventMaxIDWhereUserID(event.userID);
+            res.json(createdEvent ? createdEvent.id : 0);
         } else {
             res.status(500);
             res.json({message: 'error occurred when inserting event'});
@@ -42,11 +41,10 @@ router.put('/', async (req, res) => {
     const event = getEventFromRequest(req);
     if (event && event.title && event.title.trim() && event.date && event.id) {
         event.title = event.title.trim();
-        event.description = event.description || null;
-        const dbEvent = await repository.selectEventWhereID(getUserIDFromRequest(req), event.id);
+        // const dbEvent = await repository.selectEventWhereID(getUserIDFromRequest(req), event.id);
         event.userID = getUserIDFromRequest(req);
         if (await repository.updateEvent(event)) {
-            res.json(true);
+            res.json(event.id);
         } else {
             res.status(500);
             res.json({message: 'error occurred when updating event'});

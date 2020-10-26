@@ -15,8 +15,19 @@ CREATE TABLE events (
     id INT NOT NULL AUTO_INCREMENT,
     userID INT NOT NULL,
     title VARCHAR(40) NOT NULL,
-    description VARCHAR(2000) NOT NULL,
     date DATE NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (userID) REFERENCES Users(UserID)
+);
+
+-- Notes Table
+CREATE TABLE notes (
+    id INT NOT NULL AUTO_INCREMENT,
+    eventID INT NOT NULL,
+    userID INT NOT NULL,
+    description VARCHAR(2000) NOT NULL,
+    date DATE NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (userID) REFERENCES Users(UserID),
+    FOREIGN KEY (eventID) REFERENCES events(eventID)
 );

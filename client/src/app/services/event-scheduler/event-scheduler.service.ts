@@ -4,6 +4,7 @@ import { UtilityService } from '../utility/utility.service';
 import { Observable, Subject } from 'rxjs';
 import { Inject } from '@angular/core';
 import { map, tap } from 'rxjs/operators';
+import { DBNote } from '../../../../../shared-models/db/note.model';
 
 @Inject({
     provide: 'root'
@@ -47,7 +48,7 @@ export class EventSchedulerService {
         return this.http.get<any>(url, this.getOptions());
     }
 
-    private pipeUpdateEventList(observable: Observable<boolean>): Observable<boolean> {
+    private pipeUpdateEventList(observable: Observable<number>): Observable<number> {
         return observable.pipe(
             tap(x => {
                 if (x) {
@@ -57,19 +58,19 @@ export class EventSchedulerService {
         );
     }
 
-    public postEventCreate(event: DBEvent): Observable<boolean> {
+    public postEventCreate(event: DBEvent): Observable<number> {
         const url = this.getURL('/events');
         const body = event;
         return this.pipeUpdateEventList(
-            this.http.post<boolean>(url, body, this.getOptions())
+            this.http.post<number>(url, body, this.getOptions())
         );
     }
 
-    public putEventUpdate(event: DBEvent): Observable<boolean> {
+    public putEventUpdate(event: DBEvent): Observable<number> {
         const url = this.getURL('/events');
         const body = event;
         return this.pipeUpdateEventList(
-            this.http.put<boolean>(url, body, this.getOptions())
+            this.http.put<number>(url, body, this.getOptions())
         );
     }
 
@@ -90,10 +91,28 @@ export class EventSchedulerService {
             }));
     }
 
-    public deleteEvent(id: number): Observable<boolean> {
+    public deleteEvent(id: number): Observable<number> {
         const url = this.getURL(`/events/${id}`);
         return this.pipeUpdateEventList(
-            this.http.delete<boolean>(url, this.getOptions())
+            this.http.delete<number>(url, this.getOptions())
         );
     }
+
+    public postNoteCreate(note: DBNote): Observable<boolean> {
+        const url = this.getURL(`/notes`);
+        const body = note;
+        return this.http.post<boolean>(url, body);
+    }
+
+    public getNotesForEventID(eventID: number): Observable<DBNote[]> {
+        const url = this.getURL(`/notes/event/${eventID}`);
+        return this.http.get<DBNote[]>(url);
+    }
+
+    public putNoteUpdate(note: DBNote): Observable<boolean> {
+        const url = this.getURL(`/notes`);
+        const body = note;
+        return this.http.put<boolean>(url, body);
+    }
+
 }

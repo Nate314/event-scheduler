@@ -1,4 +1,5 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
+import { UtilityService } from 'src/app/services/utility/utility.service';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -14,10 +15,12 @@ export class EventViewComponent implements OnInit {
     isEditMode: boolean;
 
     constructor(
-        private eventSchedulerService: EventSchedulerService
+        private eventSchedulerService: EventSchedulerService,
+        private utilityService: UtilityService,
     ) { }
 
     public ngOnInit(): void {
+        this.eventID.date = this.utilityService.formatDateToString(new Date(this.eventID.date));
     }
 
     public btnExpand(): void {

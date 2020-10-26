@@ -14,9 +14,9 @@ export class EventCreateComponent implements OnInit {
     @Input() eventInformation: DBEvent = { id: null } as DBEvent;
     @Input() isEditMode: boolean;
     @Output() onClose: EventEmitter<boolean> = new EventEmitter();
+    public savingEventID: number;
     public titleFormControl: FormControl = new FormControl('', [Validators.required]);
     public dateFormControl: FormControl = new FormControl('', [Validators.required]);
-    public descriptionFormControl: FormControl = new FormControl('', [Validators.required]);
     private PisFormVisible: boolean;
     public get isFormVisible(): boolean {
         return this.PisFormVisible;
@@ -27,7 +27,6 @@ export class EventCreateComponent implements OnInit {
             [
                 this.titleFormControl,
                 this.dateFormControl,
-                this.descriptionFormControl,
             ]
             .forEach(x => x.setValue(''));
             this.onClose.next(true);
@@ -41,8 +40,7 @@ export class EventCreateComponent implements OnInit {
 
     public ngOnInit(): void {
         this.titleFormControl = new FormControl(this.eventInformation.title, [Validators.required]);
-        this.dateFormControl = new FormControl(this.eventInformation.date, [Validators.required]);
-        this.descriptionFormControl = new FormControl(this.eventInformation.description, [Validators.required]);
+        this.dateFormControl = new FormControl(new Date(`${this.eventInformation.date}T00:00:00`), [Validators.required]);
         console.log(this.eventInformation);
     }
 
@@ -51,14 +49,16 @@ export class EventCreateComponent implements OnInit {
             id: this.isEditMode ? this.eventInformation.id : null,
             title: this.titleFormControl.value,
             date: this.utilityService.formatDateToString(new Date(this.dateFormControl.value)),
-            description: this.descriptionFormControl.value,
         } as DBEvent;
         (this.isEditMode
             ? this.eventSchedulerService.putEventUpdate(event)
             : this.eventSchedulerService.postEventCreate(event)
-        ).subscribe(resp => {
-            console.log(resp);
-            this.isFormVisible = false;
+        ).subscribe(eventID => {
+            console.log(eventID);
+            this.savingEventID = eventID;
+            setTimeout(() => {
+                this.isFormVisible = false;
+            }, 5000);
         });
     }
 }

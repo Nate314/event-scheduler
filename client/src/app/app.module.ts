@@ -1,16 +1,7 @@
-import { EventViewDetailsComponent } from './components/event-view/event-view-details/event-view-details.component';
-import { EventSchedulerService } from './services/event-scheduler/event-scheduler.service';
-import { EventCreateComponent } from './components/event-create/event-create.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
-import { EventListComponent } from './components/event-list/event-list.component';
-import { EventViewComponent } from './components/event-view/event-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoginComponent } from './components/login/login.component';
-import { UtilityService } from './services/utility/utility.service';
-import { ShellComponent } from './components/shell/shell.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
-import { HomeComponent } from './components/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +23,21 @@ import {
     MatNativeDateModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatTabsModule,
 } from '@angular/material';
+import {
+    EventViewNotesComponent,
+    NotesCreateComponent,
+    EventCreateComponent,
+    EventViewComponent,
+    ShellComponent,
+    LoginComponent,
+    HomeComponent,
+} from './components';
+import {
+    EventSchedulerService,
+    UtilityService,
+} from './services';
 
 @NgModule({
     imports: [
@@ -51,6 +56,7 @@ import {
         MatNativeDateModule,
         MatExpansionModule,
         MatProgressSpinnerModule,
+        MatTabsModule,
     ],
     exports: [
         MatCardModule,
@@ -68,17 +74,18 @@ import {
         MatNativeDateModule,
         MatExpansionModule,
         MatProgressSpinnerModule,
+        MatTabsModule,
     ],
 })
 class MaterialModule { }
 
 @NgModule({
     declarations: [
-        HomeComponent,
+        EventViewNotesComponent,
         EventCreateComponent,
-        EventListComponent,
+        NotesCreateComponent,
         EventViewComponent,
-        EventViewDetailsComponent,
+        HomeComponent,
     ],
     imports: [
         BrowserAnimationsModule,

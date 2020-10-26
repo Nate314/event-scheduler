@@ -1,0 +1,43 @@
+<button mat-button color="primary" style="float:right;"
+    (click)="btnAddNote()">
+    <mat-icon>add</mat-icon> Note
+</button>
+<h4>Notes</h4>
+<mat-divider></mat-divider>
+<div>
+    <ng-container *ngFor="let noteID of noteIDs; let i = index">
+        <mat-divider></mat-divider>
+        <div class="my-6">
+            <div class="row">
+                <div class="col-10">
+                    <mat-form-field>
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="datePicker" [formControl]="noteDateFormControls[i]">
+                        <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datePicker></mat-datepicker>
+                        <mat-error *ngIf="noteDateFormControls[i].hasError('required')">
+                            Required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-2">
+                    <button mat-button color="warn"
+                        (click)="btnDeleteNote(i)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Note</span>
+                    </button>
+                </div>
+                <div class="col-12">
+                    <mat-form-field>
+                        <mat-label>Note</mat-label>
+                        <textarea matInput [formControl]="notesFormControls[i]" placeholder="Enter Note . . ."></textarea>
+                        <mat-error *ngIf="notesFormControls[i].hasError('required')">
+                            Required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </ng-container>
+</div>

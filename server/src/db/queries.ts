@@ -1,4 +1,5 @@
 import { DBEvent } from '../../../shared-models/db/event.model';
+import { DBNote } from '../../../shared-models/db/note.model';
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Query } from './database';
 
@@ -54,19 +55,18 @@ const UPDATE_USER = new Query(`
 );
 
 const INSERT_EVENT = new Query(`
-        INSERT INTO events (id, userID, title, description, date)
-        VALUES (?, ?, ?, ?, ?);
+        INSERT INTO events (id, userID, title, date)
+        VALUES (?, ?, ?, ?);
     `, [
         (event: DBEvent) => event.id,
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.title,
-        (event: DBEvent) => event.description,
         (event: DBEvent) => event.date,
     ]
 );
 
 const SELECT_EVENTS = new Query(`
-        SELECT id, userID, title
+        SELECT id, userID, title, date
         FROM events
         WHERE userID = ?
         ORDER BY date DESC;
@@ -76,7 +76,7 @@ const SELECT_EVENTS = new Query(`
 );
 
 const SELECT_EVENT_WHERE_ID = new Query(`
-        SELECT id, userID, title, description, date
+        SELECT id, userID, title, date
         FROM events
         WHERE userID = ? AND id = ?;
     `, [
@@ -85,19 +85,26 @@ const SELECT_EVENT_WHERE_ID = new Query(`
     ]
 );
 
+const SELECT_EVENT_MAX_ID_WHERE_USER_ID = new Query(`
+        SELECT MAX(id) AS id
+        FROM events
+        WHERE userID = ?;
+    `, [
+        (event: DBEvent) => event.userID,
+    ]
+);
+
 const UPDATE_EVENT = new Query(`
         UPDATE events
         SET id = ?,
             userID = ?,
             title = ?,
-            description = ?,
             date = ?
         WHERE userID = ? AND id = ?;
     `, [
         (event: DBEvent) => event.id,
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.title,
-        (event: DBEvent) => event.description,
         (event: DBEvent) => event.date,
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.id,
@@ -113,7 +120,61 @@ const DELETE_EVENT = new Query(`
     ]
 );
 
+const INSERT_NOTE = new Query(`
+        INSERT INTO notes (eventID, userID, description, date)
+        VALUES (?, ?, ?, ?);
+    `, [
+        (note: DBNote) => note.eventID,
+        (note: DBNote) => note.userID,
+        (note: DBNote) => note.description,
+        (note: DBNote) => note.date,
+    ]
+);
+
+const SELECT_NOTE = new Query(`
+        SELECT id, eventID, userID, description, date
+        FROM events
+        WHERE id = ?
+    `, [
+        (note: DBNote) => note.id,
+    ]
+);
+
+const SELECT_NOTES_WHERE_EVENT_ID = new Query(`
+        SELECT id, eventID, userID, description, date
+        FROM notes
+        WHERE eventID = ?
+        ORDER BY date DESC
+    `, [
+        (note: DBNote) => note.eventID,
+    ]
+);
+
+const UPDATE_NOTE = new Query(`
+        UPDATE notes
+        SET eventID = ?,
+            userID = ?,
+            description = ?,
+            date = ?
+        WHERE id = ?
+    `, [
+        (note: DBNote) => note.eventID,
+        (note: DBNote) => note.userID,
+        (note: DBNote) => note.description,
+        (note: DBNote) => note.date,
+        (note: DBNote) => note.id,
+    ]
+);
+
+const DELETE_NOTE = new Query(`
+        DELETE FROM notes WHERE id = ?
+    `, [
+        (note: DBNote) => note.id,
+    ]
+);
+
 export {
     SELECT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, INSERT_USER, UPDATE_USER,
-    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID,
+    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
+    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE,
 };

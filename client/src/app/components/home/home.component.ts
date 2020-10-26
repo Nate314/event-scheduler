@@ -1,7 +1,7 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { UtilityService } from 'src/app/services/utility/utility.service';
+import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-home',
@@ -10,6 +10,9 @@ import { Subject } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
+    public pastEvents: { events: DBEvent[] };
+    public todayEvents: { events: DBEvent[] };
+    public futureEvents: { events: DBEvent[] };
     public greeting: string = (() => {
         const hour = new Date().getHours();
         return `Good ${
@@ -30,6 +33,16 @@ export class HomeComponent implements OnInit {
 
     public ngOnInit(): void {
         this.eventSchedulerService.getApiInformation().subscribe(x => this.about = x);
+        this.eventSchedulerService.getEventIDs().subscribe(resp => {
+            const today = this.utilityService.formatDateToString(new Date());
+            this.pastEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) < today) };
+            this.todayEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) === today) };
+            this.futureEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) > today) };
+            console.log(resp);
+            console.log(this.pastEvents);
+            console.log(this.todayEvents);
+            console.log(this.futureEvents);
+        });
     }
 
 }

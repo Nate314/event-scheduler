@@ -4,6 +4,7 @@ import middleware from './midleware';
 import {
     authController,
     eventsController,
+    notesController,
 } from './controllers';
 
 const app = express();
@@ -30,9 +31,7 @@ api.get('/', (req, res) => {
 });
 api.use('/auth', authController);
 api.use('/events', eventsController);
-api.get('/asdf', (req, res) => {
-    throw Error('exception thrown');
-});
+api.use('/notes', notesController);
 
 app.use('/api/v1', api);
 app.use(middleware.notFound);
