@@ -31,3 +31,5 @@ CREATE TABLE notes (
     FOREIGN KEY (userID) REFERENCES Users(UserID),
     FOREIGN KEY (eventID) REFERENCES events(eventID)
 );
+
+ALTER TABLE notes ADD pinned TINYINT(1) NOT NULL;

@@ -57,7 +57,10 @@ router.put('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     const eventID = Number(req.params.id);
     if (eventID) {
-        if (await repository.deleteEvent(getUserIDFromRequest(req), eventID)) {
+        let deleteEventSuccess = true;
+        deleteEventSuccess = deleteEventSuccess && await repository.deleteNotesWhereEventID(eventID);
+        deleteEventSuccess = deleteEventSuccess && await repository.deleteEvent(getUserIDFromRequest(req), eventID);
+        if (deleteEventSuccess) {
             res.json(true);
         } else {
             res.status(500);

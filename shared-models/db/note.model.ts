@@ -7,6 +7,7 @@ export class DBNote implements Table<DBNote> {
     public eventID?: number;
     public description?: string;
     public date?: string;
+    public pinned?: boolean;
 
     constructor(
         id?: number,
@@ -14,12 +15,14 @@ export class DBNote implements Table<DBNote> {
         eventID?: number,
         description?: string,
         date?: string,
+        pinned?: boolean,
     ) {
         this.id = id;
         this.userID = userID;
         this.eventID = eventID;
         this.description = description;
         this.date = date;
+        this.pinned = pinned;
     }
 
     public convertFromAny(x: any): DBNote {
@@ -29,6 +32,7 @@ export class DBNote implements Table<DBNote> {
             x.eventID,
             x.description,
             x.date,
+            x.pinned === 1,
         );
     }
 

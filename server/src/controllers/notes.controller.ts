@@ -17,6 +17,7 @@ function getNoteFromRequest(req: any): DBNote {
         req.body.eventID,
         req.body.description,
         req.body.date,
+        req.body.pinned,
     ) : null;
 }
 

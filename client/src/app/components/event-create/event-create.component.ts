@@ -1,6 +1,5 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UtilityService } from 'src/app/services/utility/utility.service';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -35,30 +34,24 @@ export class EventCreateComponent implements OnInit {
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
-        private utilityService: UtilityService,
     ) { }
 
     public ngOnInit(): void {
         this.titleFormControl = new FormControl(this.eventInformation.title, [Validators.required]);
-        this.dateFormControl = new FormControl(new Date(`${this.eventInformation.date}T00:00:00`), [Validators.required]);
-        console.log(this.eventInformation);
+        this.dateFormControl = new FormControl(`${this.eventInformation.date}T00:00:00`, [Validators.required]);
     }
 
     public btnSave(): void {
         const event = {
             id: this.isEditMode ? this.eventInformation.id : null,
             title: this.titleFormControl.value,
-            date: this.utilityService.formatDateToString(new Date(this.dateFormControl.value)),
+            date: this.dateFormControl.value,
         } as DBEvent;
         (this.isEditMode
             ? this.eventSchedulerService.putEventUpdate(event)
             : this.eventSchedulerService.postEventCreate(event)
         ).subscribe(eventID => {
-            console.log(eventID);
             this.savingEventID = eventID;
-            setTimeout(() => {
-                this.isFormVisible = false;
-            }, 5000);
         });
     }
 }

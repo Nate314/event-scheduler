@@ -16,24 +16,18 @@ export class EventViewComponent implements OnInit {
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
-        private utilityService: UtilityService,
     ) { }
 
     public ngOnInit(): void {
-        this.eventID.date = this.utilityService.formatDateToString(new Date(this.eventID.date));
     }
 
     public btnExpand(): void {
-        console.log('button expand');
-        this.eventSchedulerService.getEvent(this.eventID.id).subscribe(resp => {
-            this.eventInformation = resp;
-            console.log(resp);
-        });
+        this.eventSchedulerService.getEvent(this.eventID.id)
+            .subscribe(resp => this.eventInformation = resp);
     }
 
     public btnDelete(): void {
-        this.eventSchedulerService.deleteEvent(this.eventID.id).subscribe(resp => {
-            console.log(resp);
-        });
+        this.eventSchedulerService.deleteEvent(this.eventID.id)
+            .subscribe(resp => console.log(resp));
     }
 }

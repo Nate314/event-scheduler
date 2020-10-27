@@ -35,13 +35,11 @@ export class HomeComponent implements OnInit {
         this.eventSchedulerService.getApiInformation().subscribe(x => this.about = x);
         this.eventSchedulerService.getEventIDs().subscribe(resp => {
             const today = this.utilityService.formatDateToString(new Date());
-            this.pastEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) < today) };
-            this.todayEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) === today) };
-            this.futureEvents = { events: resp.filter(x => this.utilityService.formatDateToString(new Date(x.date)) > today) };
-            console.log(resp);
-            console.log(this.pastEvents);
-            console.log(this.todayEvents);
-            console.log(this.futureEvents);
+            const filterOnToday = (f: (date: string, t: string) => boolean): DBEvent[] =>
+                resp.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+            this.pastEvents = { events: filterOnToday((date, t) => date < t) };
+            this.todayEvents = { events: filterOnToday((date, t) => date === t) };
+            this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse() };
         });
     }
 

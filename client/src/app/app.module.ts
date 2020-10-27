@@ -24,6 +24,7 @@ import {
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatCheckboxModule,
 } from '@angular/material';
 import {
     EventViewNotesComponent,
@@ -57,6 +58,7 @@ import {
         MatExpansionModule,
         MatProgressSpinnerModule,
         MatTabsModule,
+        MatCheckboxModule,
     ],
     exports: [
         MatCardModule,
@@ -75,6 +77,7 @@ import {
         MatExpansionModule,
         MatProgressSpinnerModule,
         MatTabsModule,
+        MatCheckboxModule,
     ],
 })
 class MaterialModule { }

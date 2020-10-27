@@ -33,7 +33,6 @@ export class ShellComponent implements OnInit {
     }
 
     public btnToolbar(value): void {
-        console.log(value);
         switch (value.label) {
             case 'Sign out':
                 this.utilityService.deleteToken();

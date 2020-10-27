@@ -3,7 +3,7 @@ import * as config from './config.json';
 import jwt from 'jsonwebtoken';
 
 const logger: RequestHandler = (req, res, next) => {
-    console.log(req.headers);
+    // console.log(req.headers);
     next();
 }
 
@@ -12,7 +12,7 @@ const jwtAuthentication: RequestHandler = (req, res, next) => {
         if (!req.path.includes('/auth')) {
             const authHeader = req.headers.authorization;
             const token = authHeader.split('Bearer ')[1];
-            console.log(jwt.verify(token, config.jwtTokenSecret));
+            jwt.verify(token, config.jwtTokenSecret)
             const decodedToken = jwt.decode(token) as { userID: number };
             req.headers.userID = `${decodedToken.userID}`;
         }

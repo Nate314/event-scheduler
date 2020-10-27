@@ -23,14 +23,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                 catchError((error: HttpErrorResponse) => {
                     let errorMsg = '';
                     if (error.error instanceof ErrorEvent) {
-                        console.log('this is client side error');
+                        console.error('this is client side error');
                         errorMsg = `Error: ${error.error.message}`;
                     } else {
-                        console.log('this is server side error');
+                        console.error('this is server side error');
                         errorMsg = `Error Code: ${error.status},  Message: ${error.message}`;
                         this.snackBar.open(errorMsg, '', { duration: 5000 });
                     }
-                    console.log(errorMsg);
+                    console.error(errorMsg);
                     return throwError(errorMsg);
                 })
             );

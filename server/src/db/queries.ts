@@ -121,18 +121,19 @@ const DELETE_EVENT = new Query(`
 );
 
 const INSERT_NOTE = new Query(`
-        INSERT INTO notes (eventID, userID, description, date)
-        VALUES (?, ?, ?, ?);
+        INSERT INTO notes (eventID, userID, description, date, pinned)
+        VALUES (?, ?, ?, ?, ?);
     `, [
         (note: DBNote) => note.eventID,
         (note: DBNote) => note.userID,
         (note: DBNote) => note.description,
         (note: DBNote) => note.date,
+        (note: DBNote) => note.pinned ? 1 : 0,
     ]
 );
 
 const SELECT_NOTE = new Query(`
-        SELECT id, eventID, userID, description, date
+        SELECT id, eventID, userID, description, date, pinned
         FROM events
         WHERE id = ?
     `, [
@@ -141,7 +142,7 @@ const SELECT_NOTE = new Query(`
 );
 
 const SELECT_NOTES_WHERE_EVENT_ID = new Query(`
-        SELECT id, eventID, userID, description, date
+        SELECT id, eventID, userID, description, date, pinned
         FROM notes
         WHERE eventID = ?
         ORDER BY date DESC
@@ -155,13 +156,15 @@ const UPDATE_NOTE = new Query(`
         SET eventID = ?,
             userID = ?,
             description = ?,
-            date = ?
+            date = ?,
+            pinned = ?
         WHERE id = ?
     `, [
         (note: DBNote) => note.eventID,
         (note: DBNote) => note.userID,
         (note: DBNote) => note.description,
         (note: DBNote) => note.date,
+        (note: DBNote) => note.pinned ? 1 : 0,
         (note: DBNote) => note.id,
     ]
 );
@@ -173,8 +176,15 @@ const DELETE_NOTE = new Query(`
     ]
 );
 
+const DELETE_NOTES_WHERE_EVENT_ID = new Query(`
+        DELETE FROM notes WHERE eventID = ?
+    `, [
+        (event: DBEvent) => event.id,
+    ]
+);
+
 export {
     SELECT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, INSERT_USER, UPDATE_USER,
     INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
-    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE,
+    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
 };

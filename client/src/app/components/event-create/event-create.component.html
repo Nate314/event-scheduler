@@ -1,8 +1,9 @@
 <ng-container *ngIf="!isFormVisible && !isEditMode">
     <div class="text-center">
-        <button mat-raised-button color="primary"
+        <button mat-raised-button color="primary" style="width:150px;"
             (click)="isFormVisible = true">
-            <mat-icon>add</mat-icon> Event
+            <mat-icon>add</mat-icon>
+            <span>&nbsp;Add Event</span>
         </button>
     </div>
     <br />
@@ -10,7 +11,7 @@
 <ng-container *ngIf="isFormVisible || isEditMode">
     <mat-card class="mat-elevation-z6">
         <div class="row">
-            <div class="col-5">
+            <div class="col-xs-12 col-sm-12 col-md-6">
                 <mat-form-field>
                     <mat-label>Title</mat-label>
                     <input matInput [formControl]="titleFormControl" placeholder="Event Title" />
@@ -19,7 +20,7 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div class="col-5">
+            <div class="col-xs-12 col-sm-12 col-md-6">
                 <mat-form-field>
                     <mat-label>Follow up Date</mat-label>
                     <input matInput [matDatepicker]="datePicker" [formControl]="dateFormControl">
@@ -30,23 +31,25 @@
                     </mat-error>
                 </mat-form-field>
             </div>
-            <div class="col-2">
-                <button mat-button style="font-size: 2.5rem;"
-                    (click)="isFormVisible = false">
-                    &times;
-                </button>
-            </div>
         </div>
         <app-notes-create
             [isEditMode]="isEditMode"
             [eventID]="eventInformation.id"
             [savingEventID]="savingEventID"
-            [isFormVisible]="isFormVisible">
+            [isFormVisible]="isFormVisible"
+            (doneSaving)="this.isFormVisible = false;">
         </app-notes-create>
         <br />
         <mat-card-actions>
             <div class="text-right">
-                <button mat-button color="primary" (click)="btnSave()">Save</button>
+                <button mat-button color="warn" (click)="isFormVisible = false">
+                    <mat-icon>close</mat-icon>
+                    <span>&nbsp;Close Event</span>
+                </button>
+                <button mat-button color="primary" (click)="btnSave()">
+                    <mat-icon>save</mat-icon>
+                    <span>&nbsp;Save Event</span>
+                </button>
             </div>
         </mat-card-actions>
     </mat-card>

@@ -14,23 +14,12 @@ export class EventViewNotesComponent implements OnInit {
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
-        private utilityService: UtilityService,
     ) { }
 
     public ngOnInit(): void {
         this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(resp => {
-            console.log('----');
-            console.log(resp);
-            console.log('----');
-            this.notes = resp.map((x, i) => {
-                x.date = this.utilityService.formatDateToString(new Date(x.date));
-                if (x.date === this.utilityService.formatDateToString(new Date())) {
-                    x['pinned'] = true;
-                }
-                return x;
-            });
-            this.notes = this.notes.filter(x => x['pinned']).concat(this.notes.filter(x => !x['pinned']));
-            console.log(this.notes);
+            this.notes = resp;
+            this.notes = this.notes.filter(x => x.pinned).concat(this.notes.filter(x => !x.pinned));
         });
     }
 }

@@ -6,7 +6,7 @@ import { MysqlError } from 'mysql';
 import {
     INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD,
     INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
-    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE,
+    INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
 } from './queries';
 import { DBNote } from '../../../shared-models/db/note.model';
 
@@ -108,6 +108,11 @@ export class Repository {
     public deleteNote(noteID: number): Promise<DBNote> {
         const note = new DBNote(noteID);
         return this.promisifiedDBTransaction(DELETE_NOTE, note, note.convertFromAny);
+    }
+
+    public deleteNotesWhereEventID(eventID: number): Promise<boolean> {
+        const event = new DBEvent(eventID);
+        return this.promisifiedDBTransaction(DELETE_NOTES_WHERE_EVENT_ID, event, event.convertFromAny);
     }
 
 }
