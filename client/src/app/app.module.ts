@@ -1,6 +1,7 @@
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +35,9 @@ import {
     ShellComponent,
     LoginComponent,
     HomeComponent,
+    AboutComponent,
+    SearchComponent,
+    ReportComponent,
 } from './components';
 import {
     EventSchedulerService,
@@ -59,6 +63,7 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatCheckboxModule,
+        NgxMaterialTimepickerModule,
     ],
     exports: [
         MatCardModule,
@@ -78,6 +83,7 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatCheckboxModule,
+        NgxMaterialTimepickerModule,
     ],
 })
 class MaterialModule { }
@@ -89,6 +95,9 @@ class MaterialModule { }
         NotesCreateComponent,
         EventViewComponent,
         HomeComponent,
+        AboutComponent,
+        SearchComponent,
+        ReportComponent,
     ],
     imports: [
         BrowserAnimationsModule,

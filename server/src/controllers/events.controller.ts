@@ -16,6 +16,7 @@ function getEventFromRequest(req: any): DBEvent {
         req.body.userID,
         req.body.title,
         req.body.date,
+        req.body.time,
     ) : null;
 }
 
@@ -74,6 +75,11 @@ router.delete('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
     const event = await repository.selectEvents(getUserIDFromRequest(req));
     res.json(event);
+});
+
+router.get('/nextEventNum', async (req, res) => {
+    const event = await repository.selectNextEventNum(getUserIDFromRequest(req));
+    res.json(event.num);
 });
 
 router.get('/:id', async (req, res) => {

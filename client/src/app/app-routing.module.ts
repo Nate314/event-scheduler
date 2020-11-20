@@ -1,9 +1,13 @@
-import { LoginComponent } from './components/login/login.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { HomeComponent } from './components/home/home.component';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { Component, NgModule } from '@angular/core';
 import { Route } from '@angular/compiler/src/core';
+import {
+    LoginComponent,
+    HomeComponent,
+    SearchComponent,
+    ReportComponent,
+} from './components';
 
 @Component({ template: '' })
 class NotFoundComponent {
@@ -15,6 +19,8 @@ class NotFoundComponent {
 const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'report', component: ReportComponent },
     { path: '**', component: NotFoundComponent }
 ].map(route => {
     if (route.path !== '') {

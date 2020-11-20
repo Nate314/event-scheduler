@@ -3,6 +3,21 @@ import { DBNote } from '../../../shared-models/db/note.model';
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Query } from './database';
 
+const formatTime = (time: string) => {
+    if (time) {
+        const hour = Number(time.split(/[: ]/)[0]);
+        const minute = Number(time.split(/[: ]/)[1]);
+        const isPM = time.toUpperCase().includes('PM');
+        return `${
+            hour + (isPM ? (hour < 12 ? 12 : 0) : (hour === 12 ? -12 : 0))
+        }:${
+            minute
+        }:00`;
+    } else {
+        return '00:00:00';
+    }
+};
+
 const INSERT_USER = new Query(`
     INSERT INTO users (UserID, Username, Password)
     VALUES (?, ?, ?);
@@ -55,30 +70,46 @@ const UPDATE_USER = new Query(`
 );
 
 const INSERT_EVENT = new Query(`
-        INSERT INTO events (id, userID, title, date)
-        VALUES (?, ?, ?, ?);
+        INSERT INTO events (id, userID, title, date, time)
+        VALUES (?, ?, ?, ?, ?);
     `, [
         (event: DBEvent) => event.id,
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.title,
         (event: DBEvent) => event.date,
+        (event: DBEvent) => formatTime(event.time),
     ]
 );
 
 const SELECT_EVENTS = new Query(`
-        SELECT id, userID, title, date
-        FROM events
-        WHERE userID = ?
+        SET @row_number = 0;
+        SELECT id, userID, title, date, time, num
+        FROM (
+            SELECT archived, id, userID, title, date, time, @row_number:=@row_number+1 AS num
+            FROM events
+            WHERE userID = ?
+            ORDER BY id ASC
+        ) temp
+        WHERE archived = 0
         ORDER BY date DESC;
     `, [
         (event: DBEvent) => event.userID,
     ]
 );
 
-const SELECT_EVENT_WHERE_ID = new Query(`
-        SELECT id, userID, title, date
+const SELECT_NEXT_EVENT_NUM = new Query(`
+        SELECT COUNT(*) + 1 AS num
         FROM events
-        WHERE userID = ? AND id = ?;
+        WHERE userID = ?;
+    `, [
+        (event: DBEvent) => event.userID,
+    ]
+);
+
+const SELECT_EVENT_WHERE_ID = new Query(`
+        SELECT id, userID, title, date, time
+        FROM events
+        WHERE archived = 0 AND userID = ? AND id = ?;
     `, [
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.id,
@@ -88,7 +119,7 @@ const SELECT_EVENT_WHERE_ID = new Query(`
 const SELECT_EVENT_MAX_ID_WHERE_USER_ID = new Query(`
         SELECT MAX(id) AS id
         FROM events
-        WHERE userID = ?;
+        WHERE archived = 0 AND userID = ?;
     `, [
         (event: DBEvent) => event.userID,
     ]
@@ -99,20 +130,23 @@ const UPDATE_EVENT = new Query(`
         SET id = ?,
             userID = ?,
             title = ?,
-            date = ?
-        WHERE userID = ? AND id = ?;
+            date = ?,
+            time = ?
+        WHERE archived = 0 AND userID = ? AND id = ?;
     `, [
         (event: DBEvent) => event.id,
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.title,
         (event: DBEvent) => event.date,
+        (event: DBEvent) => formatTime(event.time),
         (event: DBEvent) => event.userID,
         (event: DBEvent) => event.id,
     ]
 );
 
 const DELETE_EVENT = new Query(`
-        DELETE FROM events
+        UPDATE events
+        SET archived = 1
         WHERE userID = ? AND id = ?;
     `, [
         (event: DBEvent) => event.userID,
@@ -135,7 +169,7 @@ const INSERT_NOTE = new Query(`
 const SELECT_NOTE = new Query(`
         SELECT id, eventID, userID, description, date, pinned
         FROM events
-        WHERE id = ?
+        WHERE archived = 0 AND id = ?
     `, [
         (note: DBNote) => note.id,
     ]
@@ -144,7 +178,7 @@ const SELECT_NOTE = new Query(`
 const SELECT_NOTES_WHERE_EVENT_ID = new Query(`
         SELECT id, eventID, userID, description, date, pinned
         FROM notes
-        WHERE eventID = ?
+        WHERE archived = 0 AND eventID = ?
         ORDER BY date DESC
     `, [
         (note: DBNote) => note.eventID,
@@ -158,7 +192,7 @@ const UPDATE_NOTE = new Query(`
             description = ?,
             date = ?,
             pinned = ?
-        WHERE id = ?
+        WHERE archived = 0 AND id = ?
     `, [
         (note: DBNote) => note.eventID,
         (note: DBNote) => note.userID,
@@ -170,14 +204,18 @@ const UPDATE_NOTE = new Query(`
 );
 
 const DELETE_NOTE = new Query(`
-        DELETE FROM notes WHERE id = ?
+        UPDATE notes
+        SET archived = 1
+        WHERE id = ?
     `, [
         (note: DBNote) => note.id,
     ]
 );
 
 const DELETE_NOTES_WHERE_EVENT_ID = new Query(`
-        DELETE FROM notes WHERE eventID = ?
+        UPDATE notes
+        SET archived = 1
+        WHERE eventID = ?
     `, [
         (event: DBEvent) => event.id,
     ]
@@ -185,6 +223,7 @@ const DELETE_NOTES_WHERE_EVENT_ID = new Query(`
 
 export {
     SELECT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, INSERT_USER, UPDATE_USER,
-    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
+    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_NEXT_EVENT_NUM, SELECT_EVENT_WHERE_ID,
+        SELECT_EVENT_MAX_ID_WHERE_USER_ID,
     INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
 };

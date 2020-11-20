@@ -5,7 +5,8 @@ import * as config from '../config.json';
 import { MysqlError } from 'mysql';
 import {
     INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD,
-    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_EVENT_WHERE_ID, SELECT_EVENT_MAX_ID_WHERE_USER_ID,
+    INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_NEXT_EVENT_NUM, SELECT_EVENT_WHERE_ID,
+        SELECT_EVENT_MAX_ID_WHERE_USER_ID,
     INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
 } from './queries';
 import { DBNote } from '../../../shared-models/db/note.model';
@@ -20,14 +21,18 @@ export class Repository {
             user: config.user,
             password: config.password,
             database: config.database,
+            multipleStatements: true,
         });
     }
 
     private promisifiedDBTransaction<T>(query: Query<T>, obj: T, genericConstructor: (x: any) => T, first?: boolean) {
         return new Promise<T[] | T | boolean | any>((resolve, reject) => {
+            // console.log(query);
             this.database.query(query, obj, (err: MysqlError | null, results?: any) => {
                 if (err === null) {
+                    results = results.length && results[results.length - 1].length ? results[results.length - 1] : results;
                     if (results) {
+                        // console.log(results);
                         if (results.length !== undefined) {
                             if (first) {
                                 resolve(results.map(genericConstructor)[0]);
@@ -75,6 +80,11 @@ export class Repository {
     public selectEvents(userID: number): Promise<DBEvent[]> {
         const event = new DBEvent(null, userID);
         return this.promisifiedDBTransaction(SELECT_EVENTS, event, event.convertFromAny)
+    }
+
+    public selectNextEventNum(userID: number): Promise<DBEvent> {
+        const event = new DBEvent(null, userID);
+        return this.promisifiedDBTransaction(SELECT_NEXT_EVENT_NUM, event, event.convertFromAny, true)
     }
 
     public selectEventWhereID(userID: number, eventID: number): Promise<DBEvent> {

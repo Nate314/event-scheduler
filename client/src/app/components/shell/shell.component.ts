@@ -9,8 +9,36 @@ import { Router } from '@angular/router';
 })
 export class ShellComponent implements OnInit {
 
-    public toolbarLinks: { icon: string, label: string }[] = [
-        { icon: 'exit_to_app', label: 'Sign out' },
+    public toolbarLinks: { icon: string, label: string, func: any }[] = [
+        {
+            label: 'Home',
+            icon: 'home',
+            func: (() => {
+                this.router.navigate(['/home']);
+            }).bind(this)
+        },
+        {
+            label: 'Search',
+            icon: 'search',
+            func: (() => {
+                this.router.navigate(['/search']);
+            }).bind(this)
+        },
+        {
+            label: 'Reports',
+            icon: 'assignment',
+            func: (() => {
+                this.router.navigate(['/report']);
+            }).bind(this)
+        },
+        {
+            label: 'Sign out',
+            icon: 'exit_to_app',
+            func: (() => {
+                this.utilityService.deleteToken();
+                this.router.navigate(['/']);
+            }).bind(this)
+        },
     ];
     public sidenavLinks: { label: string }[] = [
         { label: 'Item 1' },
@@ -30,15 +58,6 @@ export class ShellComponent implements OnInit {
     public isOnLogin(): boolean {
         const result = this.router.url === '/';
         return result;
-    }
-
-    public btnToolbar(value): void {
-        switch (value.label) {
-            case 'Sign out':
-                this.utilityService.deleteToken();
-                this.router.navigate(['/']);
-                break;
-        }
     }
 
     public btnSidenav(value): void {

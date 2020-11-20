@@ -12,18 +12,27 @@ export class EventViewComponent implements OnInit {
 
     @Input() eventID: DBEvent;
     eventInformation: DBEvent;
+    displayedTitle: string;
+    displayedDate: string;
     isEditMode: boolean;
 
     constructor(
         private eventSchedulerService: EventSchedulerService,
+        private utilityService: UtilityService,
     ) { }
 
     public ngOnInit(): void {
+        this.displayedTitle = this.eventID.title;
+        this.displayedDate = this.utilityService.formatDateToString(
+            new Date(this.eventID.date), this.eventID.time);
     }
 
     public btnExpand(): void {
         this.eventSchedulerService.getEvent(this.eventID.id)
-            .subscribe(resp => this.eventInformation = resp);
+            .subscribe(resp => {
+                resp.num = this.eventID.num;
+                this.eventInformation = resp;
+            });
     }
 
     public btnDelete(): void {

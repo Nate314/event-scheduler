@@ -1,9 +1,19 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
-import { FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, ValidatorFn, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 
+const passwordValidator: ValidatorFn = (control: AbstractControl): {[key: string]: any} => {
+    const value: string = control.value ? control.value : '';
+    const valueContainsCharacterInCharset = (arr: string) => arr.split('').map(x => value.includes(x)).includes(true);
+    const valid = value.length >= 8
+        && valueContainsCharacterInCharset('abcdefghijklmnopqrstuvwxyz')
+        && valueContainsCharacterInCharset('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+        && valueContainsCharacterInCharset('0123456789')
+        && valueContainsCharacterInCharset('`~!@#$%^&*()-_=+[{]}\\|;:\'",<.>/?');
+    return valid ? null : {password: true};
+};
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -13,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     isCreateAccountMode: boolean;
     usernameFormControl: FormControl = new FormControl('', [Validators.required]);
-    passwordFormControl: FormControl = new FormControl('', [Validators.required]);
+    passwordFormControl: FormControl = new FormControl('', [Validators.required, passwordValidator]);
     confirmPasswordFormControl: FormControl = new FormControl('', [Validators.required]);
 
     constructor(

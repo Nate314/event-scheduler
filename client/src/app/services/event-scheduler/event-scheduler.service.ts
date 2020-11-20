@@ -13,6 +13,7 @@ import { tap } from 'rxjs/operators';
 export class EventSchedulerService extends BaseService {
 
     private eventIDs$: Subject<DBEvent[]> = new Subject<DBEvent[]>();
+    public nextEventNum: number;
 
     constructor(
         http: HttpClient,
@@ -61,9 +62,14 @@ export class EventSchedulerService extends BaseService {
 
     public getEventIDs(): Observable<DBEvent[]> {
         this.httpGet<DBEvent[]>(`/events`).subscribe(resp => {
+            this.nextEventNum = Math.max(...resp.map(x => x.num)) + 1;
             this.eventIDs$.next(resp);
         });
         return this.eventIDs$.asObservable();
+    }
+
+    public getNextEventNum(): Observable<number> {
+        return this.httpGet<number>(`/events/nextEventNum`);
     }
 
     public getEvent(id: number): Observable<DBEvent> {

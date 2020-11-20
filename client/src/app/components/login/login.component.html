@@ -16,6 +16,9 @@
         <mat-error *ngIf="passwordFormControl.hasError('required')">
             Required
         </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('password')">
+            Must be 8+ characters with one upper, lower, number, special character
+        </mat-error>
     </mat-form-field>
     <ng-container *ngIf="isCreateAccountMode">
         <br />
