@@ -22,20 +22,25 @@
         </mat-tab-group>
         <br/>
         
-        <ng-template #listTemplate let-events="events">
-            <div class="mx-3">
+        <ng-template #listTemplate let-events="events" let-label="label">
+            <div *ngIf="events" class="mx-3">
                 <br />
-                <div *ngIf="!events || events.length === 0">
-                    There are no events in the queue
+                <div class="text-center">
+                    <span> You have</span>
+                    <span *ngIf="events.length === 0"> no</span>
+                    <span *ngIf="events.length !== 0"> {{ events.length }}</span>
+                    <span *ngIf="label !== 'today'"> {{ label }}</span>
+                    <span> events scheduled</span>
+                    <span *ngIf="label === 'today'"> {{ label }}</span>
+                    <br />
+                    <br />
                 </div>
-                <div *ngIf="events && events.length !== 0">
-                    <ng-container *ngFor="let eventID of events">
-                        <app-event-view
-                            [eventID]="eventID">
-                        </app-event-view>
-                        <br />
-                    </ng-container>
-                </div>
+                <ng-container *ngFor="let eventID of events">
+                    <app-event-view
+                        [eventID]="eventID">
+                    </app-event-view>
+                    <br />
+                </ng-container>
             </div>
         </ng-template>
     </div>

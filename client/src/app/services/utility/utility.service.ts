@@ -42,6 +42,10 @@ export class UtilityService {
         localStorage.removeItem('token');
     }
 
+    public distinct<T>(arr: T[]): T[] {
+        return arr.filter((v, i) => arr.indexOf(v) === i);
+    }
+
     public formatTimeToString(time?: string): string {
         if (time) {
             const hour = Number(time.split(/[: ]/)[0]);

@@ -10,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    public pastEvents: { events: DBEvent[] };
-    public todayEvents: { events: DBEvent[] };
-    public futureEvents: { events: DBEvent[] };
+    public pastEvents: { events: DBEvent[], label: string };
+    public todayEvents: { events: DBEvent[], label: string };
+    public futureEvents: { events: DBEvent[], label: string };
     public greeting: string = (() => {
         const hour = new Date().getHours();
         return `Good ${
@@ -37,9 +37,9 @@ export class HomeComponent implements OnInit {
             const today = this.utilityService.formatDateToString(new Date());
             const filterOnToday = (f: (date: string, t: string) => boolean): DBEvent[] =>
                 resp.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
-            this.pastEvents = { events: filterOnToday((date, t) => date < t) };
-            this.todayEvents = { events: filterOnToday((date, t) => date === t) };
-            this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse() };
+            this.pastEvents = { events: filterOnToday((date, t) => date < t), label: 'past' };
+            this.todayEvents = { events: filterOnToday((date, t) => date === t), label: 'today' };
+            this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse(), label: 'future' };
         });
     }
 
