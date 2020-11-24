@@ -6,6 +6,10 @@ const router = express.Router();
 
 const repository = new Repository();
 
+function distinct<T>(arr: T[]): T[] {
+    return arr.filter((v, i) => arr.indexOf(v) === i);
+}
+
 function getUserIDFromRequest(req: any): number {
     return Number(req.headers.userID as string);
 }
@@ -80,6 +84,31 @@ router.get('/', async (req, res) => {
 router.get('/nextEventNum', async (req, res) => {
     const event = await repository.selectNextEventNum(getUserIDFromRequest(req));
     res.json(event.num);
+});
+
+router.get('/search', async (req, res) => {
+    const userID = getUserIDFromRequest(req);
+    const {
+        eventTitle,
+        eventMinDate,
+        eventMaxDate,
+        noteDescription,
+        noteMinDate,
+        noteMaxDate,
+    } = req.query;
+    const eventIDsFromEventSearch =
+        await repository.selectEventIDsWhereEventSearch(
+            userID, eventTitle.toString(),
+            eventMinDate.toString(), eventMaxDate.toString());
+    const eventIDsFromNotesSearch =
+        await repository.selectEventIDsWhereNotesSearch(
+            userID, noteDescription.toString(),
+            noteMinDate.toString(), noteMaxDate.toString());
+    res.json(
+        distinct(
+            eventIDsFromEventSearch.concat(eventIDsFromNotesSearch)
+        ).sort((a, b) => a < b ? -1 : 1)
+    );
 });
 
 router.get('/:id', async (req, res) => {

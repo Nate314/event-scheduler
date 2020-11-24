@@ -1,1 +1,75 @@
-Search Component Works!
+<mat-card class="mat-elevation-z6">
+
+    <h2 class="text-center">
+        Search Events
+    </h2>
+
+    <br />
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Event Title Includes</mat-label>
+                <input matInput [formControl]="eventTitleFormControl" placeholder="Event Title" />
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Event Minimum Date</mat-label>
+                <input matInput [matDatepicker]="datePicker1" [formControl]="eventMinDateFormControl">
+                <mat-datepicker-toggle matSuffix [for]="datePicker1"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Event Maximum Date</mat-label>
+                <input matInput [matDatepicker]="datePicker2" [formControl]="eventMaxDateFormControl">
+                <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Note Description Includes</mat-label>
+                <input matInput [formControl]="noteDescriptionFormControl" placeholder="Event Title" />
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Note Minimum Date</mat-label>
+                <input matInput [matDatepicker]="datePicker3" [formControl]="noteMinDateFormControl">
+                <mat-datepicker-toggle matSuffix [for]="datePicker3"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker3></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <mat-form-field>
+                <mat-label>Note Maximum Date</mat-label>
+                <input matInput [matDatepicker]="datePicker4" [formControl]="noteMaxDateFormControl">
+                <mat-datepicker-toggle matSuffix [for]="datePicker4"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker4></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="text-center">
+        <button mat-raised-button color="primary" style="width:150px;"
+            (click)="btnSearch()">
+            <mat-icon>search</mat-icon>
+            <span>&nbsp;Search</span>
+        </button>
+    </div>
+</mat-card>
+
+<br />
+<br />
+
+<ng-container *ngFor="let eventID of searchResults">
+    <app-event-view
+        [eventID]="eventID">
+    </app-event-view>
+    <br />
+</ng-container>

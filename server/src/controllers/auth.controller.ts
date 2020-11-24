@@ -57,4 +57,8 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/user-count', async (req, res) => {
+    res.json(await repository.selectUserCount());
+});
+
 export default router;

@@ -67,7 +67,7 @@ export class UtilityService {
         const year = date.getFullYear();
         const month = date.getMonth() + 1; // Month from 0 to 11
         const day = date.getDate();
-        return `${
+        const result = `${
             `${
                 year
             }-${
@@ -78,5 +78,6 @@ export class UtilityService {
         }${
             time ? ' ' + this.formatTimeToString(time) : ''
         }`;
+        return result === 'NaN-NaN-NaN' ? '' : result;
     }
 }

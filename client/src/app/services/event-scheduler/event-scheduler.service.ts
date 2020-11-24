@@ -32,6 +32,10 @@ export class EventSchedulerService extends BaseService {
         return this.httpPost<string>(`/auth/login`, body);
     }
 
+    public getUserCount(): Observable<number> {
+        return this.httpGet<number>(`/auth/user-count`);
+    }
+
     public getApiInformation(): Observable<any> {
         return this.httpGet<any>(`/`);
     }
@@ -98,6 +102,39 @@ export class EventSchedulerService extends BaseService {
 
     public deleteNote(noteID: number): Observable<boolean> {
         return this.httpDelete<boolean>(`/notes/${noteID}`);
+    }
+
+    public getSearchEvents(
+        eventTitle: string, eventMinDate: string, eventMaxDate: string,
+        noteDescription: string, noteMinDate: string, noteMaxDate: string,
+        ): Observable<DBEvent[]> {
+            const params = {
+                eventTitle, eventMinDate, eventMaxDate,
+                noteDescription, noteMinDate, noteMaxDate,
+            };
+            const resultSubject = new Subject<DBEvent[]>();
+            this.httpGet<number[]>(`/events/search?${
+                Object.keys(params)
+                    .map(key => `${key}=${params[key]}`)
+                    .join('&')
+            }`).subscribe(
+                resp => Promise.all(
+                        resp.map(
+                            eventID => this.getEvent(eventID)
+                                .toPromise()
+                        )
+                    ).then(
+                        events => resultSubject.next(
+                            events.filter(x => x).sort(
+                                (a, b) => a.date < b.date ? -1
+                                    : a.date !== b.date ? 1
+                                        : a.time < b.time ? -1
+                                            : 1
+                            )
+                        )
+                    )
+            );
+            return resultSubject.asObservable();
     }
 
 }

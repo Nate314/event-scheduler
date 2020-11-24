@@ -4,12 +4,20 @@ import { Database, Query } from './database';
 import * as config from '../config.json';
 import { MysqlError } from 'mysql';
 import {
-    INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD,
+    INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, SELECT_USER_COUNT,
     INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_NEXT_EVENT_NUM, SELECT_EVENT_WHERE_ID,
         SELECT_EVENT_MAX_ID_WHERE_USER_ID,
     INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
+    SELECT_EVENTIDS_WHERE_EVENT_SEARCH, SELECT_EVENTIDS_WHERE_NOTES_SEARCH,
 } from './queries';
 import { DBNote } from '../../../shared-models/db/note.model';
+
+export class Search {
+    userID: number;
+    description: string;
+    minDate: string;
+    maxDate: string;
+}
 
 export class Repository {
 
@@ -25,8 +33,8 @@ export class Repository {
         });
     }
 
-    private promisifiedDBTransaction<T>(query: Query<T>, obj: T, genericConstructor: (x: any) => T, first?: boolean) {
-        return new Promise<T[] | T | boolean | any>((resolve, reject) => {
+    private promisifiedDBTransaction<T, U>(query: Query<T>, obj: T, genericConstructor: (x: any) => U, first?: boolean) {
+        return new Promise<U[] | U | boolean | any>((resolve, reject) => {
             // console.log(query);
             this.database.query(query, obj, (err: MysqlError | null, results?: any) => {
                 if (err === null) {
@@ -62,6 +70,10 @@ export class Repository {
 
     public selectUserWhereUsernameAndPassword(user: DBUser): Promise<DBUser> {
         return this.promisifiedDBTransaction(SELECT_USER_WHERE_USERNAME_AND_PASSWORD, user, user.convertFromAny, true);
+    }
+
+    public selectUserCount(): Promise<any> {
+        return this.promisifiedDBTransaction(SELECT_USER_COUNT, {}, (x: any) => x.count, true);
     }
 
     public insertEvent(event: DBEvent): Promise<DBEvent> {
@@ -123,6 +135,16 @@ export class Repository {
     public deleteNotesWhereEventID(eventID: number): Promise<boolean> {
         const event = new DBEvent(eventID);
         return this.promisifiedDBTransaction(DELETE_NOTES_WHERE_EVENT_ID, event, event.convertFromAny);
+    }
+
+    public selectEventIDsWhereEventSearch(userID: number, description: string, minDate: string, maxDate: string): Promise<number[]> {
+        const params = { userID, description, minDate, maxDate } as Search;
+        return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_EVENT_SEARCH, params, (x: any) => x.eventID);
+    }
+
+    public selectEventIDsWhereNotesSearch(userID: number, description: string, minDate: string, maxDate: string): Promise<number[]> {
+        const params = { userID, description, minDate, maxDate } as Search;
+        return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_NOTES_SEARCH, params, (x: any) => x.eventID);
     }
 
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 export class BaseService {
 
-    private API_URL = 'http://localhost:5000/api/v1';
+    private API_URL = 'http://pi.nathangawith.com:4300/api/v1';
 
     constructor(
         private http: HttpClient,
@@ -23,12 +23,14 @@ export class BaseService {
             }
             return x;
         };
-        // tslint:disable-next-line:no-string-literal
-        if (obj['map']) {
+        if (obj) {
             // tslint:disable-next-line:no-string-literal
-            obj = obj['map'](x => replaceDate(x));
-        } else {
-            obj = replaceDate(obj);
+            if (obj['map']) {
+                // tslint:disable-next-line:no-string-literal
+                obj = obj['map'](x => replaceDate(x));
+            } else {
+                obj = replaceDate(obj);
+            }
         }
         return obj;
     }

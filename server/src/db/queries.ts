@@ -2,6 +2,7 @@ import { DBEvent } from '../../../shared-models/db/event.model';
 import { DBNote } from '../../../shared-models/db/note.model';
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Query } from './database';
+import { Search } from './repository';
 
 const formatTime = (time: string) => {
     if (time) {
@@ -66,6 +67,13 @@ const UPDATE_USER = new Query(`
         (user: DBUser) => user.Username,
         (user: DBUser) => user.Password,
         (user: DBUser) => user.UserID,
+    ]
+);
+
+const SELECT_USER_COUNT = new Query(`
+        SELECT COUNT(*) AS count
+        FROM users;
+    `, [
     ]
 );
 
@@ -221,9 +229,56 @@ const DELETE_NOTES_WHERE_EVENT_ID = new Query(`
     ]
 );
 
+function getSearchParams() {
+    return [
+        (search: Search) => search.userID,
+        (search: Search) => {
+            if (!search.description) {
+                if (search.minDate || search.maxDate) {
+                    return '%';
+                } else {
+                    return Array(32)
+                        .fill(null)
+                        .map(() => String.fromCharCode(
+                            32 + (Math.random() * (126 - 32))
+                        ))
+                        .join('');
+                }
+            } else {
+                return `%${search.description}%`;
+            }
+        },
+        (search: Search) => search.minDate || '1600-01-01',
+        (search: Search) => search.maxDate || '3000-01-01',
+    ]
+}
+
+const SELECT_EVENTIDS_WHERE_EVENT_SEARCH = new Query(`
+        SELECT id as eventID
+        FROM events
+        WHERE userID = ? AND archived = 0
+            AND title LIKE ?
+            AND date >= ?
+            AND date <= ?
+    `,
+    getSearchParams()
+);
+
+const SELECT_EVENTIDS_WHERE_NOTES_SEARCH = new Query(`
+        SELECT eventID
+        FROM notes
+        WHERE userID = ? AND archived = 0
+            AND description LIKE ?
+            AND date >= ?
+            AND date <= ?
+    `,
+    getSearchParams()
+);
+
 export {
-    SELECT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, INSERT_USER, UPDATE_USER,
+    SELECT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, INSERT_USER, UPDATE_USER, SELECT_USER_COUNT,
     INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_NEXT_EVENT_NUM, SELECT_EVENT_WHERE_ID,
         SELECT_EVENT_MAX_ID_WHERE_USER_ID,
     INSERT_NOTE, SELECT_NOTE, SELECT_NOTES_WHERE_EVENT_ID, UPDATE_NOTE, DELETE_NOTE, DELETE_NOTES_WHERE_EVENT_ID,
+    SELECT_EVENTIDS_WHERE_EVENT_SEARCH, SELECT_EVENTIDS_WHERE_NOTES_SEARCH,
 };

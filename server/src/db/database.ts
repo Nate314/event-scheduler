@@ -48,6 +48,8 @@ export class Database {
     query<T>(query: Query<T>, obj: T, callback: mysql.queryCallback) {
         const sql = query.sql;
         const params = query.params(obj);
+        console.log(sql);
+        console.log(params);
         this.connection.query(sql, params, callback);
     }
 

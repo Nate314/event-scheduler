@@ -24,7 +24,8 @@ export class EventViewComponent implements OnInit {
     public ngOnInit(): void {
         this.displayedTitle = this.eventID.title;
         this.displayedDate = this.utilityService.formatDateToString(
-            new Date(this.eventID.date), this.eventID.time);
+            new Date(`${this.eventID.date}T${this.eventID.time}`),
+            this.eventID.time);
     }
 
     public btnExpand(): void {

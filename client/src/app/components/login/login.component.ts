@@ -21,6 +21,7 @@ const passwordValidator: ValidatorFn = (control: AbstractControl): {[key: string
 })
 export class LoginComponent implements OnInit {
 
+    userCount: number;
     isCreateAccountMode: boolean;
     usernameFormControl: FormControl = new FormControl('', [Validators.required]);
     passwordFormControl: FormControl = new FormControl('', [Validators.required, passwordValidator]);
@@ -38,6 +39,9 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home']);
         } else {
             this.utilityService.deleteToken();
+            this.eventSchedulerService.getUserCount().subscribe(resp => {
+                this.userCount = resp;
+            });
         }
     }
 
