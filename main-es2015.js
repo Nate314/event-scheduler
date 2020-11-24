@@ -23,6 +23,308 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn-bd": "./node_modules/moment/locale/bn-bd.js",
+	"./bn-bd.js": "./node_modules/moment/locale/bn-bd.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-in": "./node_modules/moment/locale/en-in.js",
+	"./en-in.js": "./node_modules/moment/locale/en-in.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./en-sg": "./node_modules/moment/locale/en-sg.js",
+	"./en-sg.js": "./node_modules/moment/locale/en-sg.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-mx": "./node_modules/moment/locale/es-mx.js",
+	"./es-mx.js": "./node_modules/moment/locale/es-mx.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fil": "./node_modules/moment/locale/fil.js",
+	"./fil.js": "./node_modules/moment/locale/fil.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./ga": "./node_modules/moment/locale/ga.js",
+	"./ga.js": "./node_modules/moment/locale/ga.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-deva": "./node_modules/moment/locale/gom-deva.js",
+	"./gom-deva.js": "./node_modules/moment/locale/gom-deva.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it-ch": "./node_modules/moment/locale/it-ch.js",
+	"./it-ch.js": "./node_modules/moment/locale/it-ch.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ku": "./node_modules/moment/locale/ku.js",
+	"./ku.js": "./node_modules/moment/locale/ku.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./oc-lnc": "./node_modules/moment/locale/oc-lnc.js",
+	"./oc-lnc.js": "./node_modules/moment/locale/oc-lnc.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tk": "./node_modules/moment/locale/tk.js",
+	"./tk.js": "./node_modules/moment/locale/tk.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-mo": "./node_modules/moment/locale/zh-mo.js",
+	"./zh-mo.js": "./node_modules/moment/locale/zh-mo.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -45,7 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n");
 
 /***/ }),
 
@@ -97,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n        <app-about></app-about>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n        <br />\r\n        <br />\r\n        <h2 class=\"text-center\">{{ greeting }}, {{ username }}</h2>\r\n        <br/>\r\n        <app-event-create></app-event-create>\r\n        <br/>\r\n        <mat-tab-group mat-stretch-tabs selectedIndex=\"1\">\r\n            <mat-tab label=\"Past\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:pastEvents\"></ng-container>\r\n            </mat-tab>\r\n            <mat-tab label=\"Today\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:todayEvents\"></ng-container>\r\n            </mat-tab>\r\n            <mat-tab label=\"Future\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:futureEvents\"></ng-container>\r\n            </mat-tab>\r\n        </mat-tab-group>\r\n        <br/>\r\n        \r\n        <ng-template #listTemplate let-events=\"events\">\r\n            <div class=\"mx-3\">\r\n                <br />\r\n                <div *ngIf=\"!events || events.length === 0\">\r\n                    There are no events in the queue\r\n                </div>\r\n                <div *ngIf=\"events && events.length !== 0\">\r\n                    <ng-container *ngFor=\"let eventID of events\">\r\n                        <app-event-view\r\n                            [eventID]=\"eventID\">\r\n                        </app-event-view>\r\n                        <br />\r\n                    </ng-container>\r\n                </div>\r\n            </div>\r\n        </ng-template>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n        <app-about></app-about>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n        <br />\r\n        <br />\r\n        <h2 class=\"text-center\">{{ greeting }}, {{ username }}</h2>\r\n        <br/>\r\n        <app-event-create></app-event-create>\r\n        <br/>\r\n        <mat-tab-group mat-stretch-tabs selectedIndex=\"1\">\r\n            <mat-tab label=\"Past\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:pastEvents\"></ng-container>\r\n            </mat-tab>\r\n            <mat-tab label=\"Today\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:todayEvents\"></ng-container>\r\n            </mat-tab>\r\n            <mat-tab label=\"Future\">\r\n                <ng-container *ngTemplateOutlet=\"listTemplate;context:futureEvents\"></ng-container>\r\n            </mat-tab>\r\n        </mat-tab-group>\r\n        <br/>\r\n        \r\n        <ng-template #listTemplate let-events=\"events\" let-label=\"label\">\r\n            <div *ngIf=\"events\" class=\"mx-3\">\r\n                <br />\r\n                <div class=\"text-center\">\r\n                    <span> You have</span>\r\n                    <span *ngIf=\"events.length === 0\"> no</span>\r\n                    <span *ngIf=\"events.length !== 0\"> {{ events.length }}</span>\r\n                    <span *ngIf=\"label !== 'today'\"> {{ label }}</span>\r\n                    <span> events scheduled</span>\r\n                    <span *ngIf=\"label === 'today'\"> {{ label }}</span>\r\n                    <br />\r\n                    <br />\r\n                </div>\r\n                <ng-container *ngFor=\"let eventID of events\">\r\n                    <app-event-view\r\n                        [eventID]=\"eventID\">\r\n                    </app-event-view>\r\n                    <br />\r\n                </ng-container>\r\n            </div>\r\n        </ng-template>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -110,7 +412,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<mat-card class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\" />\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<mat-card class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\" />\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<div *ngIf=\"userCount\">\r\n    Now with {{ userCount }} users!\r\n</div>\r\n");
 
 /***/ }),
 
@@ -123,7 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("Report Component Works!\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<h2 class=\"text-center\">Event Totals Breakdown</h2>\r\n<mat-card class=\"mat-elevation-z6 text-center\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\"><b>Past Events</b></div>\r\n        <div class=\"col-4\"><b>Events Today</b></div>\r\n        <div class=\"col-4\"><b>Future Events</b></div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">{{ pastEvents.length }}</div>\r\n        <div class=\"col-4\">{{ todayEvents.length }}</div>\r\n        <div class=\"col-4\">{{ futureEvents.length }}</div>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<h2 class=\"text-center\">Events by Year</h2>\r\n<ng-container *ngFor=\"let year of eventsByYear\">\r\n    <mat-expansion-panel class=\"mat-elevation-z6\">\r\n        <mat-expansion-panel-header>\r\n            <mat-panel-title>\r\n                There are {{ year.total }} event(s) scheduled in {{ year.label }}\r\n            </mat-panel-title>\r\n            <mat-panel-description>\r\n                <span>{{displayedDate}}</span>\r\n                <mat-icon>info</mat-icon>\r\n            </mat-panel-description>\r\n        </mat-expansion-panel-header>\r\n        <ng-container *ngFor=\"let month of year.months\">\r\n            <ng-container *ngIf=\"month.total !== 0\">\r\n                <mat-expansion-panel class=\"mat-elevation-z6\">\r\n                    <mat-expansion-panel-header>\r\n                        <mat-panel-title>\r\n                            There are {{ month.total }} event(s) scheduled in {{ month.label }}\r\n                        </mat-panel-title>\r\n                        <mat-panel-description>\r\n                            <span>{{displayedDate}}</span>\r\n                            <mat-icon>info</mat-icon>\r\n                        </mat-panel-description>\r\n                    </mat-expansion-panel-header>\r\n                    <ng-container *ngFor=\"let eventID of month.events\">\r\n                        <app-event-view\r\n                            [eventID]=\"eventID\">\r\n                        </app-event-view>\r\n                        <br />\r\n                    </ng-container>\r\n                </mat-expansion-panel>\r\n                <br />\r\n            </ng-container>\r\n        </ng-container>\r\n    </mat-expansion-panel>\r\n    <br />\r\n</ng-container>\r\n");
 
 /***/ }),
 
@@ -136,7 +438,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("Search Component Works!\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"mat-elevation-z6\">\r\n\r\n    <h2 class=\"text-center\">\r\n        Search Events\r\n    </h2>\r\n\r\n    <br />\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Title Includes</mat-label>\r\n                <input matInput [formControl]=\"eventTitleFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker1\" [formControl]=\"eventMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker1\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker1></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker2\" [formControl]=\"eventMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker2\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker2></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Description Includes</mat-label>\r\n                <input matInput [formControl]=\"noteDescriptionFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker3\" [formControl]=\"noteMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker3\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker3></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker4\" [formControl]=\"noteMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker4\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker4></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnSearch()\">\r\n            <mat-icon>search</mat-icon>\r\n            <span>&nbsp;Search</span>\r\n        </button>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n<br />\r\n\r\n<ng-container *ngFor=\"let eventID of searchResults\">\r\n    <app-event-view\r\n        [eventID]=\"eventID\">\r\n    </app-event-view>\r\n    <br />\r\n</ng-container>\r\n");
 
 /***/ }),
 
@@ -1055,7 +1357,7 @@ let EventViewComponent = class EventViewComponent {
     }
     ngOnInit() {
         this.displayedTitle = this.eventID.title;
-        this.displayedDate = this.utilityService.formatDateToString(new Date(this.eventID.date), this.eventID.time);
+        this.displayedDate = this.utilityService.formatDateToString(new Date(`${this.eventID.date}T${this.eventID.time}`), this.eventID.time);
     }
     btnExpand() {
         this.eventSchedulerService.getEvent(this.eventID.id)
@@ -1138,9 +1440,9 @@ let HomeComponent = class HomeComponent {
         this.eventSchedulerService.getEventIDs().subscribe(resp => {
             const today = this.utilityService.formatDateToString(new Date());
             const filterOnToday = (f) => resp.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
-            this.pastEvents = { events: filterOnToday((date, t) => date < t) };
-            this.todayEvents = { events: filterOnToday((date, t) => date === t) };
-            this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse() };
+            this.pastEvents = { events: filterOnToday((date, t) => date < t), label: 'past' };
+            this.todayEvents = { events: filterOnToday((date, t) => date === t), label: 'today' };
+            this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse(), label: 'future' };
         });
     }
 };
@@ -1277,6 +1579,9 @@ let LoginComponent = class LoginComponent {
         }
         else {
             this.utilityService.deleteToken();
+            this.eventSchedulerService.getUserCount().subscribe(resp => {
+                this.userCount = resp;
+            });
         }
     }
     btnSubmit() {
@@ -1334,7 +1639,7 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcmVwb3J0L3JlcG9ydC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".mat-expansion-panel-header-title,\n.mat-expansion-panel-header-description {\n  flex-basis: 0;\n}\n\n.mat-expansion-panel-header-description {\n  justify-content: space-between;\n  align-items: center;\n}\n\n.mat-form-field + .mat-form-field {\n  margin-left: 8px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9yZXBvcnQvQzpcXFVzZXJzXFxOYXRoYVxcRG9jdW1lbnRzXFxEZXNrdG9wXFxEZXNrdG9wMTFcXFVNS0NcXDIwMjFcXEZhbGxcXENTNDU2XFxldmVudC1zY2hlZHVsZXJcXGNsaWVudC9zcmNcXGFwcFxcY29tcG9uZW50c1xccmVwb3J0XFxyZXBvcnQuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvcmVwb3J0L3JlcG9ydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFSSxhQUFBO0FDQ0o7O0FERUE7RUFDSSw4QkFBQTtFQUNBLG1CQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9yZXBvcnQvcmVwb3J0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1leHBhbnNpb24tcGFuZWwtaGVhZGVyLXRpdGxlLFxyXG4ubWF0LWV4cGFuc2lvbi1wYW5lbC1oZWFkZXItZGVzY3JpcHRpb24ge1xyXG4gICAgZmxleC1iYXNpczogMDtcclxufVxyXG5cclxuLm1hdC1leHBhbnNpb24tcGFuZWwtaGVhZGVyLWRlc2NyaXB0aW9uIHtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5tYXQtZm9ybS1maWVsZCArIC5tYXQtZm9ybS1maWVsZCB7XHJcbiAgICBtYXJnaW4tbGVmdDogOHB4O1xyXG59XHJcbiIsIi5tYXQtZXhwYW5zaW9uLXBhbmVsLWhlYWRlci10aXRsZSxcbi5tYXQtZXhwYW5zaW9uLXBhbmVsLWhlYWRlci1kZXNjcmlwdGlvbiB7XG4gIGZsZXgtYmFzaXM6IDA7XG59XG5cbi5tYXQtZXhwYW5zaW9uLXBhbmVsLWhlYWRlci1kZXNjcmlwdGlvbiB7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLm1hdC1mb3JtLWZpZWxkICsgLm1hdC1mb3JtLWZpZWxkIHtcbiAgbWFyZ2luLWxlZnQ6IDhweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1349,16 +1654,69 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportComponent", function() { return ReportComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services */ "./src/app/services/index.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
+
+class MonthInfo {
+}
+class YearInfo {
+}
 let ReportComponent = class ReportComponent {
-    constructor() { }
+    constructor(eventSchedulerService, utilityService) {
+        this.eventSchedulerService = eventSchedulerService;
+        this.utilityService = utilityService;
+        this.monthLabels = {
+            '01': 'January',
+            '02': 'February',
+            '03': 'March',
+            '04': 'April',
+            '05': 'May',
+            '06': 'June',
+            '07': 'July',
+            '08': 'August',
+            '09': 'September',
+            // tslint:disable:object-literal-key-quotes
+            '10': 'October',
+            '11': 'November',
+            '12': 'December',
+        };
+    }
     ngOnInit() {
+        this.eventSchedulerService.getEventIDs().subscribe(events => {
+            const today = this.utilityService.formatDateToString(new Date());
+            const filterOnToday = (f) => events.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+            this.pastEvents = filterOnToday((date, t) => date < t);
+            this.todayEvents = filterOnToday((date, t) => date === t);
+            this.futureEvents = filterOnToday((date, t) => date > t).reverse();
+            const eventDates = events.map(x => x.date);
+            console.log(eventDates);
+            const eventYears = this.utilityService.distinct(eventDates.map(x => x.split('-')[0]));
+            this.eventsByYear = eventYears.map(year => {
+                const thisYearEvents = events.filter(x => x.date.startsWith(year));
+                return {
+                    label: year,
+                    total: thisYearEvents.length,
+                    months: Object.keys(this.monthLabels).map(month => {
+                        const thisMonthEvents = thisYearEvents.filter(x => x.date.split('-')[1] === month);
+                        return {
+                            label: this.monthLabels[month],
+                            total: thisMonthEvents.length,
+                            events: thisMonthEvents,
+                        };
+                    }),
+                };
+            });
+        });
     }
 };
+ReportComponent.ctorParameters = () => [
+    { type: src_app_services__WEBPACK_IMPORTED_MODULE_1__["EventSchedulerService"] },
+    { type: src_app_services__WEBPACK_IMPORTED_MODULE_1__["UtilityService"] }
+];
 ReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-report',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/report/report.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./report.component.scss */ "./src/app/components/report/report.component.scss")).default]
@@ -1378,7 +1736,7 @@ ReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("mat-form-field {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWFyY2gvQzpcXFVzZXJzXFxOYXRoYVxcRG9jdW1lbnRzXFxEZXNrdG9wXFxEZXNrdG9wMTFcXFVNS0NcXDIwMjFcXEZhbGxcXENTNDU2XFxldmVudC1zY2hlZHVsZXJcXGNsaWVudC9zcmNcXGFwcFxcY29tcG9uZW50c1xcc2VhcmNoXFxzZWFyY2guY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VhcmNoL3NlYXJjaC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIm1hdC1mb3JtLWZpZWxkIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbiIsIm1hdC1mb3JtLWZpZWxkIHtcbiAgd2lkdGg6IDEwMCU7XG59Il19 */");
 
 /***/ }),
 
@@ -1393,16 +1751,47 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services */ "./src/app/services/index.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
 
 
 let SearchComponent = class SearchComponent {
-    constructor() { }
+    constructor(eventSchedulerService, utilityService) {
+        this.eventSchedulerService = eventSchedulerService;
+        this.utilityService = utilityService;
+        this.eventTitleFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.eventMinDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.eventMaxDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.noteDescriptionFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.noteMinDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.noteMaxDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+    }
     ngOnInit() {
+        const now = moment__WEBPACK_IMPORTED_MODULE_4__();
+        const year = now.year;
+        const month = now.month;
+        const day = now.date;
+        this.eventMinDateFormControl.setValue(new Date(`${year}-01-01`));
+        this.eventMaxDateFormControl.setValue(new Date(`${year}-${month}-${day}`));
+    }
+    btnSearch() {
+        this.eventSchedulerService.getSearchEvents(this.eventTitleFormControl.value, this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)), this.noteDescriptionFormControl.value, this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value))).subscribe(resp => {
+            this.searchResults = resp;
+        });
     }
 };
+SearchComponent.ctorParameters = () => [
+    { type: src_app_services__WEBPACK_IMPORTED_MODULE_1__["EventSchedulerService"] },
+    { type: src_app_services__WEBPACK_IMPORTED_MODULE_1__["UtilityService"] }
+];
 SearchComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-search',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./search.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/search/search.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./search.component.scss */ "./src/app/components/search/search.component.scss")).default]
@@ -1670,7 +2059,7 @@ class BaseService {
     constructor(http, utilityService) {
         this.http = http;
         this.utilityService = utilityService;
-        this.API_URL = 'http://localhost:5000/api/v1';
+        this.API_URL = 'http://pi.nathangawith.com:4300/api/v1';
     }
     getURL(path) {
         return `${this.API_URL}${path}`;
@@ -1682,13 +2071,15 @@ class BaseService {
             }
             return x;
         };
-        // tslint:disable-next-line:no-string-literal
-        if (obj['map']) {
+        if (obj) {
             // tslint:disable-next-line:no-string-literal
-            obj = obj['map'](x => replaceDate(x));
-        }
-        else {
-            obj = replaceDate(obj);
+            if (obj['map']) {
+                // tslint:disable-next-line:no-string-literal
+                obj = obj['map'](x => replaceDate(x));
+            }
+            else {
+                obj = replaceDate(obj);
+            }
         }
         return obj;
     }
@@ -1751,6 +2142,9 @@ let EventSchedulerService = class EventSchedulerService extends _base_service__W
         const body = { username, password };
         return this.httpPost(`/auth/login`, body);
     }
+    getUserCount() {
+        return this.httpGet(`/auth/user-count`);
+    }
     getApiInformation() {
         return this.httpGet(`/`);
     }
@@ -1798,6 +2192,21 @@ let EventSchedulerService = class EventSchedulerService extends _base_service__W
     }
     deleteNote(noteID) {
         return this.httpDelete(`/notes/${noteID}`);
+    }
+    getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate) {
+        const params = {
+            eventTitle, eventMinDate, eventMaxDate,
+            noteDescription, noteMinDate, noteMaxDate,
+        };
+        const resultSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.httpGet(`/events/search?${Object.keys(params)
+            .map(key => `${key}=${params[key]}`)
+            .join('&')}`).subscribe(resp => Promise.all(resp.map(eventID => this.getEvent(eventID)
+            .toPromise())).then(events => resultSubject.next(events.filter(x => x).sort((a, b) => a.date < b.date ? -1
+            : a.date !== b.date ? 1
+                : a.time < b.time ? -1
+                    : 1))));
+        return resultSubject.asObservable();
     }
 };
 EventSchedulerService.ctorParameters = () => [
@@ -1878,6 +2287,9 @@ let UtilityService = class UtilityService {
     deleteToken() {
         localStorage.removeItem('token');
     }
+    distinct(arr) {
+        return arr.filter((v, i) => arr.indexOf(v) === i);
+    }
     formatTimeToString(time) {
         if (time) {
             const hour = Number(time.split(/[: ]/)[0]);
@@ -1893,7 +2305,8 @@ let UtilityService = class UtilityService {
         const year = date.getFullYear();
         const month = date.getMonth() + 1; // Month from 0 to 11
         const day = date.getDate();
-        return `${`${year}-${padWithZero(month)}-${padWithZero(day)}`}${time ? ' ' + this.formatTimeToString(time) : ''}`;
+        const result = `${`${year}-${padWithZero(month)}-${padWithZero(day)}`}${time ? ' ' + this.formatTimeToString(time) : ''}`;
+        return result === 'NaN-NaN-NaN' ? '' : result;
     }
 };
 UtilityService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
