@@ -347,7 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n");
 
 /***/ }),
 
@@ -360,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<button mat-button color=\"primary\" style=\"float:right;\"\r\n    (click)=\"btnAddNote()\">\r\n    <mat-icon>add</mat-icon> Note\r\n</button>\r\n<h4>Notes</h4>\r\n<mat-divider></mat-divider>\r\n<div>\r\n    <ng-container *ngFor=\"let noteID of noteIDs; let i = index\">\r\n        <!-- <mat-divider></mat-divider> -->\r\n        <div class=\"row py-2\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-3 text-center\" style=\"padding-top:16px;\">\r\n                <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControls[i]\">\r\n                    Pin\r\n                </mat-checkbox>\r\n            </div>\r\n            <div class=\"d-md-none col-xs-6 col-sm-6 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-sm-12 col-md-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"noteDateFormControls[i]\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"noteDateFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"d-none d-md-block col-3 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Note</mat-label>\r\n                    <textarea matInput [formControl]=\"notesFormControls[i]\" placeholder=\"Enter Note . . .\"></textarea>\r\n                    <mat-error *ngIf=\"notesFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n        <mat-divider></mat-divider>\r\n    </ng-container>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h4>Notes</h4>\r\n<mat-divider></mat-divider>\r\n<div>\r\n    <ng-container *ngFor=\"let noteID of noteIDs; let i = index\">\r\n        <!-- <mat-divider></mat-divider> -->\r\n        <div class=\"row py-2\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-3 text-center\" style=\"padding-top:16px;\">\r\n                <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControls[i]\">\r\n                    Pin\r\n                </mat-checkbox>\r\n            </div>\r\n            <div class=\"d-md-none col-xs-6 col-sm-6 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-sm-12 col-md-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"noteDateFormControls[i]\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"noteDateFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"d-none d-md-block col-3 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Note</mat-label>\r\n                    <textarea matInput [formControl]=\"notesFormControls[i]\" placeholder=\"Enter Note . . .\"></textarea>\r\n                    <mat-error *ngIf=\"notesFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n        <mat-divider></mat-divider>\r\n    </ng-container>\r\n    <button mat-button color=\"primary\" style=\"float:right;\"\r\n        (click)=\"btnAddNote()\">\r\n        <mat-icon>add</mat-icon> Note\r\n    </button>\r\n    <mat-divider></mat-divider>\r\n    <br />\r\n</div>\r\n");
 
 /***/ }),
 
@@ -386,7 +386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-expansion-panel (afterExpand)=\"btnExpand()\" class=\"mat-elevation-z6\">\r\n    <mat-expansion-panel-header>\r\n        <mat-panel-title>\r\n            <span>{{displayedTitle}}</span>\r\n        </mat-panel-title>\r\n        <mat-panel-description>\r\n            <span>{{displayedDate}}</span>\r\n            <mat-icon>info</mat-icon>\r\n        </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngIf=\"eventInformation && !isEditMode\">\r\n        <app-event-view-notes [eventID]=\"eventInformation.id\">\r\n        </app-event-view-notes>\r\n        <br />\r\n        <mat-action-row>\r\n            <button mat-button color=\"primary\" (click)=\"isEditMode = !isEditMode\">\r\n                <mat-icon>create</mat-icon>\r\n                <span>&nbsp;Edit</span>\r\n            </button>\r\n            <button mat-button color=\"warn\" (click)=\"btnDelete()\">\r\n                <mat-icon>delete</mat-icon>\r\n                <span>&nbsp;Delete</span></button>\r\n        </mat-action-row>\r\n    </ng-container>\r\n    <app-event-create *ngIf=\"isEditMode\"\r\n        [eventInformation]=\"eventInformation\" [isEditMode]=\"true\"\r\n        (onClose)=\"isEditMode = !isEditMode\">\r\n    </app-event-create>\r\n    <ng-container *ngIf=\"!eventInformation\">\r\n        <mat-spinner></mat-spinner>\r\n    </ng-container>\r\n</mat-expansion-panel>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-expansion-panel (afterExpand)=\"btnExpand()\" class=\"mat-elevation-z6\">\r\n    <mat-expansion-panel-header>\r\n        <mat-panel-title>\r\n            <span>{{displayedTitle}}</span>\r\n        </mat-panel-title>\r\n        <mat-panel-description>\r\n            <span>{{displayedDate}}</span>\r\n            <mat-icon>info</mat-icon>\r\n        </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngIf=\"eventInformation && !isEditMode\">\r\n        <app-event-view-notes [eventID]=\"eventInformation.id\">\r\n        </app-event-view-notes>\r\n        <button mat-button color=\"primary\" style=\"float:right;\"\r\n            (click)=\"isEditMode = !isEditMode\">\r\n            <mat-icon>add</mat-icon> Note\r\n        </button>\r\n        <br />\r\n        <br />\r\n        <mat-action-row>\r\n            <button mat-button color=\"primary\" (click)=\"isEditMode = !isEditMode\">\r\n                <mat-icon>create</mat-icon>\r\n                <span>&nbsp;Edit</span>\r\n            </button>\r\n            <button mat-button color=\"warn\" (click)=\"btnDelete()\">\r\n                <mat-icon>delete</mat-icon>\r\n                <span>&nbsp;Delete</span></button>\r\n        </mat-action-row>\r\n    </ng-container>\r\n    <app-event-create *ngIf=\"isEditMode\"\r\n        [eventInformation]=\"eventInformation\" [isEditMode]=\"true\"\r\n        (onClose)=\"isEditMode = !isEditMode\">\r\n    </app-event-create>\r\n    <ng-container *ngIf=\"!eventInformation\">\r\n        <mat-spinner></mat-spinner>\r\n    </ng-container>\r\n</mat-expansion-panel>\r\n");
 
 /***/ }),
 
@@ -412,7 +412,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<mat-card class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\" />\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<div *ngIf=\"userCount\">\r\n    Now with {{ userCount }} users!\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<br />\r\n<mat-card *ngIf=\"![undefined, -1].includes(userCount)\" class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\"\r\n            (keyup.enter)=\"btnSubmit()\"/>\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\"\r\n            (keyup.enter)=\"btnSubmit()\"/>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\"\r\n                (keyup.enter)=\"btnSubmit()\"/>\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<mat-card *ngIf=\"userCount === undefined\" class=\"text-center\" style=\"width:132px;\">\r\n    <mat-spinner></mat-spinner>\r\n</mat-card>\r\n\r\n<div *ngIf=\"userCount > -1\">\r\n    Now with {{ userCount }} users!\r\n</div>\r\n\r\n<mat-card *ngIf=\"userCount === -1\" class=\"mat-elevation-z6\">\r\n    The event scheduler service seems to be offline. Please contact\r\n    <a href=\"mailto:nmg3hw@mail.umkc.edu\">nmg3hw@mail.umkc.edu</a>\r\n    to get it up and running.\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -425,7 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<h2 class=\"text-center\">Event Totals Breakdown</h2>\r\n<mat-card class=\"mat-elevation-z6 text-center\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\"><b>Past Events</b></div>\r\n        <div class=\"col-4\"><b>Events Today</b></div>\r\n        <div class=\"col-4\"><b>Future Events</b></div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">{{ pastEvents.length }}</div>\r\n        <div class=\"col-4\">{{ todayEvents.length }}</div>\r\n        <div class=\"col-4\">{{ futureEvents.length }}</div>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<h2 class=\"text-center\">Events by Year</h2>\r\n<ng-container *ngFor=\"let year of eventsByYear\">\r\n    <mat-expansion-panel class=\"mat-elevation-z6\">\r\n        <mat-expansion-panel-header>\r\n            <mat-panel-title>\r\n                There are {{ year.total }} event(s) scheduled in {{ year.label }}\r\n            </mat-panel-title>\r\n            <mat-panel-description>\r\n                <span>{{displayedDate}}</span>\r\n                <mat-icon>info</mat-icon>\r\n            </mat-panel-description>\r\n        </mat-expansion-panel-header>\r\n        <ng-container *ngFor=\"let month of year.months\">\r\n            <ng-container *ngIf=\"month.total !== 0\">\r\n                <mat-expansion-panel class=\"mat-elevation-z6\">\r\n                    <mat-expansion-panel-header>\r\n                        <mat-panel-title>\r\n                            There are {{ month.total }} event(s) scheduled in {{ month.label }}\r\n                        </mat-panel-title>\r\n                        <mat-panel-description>\r\n                            <span>{{displayedDate}}</span>\r\n                            <mat-icon>info</mat-icon>\r\n                        </mat-panel-description>\r\n                    </mat-expansion-panel-header>\r\n                    <ng-container *ngFor=\"let eventID of month.events\">\r\n                        <app-event-view\r\n                            [eventID]=\"eventID\">\r\n                        </app-event-view>\r\n                        <br />\r\n                    </ng-container>\r\n                </mat-expansion-panel>\r\n                <br />\r\n            </ng-container>\r\n        </ng-container>\r\n    </mat-expansion-panel>\r\n    <br />\r\n</ng-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"loading\">\r\n    <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\r\n</ng-container>\r\n<ng-container *ngIf=\"!loading\">\r\n    <h2 class=\"text-center\">Event Totals Breakdown</h2>\r\n    <mat-card class=\"mat-elevation-z6 text-center\">\r\n        <div class=\"row\">\r\n            <div class=\"col-4\"><b>Past Events</b></div>\r\n            <div class=\"col-4\"><b>Events Today</b></div>\r\n            <div class=\"col-4\"><b>Future Events</b></div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-4\">{{ pastEvents && pastEvents.length }}</div>\r\n            <div class=\"col-4\">{{ todayEvents && todayEvents.length }}</div>\r\n            <div class=\"col-4\">{{ futureEvents && futureEvents.length }}</div>\r\n        </div>\r\n    </mat-card>\r\n    \r\n    <br />\r\n    \r\n    <h2 class=\"text-center\">Events by Year</h2>\r\n    <ng-container *ngFor=\"let year of eventsByYear\">\r\n        <mat-expansion-panel class=\"mat-elevation-z6\">\r\n            <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    There are {{ year.total }} event(s) scheduled in {{ year.label }}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                    <span>{{displayedDate}}</span>\r\n                    <mat-icon>info</mat-icon>\r\n                </mat-panel-description>\r\n            </mat-expansion-panel-header>\r\n            <ng-container *ngFor=\"let month of year.months\">\r\n                <ng-container *ngIf=\"month.total !== 0\">\r\n                    <mat-expansion-panel class=\"mat-elevation-z6\">\r\n                        <mat-expansion-panel-header>\r\n                            <mat-panel-title>\r\n                                There are {{ month.total }} event(s) scheduled in {{ month.label }}\r\n                            </mat-panel-title>\r\n                            <mat-panel-description>\r\n                                <span>{{displayedDate}}</span>\r\n                                <mat-icon>info</mat-icon>\r\n                            </mat-panel-description>\r\n                        </mat-expansion-panel-header>\r\n                        <ng-container *ngFor=\"let eventID of month.events\">\r\n                            <app-event-view\r\n                                [eventID]=\"eventID\">\r\n                            </app-event-view>\r\n                            <br />\r\n                        </ng-container>\r\n                    </mat-expansion-panel>\r\n                    <br />\r\n                </ng-container>\r\n            </ng-container>\r\n        </mat-expansion-panel>\r\n        <br />\r\n    </ng-container>\r\n</ng-container>\r\n");
 
 /***/ }),
 
@@ -438,7 +438,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"mat-elevation-z6\">\r\n\r\n    <h2 class=\"text-center\">\r\n        Search Events\r\n    </h2>\r\n\r\n    <br />\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Title Includes</mat-label>\r\n                <input matInput [formControl]=\"eventTitleFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker1\" [formControl]=\"eventMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker1\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker1></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker2\" [formControl]=\"eventMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker2\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker2></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Description Includes</mat-label>\r\n                <input matInput [formControl]=\"noteDescriptionFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker3\" [formControl]=\"noteMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker3\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker3></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker4\" [formControl]=\"noteMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker4\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker4></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnSearch()\">\r\n            <mat-icon>search</mat-icon>\r\n            <span>&nbsp;Search</span>\r\n        </button>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n<br />\r\n\r\n<ng-container *ngFor=\"let eventID of searchResults\">\r\n    <app-event-view\r\n        [eventID]=\"eventID\">\r\n    </app-event-view>\r\n    <br />\r\n</ng-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"mat-elevation-z6\">\r\n\r\n    <h2 class=\"text-center\">\r\n        Search Events\r\n    </h2>\r\n\r\n    <br />\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Title Includes</mat-label>\r\n                <input matInput [formControl]=\"eventTitleFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <mat-card class=\"mat-elevation-z6 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n            <div class=\"row\"><div class=\"col-12\">Event Date Range</div></div>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>From</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker1\" [formControl]=\"eventMinDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker1\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker1></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>To</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker2\" [formControl]=\"eventMaxDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker2\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker2></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n        </mat-card>\r\n        <br />\r\n        <br />\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Description Includes</mat-label>\r\n                <input matInput [formControl]=\"noteDescriptionFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <mat-card class=\"mat-elevation-z6 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n            <div class=\"row\"><div class=\"col-12\">Note Date Range</div></div>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>From</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker3\" [formControl]=\"noteMinDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker3\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker3></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>To</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker4\" [formControl]=\"noteMaxDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker4\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker4></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n        </mat-card>\r\n    </div>\r\n\r\n    <br />\r\n    <div class=\"text-center\">\r\n        <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControl\">\r\n            Only include events with pinned note(s)\r\n        </mat-checkbox>\r\n    </div>\r\n    <br />\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            [disabled]=\"searchBtnDisabled\" (click)=\"btnSearch()\">\r\n            <mat-icon>search</mat-icon>\r\n            <span>&nbsp;Search</span>\r\n        </button>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n<br />\r\n\r\n<ng-container *ngIf=\"searchResults && !searchBtnDisabled\">\r\n    <ng-container *ngFor=\"let eventID of searchResults\">\r\n        <app-event-view\r\n            [eventID]=\"eventID\">\r\n        </app-event-view>\r\n        <br />\r\n    </ng-container>\r\n    <mat-card *ngIf=\"!searchResults.length\" class=\"mat-elevation-z6\">\r\n        There were no search results found.\r\n        <br />\r\n        <div *ngIf=\"\r\n            !searchParams.eventTitle\r\n            && !searchParams.eventMinDate\r\n            && !searchParams.eventMaxDate\r\n            && !searchParams.notesDescription\r\n            && !searchParams.notesMinDate\r\n            && !searchParams.notesMaxDate\r\n        \">\r\n            Try adding a search parameter\r\n        </div>\r\n    </mat-card>\r\n</ng-container>\r\n\r\n<br />\r\n<br />\r\n\r\n<mat-card *ngIf=\"searchBtnDisabled\">\r\n    <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -451,7 +451,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-login *ngIf=\"isOnLogin()\"></app-login>\r\n<mat-drawer-container *ngIf=\"!isOnLogin()\" class=\"example-container\" autosize>\r\n    <!--\r\n    <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\r\n        <mat-list>\r\n            <ng-container *ngFor=\"let link of sidenavLinks\">\r\n                <mat-list-item matRipple (click)=\"btnSidenav(link)\">\r\n                    {{link.label}}\r\n                </mat-list-item>\r\n                <mat-divider></mat-divider>\r\n            </ng-container>\r\n          </mat-list>\r\n    </mat-drawer>\r\n    -->\r\n\r\n    <mat-toolbar color=\"primary\">\r\n        <!--\r\n        <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\"\r\n            (click)=\"drawer.toggle()\">\r\n            <mat-icon>menu</mat-icon>\r\n        </button>\r\n        -->\r\n        <img src=\"https://nathangawith.com/favicon.ico\" height=\"25px\">\r\n        <span>&nbsp;&nbsp;Event Scheduler</span>\r\n        <span class=\"example-spacer\"></span>\r\n        <button *ngFor=\"let link of toolbarLinks\" mat-icon-button class=\"mr-5\"\r\n            [attr.aria-label]=\"link.label\" (click)=\"link.func()\">\r\n            <span>{{link.label}}&nbsp;</span>\r\n            <mat-icon>{{link.icon}}</mat-icon>\r\n        </button>\r\n    </mat-toolbar>\r\n    <br />\r\n    <div class=\"container\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n    <br />\r\n</mat-drawer-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-login *ngIf=\"isOnLogin()\"></app-login>\r\n<!-- <ng-container *ngIf=\"isOnLogin()\">\r\n    <ng-container *ngTemplateOutlet=\"routeroutlet\"></ng-container>\r\n</ng-container> -->\r\n<mat-drawer-container *ngIf=\"!isOnLogin()\" class=\"example-container\" autosize>\r\n    <mat-toolbar color=\"primary\">\r\n        <div style=\"cursor:pointer;\" [routerLink]=\"['/home']\">\r\n            <img src=\"https://nathangawith.com/favicon.ico\" height=\"25px\">\r\n            <span>&nbsp;&nbsp;Event Scheduler</span>\r\n        </div>\r\n        <span class=\"example-spacer\"></span>\r\n        <div class=\"d-md-none\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\" aria-label=\"Example icon-button with a menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n                <ng-container *ngTemplateOutlet=\"headerbuttons\"></ng-container>\r\n            </mat-menu>\r\n        </div>\r\n        <div class=\"d-none d-md-block\">\r\n            <ng-container *ngTemplateOutlet=\"headerbuttons\"></ng-container>\r\n        </div>\r\n        <ng-template #headerbuttons>\r\n            <button *ngFor=\"let link of toolbarLinks\" class=\"mr-5\"\r\n                mat-icon-button\r\n                [attr.aria-label]=\"link.label\" (click)=\"link.func()\">\r\n                <span>{{link.label}}&nbsp;</span>\r\n                <mat-icon>{{link.icon}}</mat-icon>\r\n            </button>\r\n        </ng-template>\r\n    </mat-toolbar>\r\n    <ng-container *ngTemplateOutlet=\"routeroutlet\"></ng-container>\r\n</mat-drawer-container>\r\n<ng-template #routeroutlet>\r\n    <br />\r\n    <div class=\"container\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n    <br />\r\n</ng-template>\r\n");
 
 /***/ }),
 
@@ -731,7 +731,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let NotFoundComponent = class NotFoundComponent {
     constructor(router) {
-        router.navigate(['/']);
+        router.navigate(['/home']);
     }
 };
 NotFoundComponent.ctorParameters = () => [
@@ -741,13 +741,13 @@ NotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({ template: '' })
 ], NotFoundComponent);
 const routes = [
-    { path: '', component: _components__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
+    { path: 'login', component: _components__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'home', component: _components__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
     { path: 'search', component: _components__WEBPACK_IMPORTED_MODULE_4__["SearchComponent"] },
     { path: 'report', component: _components__WEBPACK_IMPORTED_MODULE_4__["ReportComponent"] },
     { path: '**', component: NotFoundComponent }
 ].map(route => {
-    if (route.path !== '') {
+    if (route.path !== 'login') {
         return {
             path: route.path,
             component: route.component,
@@ -880,6 +880,8 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatMenuModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressBarModule"],
             ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"],
         ],
         exports: [
@@ -900,6 +902,8 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatMenuModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressBarModule"],
             ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"],
         ],
     })
@@ -984,7 +988,8 @@ Hello, my name is Nathan Gawith. I am a senior at UMKC and
 graduating in December of 2020. This application was designed
 by me for my CS456 (Human Computer Interaction) course.
 You can check out other web applications I have made at my website
-<a href="https://nathangawith.com/" target="_blank">https://nathangawith.com/</a>`
+<a href="https://nathangawith.com/" target="_blank">https://nathangawith.com/</a>
+or contact me at <a href="mailto:nmg3hw@mail.umkc.edu">nmg3hw@mail.umkc.edu</a>`
             },
             {
                 title: 'Testimonial',
@@ -1058,6 +1063,7 @@ let EventCreateComponent = class EventCreateComponent {
         this.utilityService = utilityService;
         this.eventInformation = { id: null };
         this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+        this.validNotes = true;
         this.titleFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.time = '12:00 AM';
@@ -1066,6 +1072,7 @@ let EventCreateComponent = class EventCreateComponent {
         return this.PisFormVisible;
     }
     set isFormVisible(value) {
+        console.log(`isFormVisible: ${value}`);
         this.PisFormVisible = value;
         if (value === false) {
             [
@@ -1094,17 +1101,30 @@ let EventCreateComponent = class EventCreateComponent {
         this.time = $event;
     }
     btnSave() {
-        const event = {
-            id: this.isEditMode ? this.eventInformation.id : null,
-            title: this.titleFormControl.value,
-            date: this.dateFormControl.value,
-            time: this.time,
-        };
-        (this.isEditMode
-            ? this.eventSchedulerService.putEventUpdate(event)
-            : this.eventSchedulerService.postEventCreate(event)).subscribe(eventID => {
-            this.savingEventID = eventID;
-        });
+        if (this.validNotes) {
+            const event = {
+                id: this.isEditMode ? this.eventInformation.id : null,
+                title: this.titleFormControl.value,
+                date: this.dateFormControl.value,
+                time: this.time,
+            };
+            (this.isEditMode
+                ? this.eventSchedulerService.putEventUpdate(event)
+                : this.eventSchedulerService.postEventCreate(event)).subscribe(eventID => {
+                this.savingEventID = eventID;
+            });
+        }
+        else {
+            console.log(this.titleFormControl.valid);
+            console.log(this.dateFormControl.valid);
+            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
+            if (this.titleFormControl.valid && this.dateFormControl.valid) {
+                alert('Date must be entered for every note');
+            }
+            else {
+                alert('Event Date and Title must be entered');
+            }
+        }
     }
 };
 EventCreateComponent.ctorParameters = () => [
@@ -1169,6 +1189,7 @@ let NotesCreateComponent = class NotesCreateComponent {
     constructor(eventSchedulerService) {
         this.eventSchedulerService = eventSchedulerService;
         this.doneSaving = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        this.noteValidity = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         this.noteIDs = [];
         this.notesFormControls = [];
         this.noteDateFormControls = [];
@@ -1189,14 +1210,32 @@ let NotesCreateComponent = class NotesCreateComponent {
     }
     ngOnInit() {
         if (this.eventID) {
-            const observable = this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(notes => {
+            this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(notes => {
                 this.noteIDs = notes.map(note => note.id);
                 this.notesFormControls = notes.map(note => new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](note.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]));
                 this.noteDateFormControls = notes.map(note => new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](`${note.date}T00:00:00`, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]));
                 this.notePinnedFormControls = notes.map(note => new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](note.pinned, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]));
-                observable.unsubscribe();
+                this.btnAddNote();
             });
         }
+        else {
+            this.btnAddNote();
+        }
+    }
+    setValidity() {
+        const notes = this.noteIDs.map((_, i) => ({
+            date: this.noteDateFormControls[i].value,
+            description: this.notesFormControls[i].value,
+        })).filter(x => x.description.split(' ').filter(v => v).length > 0);
+        this.noteValidity.next(notes.filter(x => !x.date).length === 0);
+    }
+    addListeners() {
+        this.notesFormControls.forEach(x => {
+            x.valueChanges.subscribe(() => this.setValidity());
+        });
+        this.noteDateFormControls.forEach(x => {
+            x.valueChanges.subscribe(() => this.setValidity());
+        });
     }
     saveNotes(eventID) {
         const notes = this.noteIDs.map((noteID, i) => ({
@@ -1206,18 +1245,26 @@ let NotesCreateComponent = class NotesCreateComponent {
             id: noteID,
             userID: null,
             pinned: this.notePinnedFormControls[i].value,
-        }));
-        Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"])(...notes.map(note => {
-            return (this.isEditMode && note.id
-                ? this.eventSchedulerService.putNoteUpdate(note)
-                : this.eventSchedulerService.postNoteCreate(note));
-        })).subscribe(resp => this.doneSaving.next(resp));
+        })).filter(x => x.description.split(' ').filter(v => v).length > 0);
+        if (notes.filter(x => !x.date).length > 0) {
+            console.log(notes);
+            alert('Date must be entered for every note');
+        }
+        else {
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"])(...notes.map(note => {
+                return (this.isEditMode && note.id
+                    ? this.eventSchedulerService.putNoteUpdate(note)
+                    : this.eventSchedulerService.postNoteCreate(note));
+            })).subscribe(resp => this.doneSaving.next(resp));
+        }
     }
     btnAddNote() {
+        console.log('adding note');
         this.noteIDs = [null].concat(this.noteIDs);
         this.notesFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notesFormControls);
         this.noteDateFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.noteDateFormControls);
         this.notePinnedFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notePinnedFormControls);
+        this.addListeners();
     }
     btnDeleteNote(index) {
         const noteID = this.noteIDs[index];
@@ -1249,6 +1296,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"])()
 ], NotesCreateComponent.prototype, "doneSaving", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"])()
+], NotesCreateComponent.prototype, "noteValidity", void 0);
 NotesCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-notes-create',
@@ -1428,7 +1478,7 @@ let HomeComponent = class HomeComponent {
         this.greeting = (() => {
             const hour = new Date().getHours();
             return `Good ${hour < 12 ? 'morning'
-                : hour < 6 ? 'afternoon'
+                : hour < 18 ? 'afternoon'
                     : 'evening'}`;
         })();
         this.username = (() => {
@@ -1581,6 +1631,8 @@ let LoginComponent = class LoginComponent {
             this.utilityService.deleteToken();
             this.eventSchedulerService.getUserCount().subscribe(resp => {
                 this.userCount = resp;
+            }, data => {
+                this.userCount = -1;
             });
         }
     }
@@ -1684,6 +1736,7 @@ let ReportComponent = class ReportComponent {
         };
     }
     ngOnInit() {
+        this.loading = true;
         this.eventSchedulerService.getEventIDs().subscribe(events => {
             const today = this.utilityService.formatDateToString(new Date());
             const filterOnToday = (f) => events.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
@@ -1691,7 +1744,6 @@ let ReportComponent = class ReportComponent {
             this.todayEvents = filterOnToday((date, t) => date === t);
             this.futureEvents = filterOnToday((date, t) => date > t).reverse();
             const eventDates = events.map(x => x.date);
-            console.log(eventDates);
             const eventYears = this.utilityService.distinct(eventDates.map(x => x.split('-')[0]));
             this.eventsByYear = eventYears.map(year => {
                 const thisYearEvents = events.filter(x => x.date.startsWith(year));
@@ -1708,6 +1760,7 @@ let ReportComponent = class ReportComponent {
                     }),
                 };
             });
+            this.loading = false;
         });
     }
 };
@@ -1771,6 +1824,7 @@ let SearchComponent = class SearchComponent {
         this.noteDescriptionFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
         this.noteMinDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
         this.noteMaxDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.notePinnedFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](false, []);
     }
     ngOnInit() {
         const now = moment__WEBPACK_IMPORTED_MODULE_4__();
@@ -1780,8 +1834,23 @@ let SearchComponent = class SearchComponent {
         this.eventMinDateFormControl.setValue(new Date(`${year}-01-01`));
         this.eventMaxDateFormControl.setValue(new Date(`${year}-${month}-${day}`));
     }
+    getSeachParameters() {
+        return {
+            eventTitle: this.eventTitleFormControl.value,
+            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)),
+            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)),
+            notesDescription: this.noteDescriptionFormControl.value,
+            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)),
+            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value)),
+            onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value,
+        };
+    }
     btnSearch() {
-        this.eventSchedulerService.getSearchEvents(this.eventTitleFormControl.value, this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)), this.noteDescriptionFormControl.value, this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value))).subscribe(resp => {
+        this.searchParams = this.getSeachParameters();
+        console.log(this.searchParams);
+        this.searchBtnDisabled = true;
+        this.eventSchedulerService.getSearchEvents(this.searchParams.eventTitle, this.searchParams.eventMinDate, this.searchParams.eventMaxDate, this.searchParams.notesDescription, this.searchParams.notesMinDate, this.searchParams.notesMaxDate, this.searchParams.onlyIncludePinnedNoteEvents).subscribe(resp => {
+            this.searchBtnDisabled = false;
             this.searchResults = resp;
         });
     }
@@ -1864,7 +1933,7 @@ let ShellComponent = class ShellComponent {
                 icon: 'exit_to_app',
                 func: (() => {
                     this.utilityService.deleteToken();
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/login']);
                 }).bind(this)
             },
         ];
@@ -1878,8 +1947,7 @@ let ShellComponent = class ShellComponent {
     ngOnInit() {
     }
     isOnLogin() {
-        const result = this.router.url === '/';
-        return result;
+        return this.router.url === '/login';
     }
     btnSidenav(value) {
         console.log(value);
@@ -1930,7 +1998,7 @@ let AuthenticationGuard = class AuthenticationGuard {
             return true;
         }
         else {
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
         }
     }
 };
@@ -2193,10 +2261,11 @@ let EventSchedulerService = class EventSchedulerService extends _base_service__W
     deleteNote(noteID) {
         return this.httpDelete(`/notes/${noteID}`);
     }
-    getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate) {
+    getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate, onlyIncludePinnedNoteEvents) {
         const params = {
             eventTitle, eventMinDate, eventMaxDate,
             noteDescription, noteMinDate, noteMaxDate,
+            onlyIncludePinnedNoteEvents: onlyIncludePinnedNoteEvents ? 1 : 0,
         };
         const resultSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.httpGet(`/events/search?${Object.keys(params)

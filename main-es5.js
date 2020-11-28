@@ -405,7 +405,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n";
+    __webpack_exports__["default"] = "<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n";
     /***/
   },
 
@@ -425,7 +425,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<button mat-button color=\"primary\" style=\"float:right;\"\r\n    (click)=\"btnAddNote()\">\r\n    <mat-icon>add</mat-icon> Note\r\n</button>\r\n<h4>Notes</h4>\r\n<mat-divider></mat-divider>\r\n<div>\r\n    <ng-container *ngFor=\"let noteID of noteIDs; let i = index\">\r\n        <!-- <mat-divider></mat-divider> -->\r\n        <div class=\"row py-2\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-3 text-center\" style=\"padding-top:16px;\">\r\n                <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControls[i]\">\r\n                    Pin\r\n                </mat-checkbox>\r\n            </div>\r\n            <div class=\"d-md-none col-xs-6 col-sm-6 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-sm-12 col-md-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"noteDateFormControls[i]\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"noteDateFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"d-none d-md-block col-3 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Note</mat-label>\r\n                    <textarea matInput [formControl]=\"notesFormControls[i]\" placeholder=\"Enter Note . . .\"></textarea>\r\n                    <mat-error *ngIf=\"notesFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n        <mat-divider></mat-divider>\r\n    </ng-container>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<h4>Notes</h4>\r\n<mat-divider></mat-divider>\r\n<div>\r\n    <ng-container *ngFor=\"let noteID of noteIDs; let i = index\">\r\n        <!-- <mat-divider></mat-divider> -->\r\n        <div class=\"row py-2\">\r\n            <div class=\"col-xs-6 col-sm-6 col-md-3 text-center\" style=\"padding-top:16px;\">\r\n                <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControls[i]\">\r\n                    Pin\r\n                </mat-checkbox>\r\n            </div>\r\n            <div class=\"d-md-none col-xs-6 col-sm-6 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-sm-12 col-md-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"noteDateFormControls[i]\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"noteDateFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"d-none d-md-block col-3 text-center\" style=\"padding-top:12px;\">\r\n                <button mat-button color=\"warn\"\r\n                    (click)=\"btnDeleteNote(i)\">\r\n                    <mat-icon>delete</mat-icon>\r\n                    <span>Delete Note</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"col-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Note</mat-label>\r\n                    <textarea matInput [formControl]=\"notesFormControls[i]\" placeholder=\"Enter Note . . .\"></textarea>\r\n                    <mat-error *ngIf=\"notesFormControls[i].hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n        <mat-divider></mat-divider>\r\n    </ng-container>\r\n    <button mat-button color=\"primary\" style=\"float:right;\"\r\n        (click)=\"btnAddNote()\">\r\n        <mat-icon>add</mat-icon> Note\r\n    </button>\r\n    <mat-divider></mat-divider>\r\n    <br />\r\n</div>\r\n";
     /***/
   },
 
@@ -465,7 +465,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<mat-expansion-panel (afterExpand)=\"btnExpand()\" class=\"mat-elevation-z6\">\r\n    <mat-expansion-panel-header>\r\n        <mat-panel-title>\r\n            <span>{{displayedTitle}}</span>\r\n        </mat-panel-title>\r\n        <mat-panel-description>\r\n            <span>{{displayedDate}}</span>\r\n            <mat-icon>info</mat-icon>\r\n        </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngIf=\"eventInformation && !isEditMode\">\r\n        <app-event-view-notes [eventID]=\"eventInformation.id\">\r\n        </app-event-view-notes>\r\n        <br />\r\n        <mat-action-row>\r\n            <button mat-button color=\"primary\" (click)=\"isEditMode = !isEditMode\">\r\n                <mat-icon>create</mat-icon>\r\n                <span>&nbsp;Edit</span>\r\n            </button>\r\n            <button mat-button color=\"warn\" (click)=\"btnDelete()\">\r\n                <mat-icon>delete</mat-icon>\r\n                <span>&nbsp;Delete</span></button>\r\n        </mat-action-row>\r\n    </ng-container>\r\n    <app-event-create *ngIf=\"isEditMode\"\r\n        [eventInformation]=\"eventInformation\" [isEditMode]=\"true\"\r\n        (onClose)=\"isEditMode = !isEditMode\">\r\n    </app-event-create>\r\n    <ng-container *ngIf=\"!eventInformation\">\r\n        <mat-spinner></mat-spinner>\r\n    </ng-container>\r\n</mat-expansion-panel>\r\n";
+    __webpack_exports__["default"] = "<mat-expansion-panel (afterExpand)=\"btnExpand()\" class=\"mat-elevation-z6\">\r\n    <mat-expansion-panel-header>\r\n        <mat-panel-title>\r\n            <span>{{displayedTitle}}</span>\r\n        </mat-panel-title>\r\n        <mat-panel-description>\r\n            <span>{{displayedDate}}</span>\r\n            <mat-icon>info</mat-icon>\r\n        </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngIf=\"eventInformation && !isEditMode\">\r\n        <app-event-view-notes [eventID]=\"eventInformation.id\">\r\n        </app-event-view-notes>\r\n        <button mat-button color=\"primary\" style=\"float:right;\"\r\n            (click)=\"isEditMode = !isEditMode\">\r\n            <mat-icon>add</mat-icon> Note\r\n        </button>\r\n        <br />\r\n        <br />\r\n        <mat-action-row>\r\n            <button mat-button color=\"primary\" (click)=\"isEditMode = !isEditMode\">\r\n                <mat-icon>create</mat-icon>\r\n                <span>&nbsp;Edit</span>\r\n            </button>\r\n            <button mat-button color=\"warn\" (click)=\"btnDelete()\">\r\n                <mat-icon>delete</mat-icon>\r\n                <span>&nbsp;Delete</span></button>\r\n        </mat-action-row>\r\n    </ng-container>\r\n    <app-event-create *ngIf=\"isEditMode\"\r\n        [eventInformation]=\"eventInformation\" [isEditMode]=\"true\"\r\n        (onClose)=\"isEditMode = !isEditMode\">\r\n    </app-event-create>\r\n    <ng-container *ngIf=\"!eventInformation\">\r\n        <mat-spinner></mat-spinner>\r\n    </ng-container>\r\n</mat-expansion-panel>\r\n";
     /***/
   },
 
@@ -505,7 +505,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<br />\r\n<mat-card class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\" />\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\" />\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<div *ngIf=\"userCount\">\r\n    Now with {{ userCount }} users!\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<br />\r\n<mat-card *ngIf=\"![undefined, -1].includes(userCount)\" class=\"mat-elevation-z6\">\r\n    <h1>Event Scheduler</h1>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Username</mat-label>\r\n        <input matInput [formControl]=\"usernameFormControl\" placeholder=\"John.Smith\"\r\n            (keyup.enter)=\"btnSubmit()\"/>\r\n        <mat-error *ngIf=\"usernameFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <br />\r\n    <mat-form-field>\r\n        <mat-label>Password</mat-label>\r\n        <input matInput [formControl]=\"passwordFormControl\" placeholder=\"••••••••\" type=\"password\"\r\n            (keyup.enter)=\"btnSubmit()\"/>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\r\n            Required\r\n        </mat-error>\r\n        <mat-error *ngIf=\"passwordFormControl.hasError('password')\">\r\n            Must be 8+ characters with one upper, lower, number, special character\r\n        </mat-error>\r\n    </mat-form-field>\r\n    <ng-container *ngIf=\"isCreateAccountMode\">\r\n        <br />\r\n        <mat-form-field>\r\n            <mat-label>Confirm Password</mat-label>\r\n            <input matInput [formControl]=\"confirmPasswordFormControl\" placeholder=\"••••••••\" type=\"password\"\r\n                (keyup.enter)=\"btnSubmit()\"/>\r\n            <mat-error *ngIf=\"confirmPasswordFormControl.hasError('required')\">\r\n                Required\r\n            </mat-error>\r\n        </mat-form-field>\r\n    </ng-container>\r\n    <br />\r\n    <button mat-raised-button color=\"primary\" (click)=\"btnSubmit()\">\r\n        {{ isCreateAccountMode ? 'Create Account' : 'Login' }}\r\n    </button>\r\n    <br />\r\n    <br />\r\n    <button mat-button color=\"primary\" (click)=\"isCreateAccountMode = !isCreateAccountMode\">\r\n        {{ isCreateAccountMode ? 'Back to Login' : 'Create Account' }}\r\n    </button>\r\n    <br />\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<mat-card *ngIf=\"userCount === undefined\" class=\"text-center\" style=\"width:132px;\">\r\n    <mat-spinner></mat-spinner>\r\n</mat-card>\r\n\r\n<div *ngIf=\"userCount > -1\">\r\n    Now with {{ userCount }} users!\r\n</div>\r\n\r\n<mat-card *ngIf=\"userCount === -1\" class=\"mat-elevation-z6\">\r\n    The event scheduler service seems to be offline. Please contact\r\n    <a href=\"mailto:nmg3hw@mail.umkc.edu\">nmg3hw@mail.umkc.edu</a>\r\n    to get it up and running.\r\n</mat-card>\r\n";
     /***/
   },
 
@@ -525,7 +525,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n<h2 class=\"text-center\">Event Totals Breakdown</h2>\r\n<mat-card class=\"mat-elevation-z6 text-center\">\r\n    <div class=\"row\">\r\n        <div class=\"col-4\"><b>Past Events</b></div>\r\n        <div class=\"col-4\"><b>Events Today</b></div>\r\n        <div class=\"col-4\"><b>Future Events</b></div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-4\">{{ pastEvents.length }}</div>\r\n        <div class=\"col-4\">{{ todayEvents.length }}</div>\r\n        <div class=\"col-4\">{{ futureEvents.length }}</div>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n\r\n<h2 class=\"text-center\">Events by Year</h2>\r\n<ng-container *ngFor=\"let year of eventsByYear\">\r\n    <mat-expansion-panel class=\"mat-elevation-z6\">\r\n        <mat-expansion-panel-header>\r\n            <mat-panel-title>\r\n                There are {{ year.total }} event(s) scheduled in {{ year.label }}\r\n            </mat-panel-title>\r\n            <mat-panel-description>\r\n                <span>{{displayedDate}}</span>\r\n                <mat-icon>info</mat-icon>\r\n            </mat-panel-description>\r\n        </mat-expansion-panel-header>\r\n        <ng-container *ngFor=\"let month of year.months\">\r\n            <ng-container *ngIf=\"month.total !== 0\">\r\n                <mat-expansion-panel class=\"mat-elevation-z6\">\r\n                    <mat-expansion-panel-header>\r\n                        <mat-panel-title>\r\n                            There are {{ month.total }} event(s) scheduled in {{ month.label }}\r\n                        </mat-panel-title>\r\n                        <mat-panel-description>\r\n                            <span>{{displayedDate}}</span>\r\n                            <mat-icon>info</mat-icon>\r\n                        </mat-panel-description>\r\n                    </mat-expansion-panel-header>\r\n                    <ng-container *ngFor=\"let eventID of month.events\">\r\n                        <app-event-view\r\n                            [eventID]=\"eventID\">\r\n                        </app-event-view>\r\n                        <br />\r\n                    </ng-container>\r\n                </mat-expansion-panel>\r\n                <br />\r\n            </ng-container>\r\n        </ng-container>\r\n    </mat-expansion-panel>\r\n    <br />\r\n</ng-container>\r\n";
+    __webpack_exports__["default"] = "<ng-container *ngIf=\"loading\">\r\n    <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\r\n</ng-container>\r\n<ng-container *ngIf=\"!loading\">\r\n    <h2 class=\"text-center\">Event Totals Breakdown</h2>\r\n    <mat-card class=\"mat-elevation-z6 text-center\">\r\n        <div class=\"row\">\r\n            <div class=\"col-4\"><b>Past Events</b></div>\r\n            <div class=\"col-4\"><b>Events Today</b></div>\r\n            <div class=\"col-4\"><b>Future Events</b></div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-4\">{{ pastEvents && pastEvents.length }}</div>\r\n            <div class=\"col-4\">{{ todayEvents && todayEvents.length }}</div>\r\n            <div class=\"col-4\">{{ futureEvents && futureEvents.length }}</div>\r\n        </div>\r\n    </mat-card>\r\n    \r\n    <br />\r\n    \r\n    <h2 class=\"text-center\">Events by Year</h2>\r\n    <ng-container *ngFor=\"let year of eventsByYear\">\r\n        <mat-expansion-panel class=\"mat-elevation-z6\">\r\n            <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    There are {{ year.total }} event(s) scheduled in {{ year.label }}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                    <span>{{displayedDate}}</span>\r\n                    <mat-icon>info</mat-icon>\r\n                </mat-panel-description>\r\n            </mat-expansion-panel-header>\r\n            <ng-container *ngFor=\"let month of year.months\">\r\n                <ng-container *ngIf=\"month.total !== 0\">\r\n                    <mat-expansion-panel class=\"mat-elevation-z6\">\r\n                        <mat-expansion-panel-header>\r\n                            <mat-panel-title>\r\n                                There are {{ month.total }} event(s) scheduled in {{ month.label }}\r\n                            </mat-panel-title>\r\n                            <mat-panel-description>\r\n                                <span>{{displayedDate}}</span>\r\n                                <mat-icon>info</mat-icon>\r\n                            </mat-panel-description>\r\n                        </mat-expansion-panel-header>\r\n                        <ng-container *ngFor=\"let eventID of month.events\">\r\n                            <app-event-view\r\n                                [eventID]=\"eventID\">\r\n                            </app-event-view>\r\n                            <br />\r\n                        </ng-container>\r\n                    </mat-expansion-panel>\r\n                    <br />\r\n                </ng-container>\r\n            </ng-container>\r\n        </mat-expansion-panel>\r\n        <br />\r\n    </ng-container>\r\n</ng-container>\r\n";
     /***/
   },
 
@@ -545,7 +545,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<mat-card class=\"mat-elevation-z6\">\r\n\r\n    <h2 class=\"text-center\">\r\n        Search Events\r\n    </h2>\r\n\r\n    <br />\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Title Includes</mat-label>\r\n                <input matInput [formControl]=\"eventTitleFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker1\" [formControl]=\"eventMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker1\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker1></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker2\" [formControl]=\"eventMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker2\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker2></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Description Includes</mat-label>\r\n                <input matInput [formControl]=\"noteDescriptionFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Minimum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker3\" [formControl]=\"noteMinDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker3\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker3></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Maximum Date</mat-label>\r\n                <input matInput [matDatepicker]=\"datePicker4\" [formControl]=\"noteMaxDateFormControl\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"datePicker4\"></mat-datepicker-toggle>\r\n                <mat-datepicker #datePicker4></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnSearch()\">\r\n            <mat-icon>search</mat-icon>\r\n            <span>&nbsp;Search</span>\r\n        </button>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n<br />\r\n\r\n<ng-container *ngFor=\"let eventID of searchResults\">\r\n    <app-event-view\r\n        [eventID]=\"eventID\">\r\n    </app-event-view>\r\n    <br />\r\n</ng-container>\r\n";
+    __webpack_exports__["default"] = "<mat-card class=\"mat-elevation-z6\">\r\n\r\n    <h2 class=\"text-center\">\r\n        Search Events\r\n    </h2>\r\n\r\n    <br />\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Event Title Includes</mat-label>\r\n                <input matInput [formControl]=\"eventTitleFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <mat-card class=\"mat-elevation-z6 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n            <div class=\"row\"><div class=\"col-12\">Event Date Range</div></div>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>From</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker1\" [formControl]=\"eventMinDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker1\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker1></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>To</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker2\" [formControl]=\"eventMaxDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker2\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker2></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n        </mat-card>\r\n        <br />\r\n        <br />\r\n        <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4\">\r\n            <mat-form-field>\r\n                <mat-label>Note Description Includes</mat-label>\r\n                <input matInput [formControl]=\"noteDescriptionFormControl\" placeholder=\"Event Title\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <mat-card class=\"mat-elevation-z6 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8\">\r\n            <div class=\"row\"><div class=\"col-12\">Note Date Range</div></div>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>From</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker3\" [formControl]=\"noteMinDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker3\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker3></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6\">\r\n                    <mat-form-field>\r\n                        <mat-label>To</mat-label>\r\n                        <input matInput [matDatepicker]=\"datePicker4\" [formControl]=\"noteMaxDateFormControl\">\r\n                        <mat-datepicker-toggle matSuffix [for]=\"datePicker4\"></mat-datepicker-toggle>\r\n                        <mat-datepicker #datePicker4></mat-datepicker>\r\n                    </mat-form-field>\r\n                </div>\r\n            </div>\r\n        </mat-card>\r\n    </div>\r\n\r\n    <br />\r\n    <div class=\"text-center\">\r\n        <mat-checkbox color=\"primary\" [formControl]=\"notePinnedFormControl\">\r\n            Only include events with pinned note(s)\r\n        </mat-checkbox>\r\n    </div>\r\n    <br />\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            [disabled]=\"searchBtnDisabled\" (click)=\"btnSearch()\">\r\n            <mat-icon>search</mat-icon>\r\n            <span>&nbsp;Search</span>\r\n        </button>\r\n    </div>\r\n</mat-card>\r\n\r\n<br />\r\n<br />\r\n\r\n<ng-container *ngIf=\"searchResults && !searchBtnDisabled\">\r\n    <ng-container *ngFor=\"let eventID of searchResults\">\r\n        <app-event-view\r\n            [eventID]=\"eventID\">\r\n        </app-event-view>\r\n        <br />\r\n    </ng-container>\r\n    <mat-card *ngIf=\"!searchResults.length\" class=\"mat-elevation-z6\">\r\n        There were no search results found.\r\n        <br />\r\n        <div *ngIf=\"\r\n            !searchParams.eventTitle\r\n            && !searchParams.eventMinDate\r\n            && !searchParams.eventMaxDate\r\n            && !searchParams.notesDescription\r\n            && !searchParams.notesMinDate\r\n            && !searchParams.notesMaxDate\r\n        \">\r\n            Try adding a search parameter\r\n        </div>\r\n    </mat-card>\r\n</ng-container>\r\n\r\n<br />\r\n<br />\r\n\r\n<mat-card *ngIf=\"searchBtnDisabled\">\r\n    <mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\r\n</mat-card>\r\n";
     /***/
   },
 
@@ -565,7 +565,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-login *ngIf=\"isOnLogin()\"></app-login>\r\n<mat-drawer-container *ngIf=\"!isOnLogin()\" class=\"example-container\" autosize>\r\n    <!--\r\n    <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\r\n        <mat-list>\r\n            <ng-container *ngFor=\"let link of sidenavLinks\">\r\n                <mat-list-item matRipple (click)=\"btnSidenav(link)\">\r\n                    {{link.label}}\r\n                </mat-list-item>\r\n                <mat-divider></mat-divider>\r\n            </ng-container>\r\n          </mat-list>\r\n    </mat-drawer>\r\n    -->\r\n\r\n    <mat-toolbar color=\"primary\">\r\n        <!--\r\n        <button mat-icon-button class=\"example-icon\" aria-label=\"Example icon-button with menu icon\"\r\n            (click)=\"drawer.toggle()\">\r\n            <mat-icon>menu</mat-icon>\r\n        </button>\r\n        -->\r\n        <img src=\"https://nathangawith.com/favicon.ico\" height=\"25px\">\r\n        <span>&nbsp;&nbsp;Event Scheduler</span>\r\n        <span class=\"example-spacer\"></span>\r\n        <button *ngFor=\"let link of toolbarLinks\" mat-icon-button class=\"mr-5\"\r\n            [attr.aria-label]=\"link.label\" (click)=\"link.func()\">\r\n            <span>{{link.label}}&nbsp;</span>\r\n            <mat-icon>{{link.icon}}</mat-icon>\r\n        </button>\r\n    </mat-toolbar>\r\n    <br />\r\n    <div class=\"container\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n    <br />\r\n</mat-drawer-container>\r\n";
+    __webpack_exports__["default"] = "<app-login *ngIf=\"isOnLogin()\"></app-login>\r\n<!-- <ng-container *ngIf=\"isOnLogin()\">\r\n    <ng-container *ngTemplateOutlet=\"routeroutlet\"></ng-container>\r\n</ng-container> -->\r\n<mat-drawer-container *ngIf=\"!isOnLogin()\" class=\"example-container\" autosize>\r\n    <mat-toolbar color=\"primary\">\r\n        <div style=\"cursor:pointer;\" [routerLink]=\"['/home']\">\r\n            <img src=\"https://nathangawith.com/favicon.ico\" height=\"25px\">\r\n            <span>&nbsp;&nbsp;Event Scheduler</span>\r\n        </div>\r\n        <span class=\"example-spacer\"></span>\r\n        <div class=\"d-md-none\">\r\n            <button mat-icon-button [matMenuTriggerFor]=\"menu\" aria-label=\"Example icon-button with a menu\">\r\n                <mat-icon>more_vert</mat-icon>\r\n            </button>\r\n            <mat-menu #menu=\"matMenu\">\r\n                <ng-container *ngTemplateOutlet=\"headerbuttons\"></ng-container>\r\n            </mat-menu>\r\n        </div>\r\n        <div class=\"d-none d-md-block\">\r\n            <ng-container *ngTemplateOutlet=\"headerbuttons\"></ng-container>\r\n        </div>\r\n        <ng-template #headerbuttons>\r\n            <button *ngFor=\"let link of toolbarLinks\" class=\"mr-5\"\r\n                mat-icon-button\r\n                [attr.aria-label]=\"link.label\" (click)=\"link.func()\">\r\n                <span>{{link.label}}&nbsp;</span>\r\n                <mat-icon>{{link.icon}}</mat-icon>\r\n            </button>\r\n        </ng-template>\r\n    </mat-toolbar>\r\n    <ng-container *ngTemplateOutlet=\"routeroutlet\"></ng-container>\r\n</mat-drawer-container>\r\n<ng-template #routeroutlet>\r\n    <br />\r\n    <div class=\"container\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n    <br />\r\n</ng-template>\r\n";
     /***/
   },
 
@@ -1226,7 +1226,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var NotFoundComponent = function NotFoundComponent(router) {
       _classCallCheck(this, NotFoundComponent);
 
-      router.navigate(['/']);
+      router.navigate(['/home']);
     };
 
     NotFoundComponent.ctorParameters = function () {
@@ -1239,7 +1239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       template: ''
     })], NotFoundComponent);
     var routes = [{
-      path: '',
+      path: 'login',
       component: _components__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
     }, {
       path: 'home',
@@ -1254,7 +1254,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       path: '**',
       component: NotFoundComponent
     }].map(function (route) {
-      if (route.path !== '') {
+      if (route.path !== 'login') {
         return {
           path: route.path,
           component: route.component,
@@ -1455,8 +1455,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_10__["NgModule"])({
-      imports: [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"]],
-      exports: [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"]]
+      imports: [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressBarModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"]],
+      exports: [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCardModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatInputModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatIconModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSidenavModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatListModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDividerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatRippleModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatSnackBarModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDatepickerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatExpansionModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressSpinnerModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatTabsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatCheckboxModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatMenuModule"], _angular_material__WEBPACK_IMPORTED_MODULE_11__["MatProgressBarModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_4__["NgxMaterialTimepickerModule"]]
     })], MaterialModule);
 
     var EventSchedulerModule = function EventSchedulerModule() {
@@ -1534,7 +1534,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.cards = [{
             title: 'About the Developer',
             image: 'http://cdn.nathangawith.com/images/twitter_profile.png',
-            text: "\nHello, my name is Nathan Gawith. I am a senior at UMKC and\ngraduating in December of 2020. This application was designed\nby me for my CS456 (Human Computer Interaction) course.\nYou can check out other web applications I have made at my website\n<a href=\"https://nathangawith.com/\" target=\"_blank\">https://nathangawith.com/</a>"
+            text: "\nHello, my name is Nathan Gawith. I am a senior at UMKC and\ngraduating in December of 2020. This application was designed\nby me for my CS456 (Human Computer Interaction) course.\nYou can check out other web applications I have made at my website\n<a href=\"https://nathangawith.com/\" target=\"_blank\">https://nathangawith.com/</a>\nor contact me at <a href=\"mailto:nmg3hw@mail.umkc.edu\">nmg3hw@mail.umkc.edu</a>"
           }, {
             title: 'Testimonial',
             image: 'https://pbs.twimg.com/profile_images/857430767068004352/DshBij_v_400x400.jpg',
@@ -1633,6 +1633,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           id: null
         };
         this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+        this.validNotes = true;
         this.titleFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         this.time = '12:00 AM';
@@ -1669,15 +1670,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function btnSave() {
           var _this2 = this;
 
-          var event = {
-            id: this.isEditMode ? this.eventInformation.id : null,
-            title: this.titleFormControl.value,
-            date: this.dateFormControl.value,
-            time: this.time
-          };
-          (this.isEditMode ? this.eventSchedulerService.putEventUpdate(event) : this.eventSchedulerService.postEventCreate(event)).subscribe(function (eventID) {
-            _this2.savingEventID = eventID;
-          });
+          if (this.validNotes) {
+            var event = {
+              id: this.isEditMode ? this.eventInformation.id : null,
+              title: this.titleFormControl.value,
+              date: this.dateFormControl.value,
+              time: this.time
+            };
+            (this.isEditMode ? this.eventSchedulerService.putEventUpdate(event) : this.eventSchedulerService.postEventCreate(event)).subscribe(function (eventID) {
+              _this2.savingEventID = eventID;
+            });
+          } else {
+            console.log(this.titleFormControl.valid);
+            console.log(this.dateFormControl.valid);
+            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
+
+            if (this.titleFormControl.valid && this.dateFormControl.valid) {
+              alert('Date must be entered for every note');
+            } else {
+              alert('Event Date and Title must be entered');
+            }
+          }
         }
       }, {
         key: "isFormVisible",
@@ -1685,6 +1698,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.PisFormVisible;
         },
         set: function set(value) {
+          console.log("isFormVisible: ".concat(value));
           this.PisFormVisible = value;
 
           if (value === false) {
@@ -1798,6 +1812,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.eventSchedulerService = eventSchedulerService;
         this.doneSaving = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        this.noteValidity = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         this.noteIDs = [];
         this.notesFormControls = [];
         this.noteDateFormControls = [];
@@ -1810,7 +1825,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this3 = this;
 
           if (this.eventID) {
-            var observable = this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(function (notes) {
+            this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(function (notes) {
               _this3.noteIDs = notes.map(function (note) {
                 return note.id;
               });
@@ -1823,38 +1838,90 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this3.notePinnedFormControls = notes.map(function (note) {
                 return new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](note.pinned, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]);
               });
-              observable.unsubscribe();
+
+              _this3.btnAddNote();
             });
+          } else {
+            this.btnAddNote();
           }
+        }
+      }, {
+        key: "setValidity",
+        value: function setValidity() {
+          var _this4 = this;
+
+          var notes = this.noteIDs.map(function (_, i) {
+            return {
+              date: _this4.noteDateFormControls[i].value,
+              description: _this4.notesFormControls[i].value
+            };
+          }).filter(function (x) {
+            return x.description.split(' ').filter(function (v) {
+              return v;
+            }).length > 0;
+          });
+          this.noteValidity.next(notes.filter(function (x) {
+            return !x.date;
+          }).length === 0);
+        }
+      }, {
+        key: "addListeners",
+        value: function addListeners() {
+          var _this5 = this;
+
+          this.notesFormControls.forEach(function (x) {
+            x.valueChanges.subscribe(function () {
+              return _this5.setValidity();
+            });
+          });
+          this.noteDateFormControls.forEach(function (x) {
+            x.valueChanges.subscribe(function () {
+              return _this5.setValidity();
+            });
+          });
         }
       }, {
         key: "saveNotes",
         value: function saveNotes(eventID) {
-          var _this4 = this;
+          var _this6 = this;
 
           var notes = this.noteIDs.map(function (noteID, i) {
             return {
               eventID: eventID,
-              date: _this4.noteDateFormControls[i].value,
-              description: _this4.notesFormControls[i].value,
+              date: _this6.noteDateFormControls[i].value,
+              description: _this6.notesFormControls[i].value,
               id: noteID,
               userID: null,
-              pinned: _this4.notePinnedFormControls[i].value
+              pinned: _this6.notePinnedFormControls[i].value
             };
+          }).filter(function (x) {
+            return x.description.split(' ').filter(function (v) {
+              return v;
+            }).length > 0;
           });
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"]).apply(void 0, _toConsumableArray(notes.map(function (note) {
-            return _this4.isEditMode && note.id ? _this4.eventSchedulerService.putNoteUpdate(note) : _this4.eventSchedulerService.postNoteCreate(note);
-          }))).subscribe(function (resp) {
-            return _this4.doneSaving.next(resp);
-          });
+
+          if (notes.filter(function (x) {
+            return !x.date;
+          }).length > 0) {
+            console.log(notes);
+            alert('Date must be entered for every note');
+          } else {
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"]).apply(void 0, _toConsumableArray(notes.map(function (note) {
+              return _this6.isEditMode && note.id ? _this6.eventSchedulerService.putNoteUpdate(note) : _this6.eventSchedulerService.postNoteCreate(note);
+            }))).subscribe(function (resp) {
+              return _this6.doneSaving.next(resp);
+            });
+          }
         }
       }, {
         key: "btnAddNote",
         value: function btnAddNote() {
+          console.log('adding note');
           this.noteIDs = [null].concat(this.noteIDs);
           this.notesFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notesFormControls);
           this.noteDateFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.noteDateFormControls);
           this.notePinnedFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](false, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notePinnedFormControls);
+          this.addListeners();
         }
       }, {
         key: "btnDeleteNote",
@@ -1911,6 +1978,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"])()], NotesCreateComponent.prototype, "savingEventID", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"])()], NotesCreateComponent.prototype, "isFormVisible", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"])()], NotesCreateComponent.prototype, "doneSaving", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"])()], NotesCreateComponent.prototype, "noteValidity", void 0);
     NotesCreateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
       selector: 'app-notes-create',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1991,13 +2059,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(EventViewNotesComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this7 = this;
 
           this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(function (resp) {
-            _this5.notes = resp;
-            _this5.notes = _this5.notes.filter(function (x) {
+            _this7.notes = resp;
+            _this7.notes = _this7.notes.filter(function (x) {
               return x.pinned;
-            }).concat(_this5.notes.filter(function (x) {
+            }).concat(_this7.notes.filter(function (x) {
               return !x.pinned;
             }));
           });
@@ -2107,11 +2175,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "btnExpand",
         value: function btnExpand() {
-          var _this6 = this;
+          var _this8 = this;
 
           this.eventSchedulerService.getEvent(this.eventID.id).subscribe(function (resp) {
-            resp.num = _this6.eventID.num;
-            _this6.eventInformation = resp;
+            resp.num = _this8.eventID.num;
+            _this8.eventInformation = resp;
           });
         }
       }, {
@@ -2213,7 +2281,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var HomeComponent = /*#__PURE__*/function () {
       function HomeComponent(eventSchedulerService, utilityService) {
-        var _this7 = this;
+        var _this9 = this;
 
         _classCallCheck(this, HomeComponent);
 
@@ -2222,44 +2290,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.greeting = function () {
           var hour = new Date().getHours();
-          return "Good ".concat(hour < 12 ? 'morning' : hour < 6 ? 'afternoon' : 'evening');
+          return "Good ".concat(hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening');
         }();
 
         this.username = function () {
-          return _this7.utilityService.getToken().username;
+          return _this9.utilityService.getToken().username;
         }();
       }
 
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this10 = this;
 
           this.eventSchedulerService.getApiInformation().subscribe(function (x) {
-            return _this8.about = x;
+            return _this10.about = x;
           });
           this.eventSchedulerService.getEventIDs().subscribe(function (resp) {
-            var today = _this8.utilityService.formatDateToString(new Date());
+            var today = _this10.utilityService.formatDateToString(new Date());
 
             var filterOnToday = function filterOnToday(f) {
               return resp.filter(function (x) {
-                return f(_this8.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
+                return f(_this10.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
               });
             };
 
-            _this8.pastEvents = {
+            _this10.pastEvents = {
               events: filterOnToday(function (date, t) {
                 return date < t;
               }),
               label: 'past'
             };
-            _this8.todayEvents = {
+            _this10.todayEvents = {
               events: filterOnToday(function (date, t) {
                 return date === t;
               }),
               label: 'today'
             };
-            _this8.futureEvents = {
+            _this10.futureEvents = {
               events: filterOnToday(function (date, t) {
                 return date > t;
               }).reverse(),
@@ -2541,7 +2609,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LoginComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this11 = this;
 
           var token = this.utilityService.getToken();
 
@@ -2550,14 +2618,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             this.utilityService.deleteToken();
             this.eventSchedulerService.getUserCount().subscribe(function (resp) {
-              _this9.userCount = resp;
+              _this11.userCount = resp;
+            }, function (data) {
+              _this11.userCount = -1;
             });
           }
         }
       }, {
         key: "btnSubmit",
         value: function btnSubmit() {
-          var _this10 = this;
+          var _this12 = this;
 
           if (this.isCreateAccountMode) {
             if (this.passwordFormControl.value !== this.confirmPasswordFormControl.value) {
@@ -2567,9 +2637,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             this.eventSchedulerService.postAuthCreateAccount(this.usernameFormControl.value, this.passwordFormControl.value).subscribe(function (resp) {
               if (resp) {
-                _this10.isCreateAccountMode = false;
+                _this12.isCreateAccountMode = false;
 
-                _this10.btnSubmit();
+                _this12.btnSubmit();
               } else {
                 alert('Error creating account');
               }
@@ -2579,9 +2649,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             this.eventSchedulerService.postAuthLogin(this.usernameFormControl.value, this.passwordFormControl.value).subscribe(function (resp) {
               if (resp) {
-                _this10.utilityService.setToken(resp);
+                _this12.utilityService.setToken(resp);
 
-                _this10.router.navigate(['/home']);
+                _this12.router.navigate(['/home']);
               } else {
                 alert('Incorrect credentials');
               }
@@ -2709,54 +2779,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ReportComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this13 = this;
 
+          this.loading = true;
           this.eventSchedulerService.getEventIDs().subscribe(function (events) {
-            var today = _this11.utilityService.formatDateToString(new Date());
+            var today = _this13.utilityService.formatDateToString(new Date());
 
             var filterOnToday = function filterOnToday(f) {
               return events.filter(function (x) {
-                return f(_this11.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
+                return f(_this13.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
               });
             };
 
-            _this11.pastEvents = filterOnToday(function (date, t) {
+            _this13.pastEvents = filterOnToday(function (date, t) {
               return date < t;
             });
-            _this11.todayEvents = filterOnToday(function (date, t) {
+            _this13.todayEvents = filterOnToday(function (date, t) {
               return date === t;
             });
-            _this11.futureEvents = filterOnToday(function (date, t) {
+            _this13.futureEvents = filterOnToday(function (date, t) {
               return date > t;
             }).reverse();
             var eventDates = events.map(function (x) {
               return x.date;
             });
-            console.log(eventDates);
 
-            var eventYears = _this11.utilityService.distinct(eventDates.map(function (x) {
+            var eventYears = _this13.utilityService.distinct(eventDates.map(function (x) {
               return x.split('-')[0];
             }));
 
-            _this11.eventsByYear = eventYears.map(function (year) {
+            _this13.eventsByYear = eventYears.map(function (year) {
               var thisYearEvents = events.filter(function (x) {
                 return x.date.startsWith(year);
               });
               return {
                 label: year,
                 total: thisYearEvents.length,
-                months: Object.keys(_this11.monthLabels).map(function (month) {
+                months: Object.keys(_this13.monthLabels).map(function (month) {
                   var thisMonthEvents = thisYearEvents.filter(function (x) {
                     return x.date.split('-')[1] === month;
                   });
                   return {
-                    label: _this11.monthLabels[month],
+                    label: _this13.monthLabels[month],
                     total: thisMonthEvents.length,
                     events: thisMonthEvents
                   };
                 })
               };
             });
+            _this13.loading = false;
           });
         }
       }]);
@@ -2870,6 +2941,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.noteDescriptionFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
         this.noteMinDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
         this.noteMaxDateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', []);
+        this.notePinnedFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](false, []);
       }
 
       _createClass(SearchComponent, [{
@@ -2883,12 +2955,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.eventMaxDateFormControl.setValue(new Date("".concat(year, "-").concat(month, "-").concat(day)));
         }
       }, {
+        key: "getSeachParameters",
+        value: function getSeachParameters() {
+          return {
+            eventTitle: this.eventTitleFormControl.value,
+            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)),
+            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)),
+            notesDescription: this.noteDescriptionFormControl.value,
+            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)),
+            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value)),
+            onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value
+          };
+        }
+      }, {
         key: "btnSearch",
         value: function btnSearch() {
-          var _this12 = this;
+          var _this14 = this;
 
-          this.eventSchedulerService.getSearchEvents(this.eventTitleFormControl.value, this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)), this.noteDescriptionFormControl.value, this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)), this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value))).subscribe(function (resp) {
-            _this12.searchResults = resp;
+          this.searchParams = this.getSeachParameters();
+          console.log(this.searchParams);
+          this.searchBtnDisabled = true;
+          this.eventSchedulerService.getSearchEvents(this.searchParams.eventTitle, this.searchParams.eventMinDate, this.searchParams.eventMaxDate, this.searchParams.notesDescription, this.searchParams.notesMinDate, this.searchParams.notesMaxDate, this.searchParams.onlyIncludePinnedNoteEvents).subscribe(function (resp) {
+            _this14.searchBtnDisabled = false;
+            _this14.searchResults = resp;
           });
         }
       }]);
@@ -2982,7 +3071,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ShellComponent = /*#__PURE__*/function () {
       function ShellComponent(utilityService, router) {
-        var _this13 = this;
+        var _this15 = this;
 
         _classCallCheck(this, ShellComponent);
 
@@ -2992,27 +3081,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           label: 'Home',
           icon: 'home',
           func: function () {
-            _this13.router.navigate(['/home']);
+            _this15.router.navigate(['/home']);
           }.bind(this)
         }, {
           label: 'Search',
           icon: 'search',
           func: function () {
-            _this13.router.navigate(['/search']);
+            _this15.router.navigate(['/search']);
           }.bind(this)
         }, {
           label: 'Reports',
           icon: 'assignment',
           func: function () {
-            _this13.router.navigate(['/report']);
+            _this15.router.navigate(['/report']);
           }.bind(this)
         }, {
           label: 'Sign out',
           icon: 'exit_to_app',
           func: function () {
-            _this13.utilityService.deleteToken();
+            _this15.utilityService.deleteToken();
 
-            _this13.router.navigate(['/']);
+            _this15.router.navigate(['/login']);
           }.bind(this)
         }];
         this.sidenavLinks = [{
@@ -3032,8 +3121,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isOnLogin",
         value: function isOnLogin() {
-          var result = this.router.url === '/';
-          return result;
+          return this.router.url === '/login';
         }
       }, {
         key: "btnSidenav",
@@ -3125,7 +3213,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (token && !token.isExpired()) {
             return true;
           } else {
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
           }
         }
       }]);
@@ -3277,7 +3365,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ErrorInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this14 = this;
+          var _this16 = this;
 
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
             var errorMsg = '';
@@ -3289,7 +3377,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.error('this is server side error');
               errorMsg = "Error Code: ".concat(error.status, ",  Message: ").concat(error.message);
 
-              _this14.snackBar.open(errorMsg, '', {
+              _this16.snackBar.open(errorMsg, '', {
                 duration: 5000
               });
             }
@@ -3362,11 +3450,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mapDates",
         value: function mapDates(obj) {
-          var _this15 = this;
+          var _this17 = this;
 
           var replaceDate = function replaceDate(x) {
             if (x.date) {
-              x.date = _this15.utilityService.formatDateToString(new Date(x.date));
+              x.date = _this17.utilityService.formatDateToString(new Date(x.date));
             }
 
             return x;
@@ -3389,10 +3477,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pipe",
         value: function pipe(observable) {
-          var _this16 = this;
+          var _this18 = this;
 
           return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (resp) {
-            return _this16.mapDates(resp);
+            return _this18.mapDates(resp);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(0));
         }
       }, {
@@ -3493,13 +3581,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super = _createSuper(EventSchedulerService);
 
       function EventSchedulerService(http, utilityService) {
-        var _this17;
+        var _this19;
 
         _classCallCheck(this, EventSchedulerService);
 
-        _this17 = _super.call(this, http, utilityService);
-        _this17.eventIDs$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        return _this17;
+        _this19 = _super.call(this, http, utilityService);
+        _this19.eventIDs$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        return _this19;
       }
 
       _createClass(EventSchedulerService, [{
@@ -3533,11 +3621,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pipeUpdateEventList",
         value: function pipeUpdateEventList(observable) {
-          var _this18 = this;
+          var _this20 = this;
 
           return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function (x) {
             if (x) {
-              _this18.getEventIDs().subscribe();
+              _this20.getEventIDs().subscribe();
             }
           }));
         }
@@ -3556,14 +3644,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getEventIDs",
         value: function getEventIDs() {
-          var _this19 = this;
+          var _this21 = this;
 
           this.httpGet("/events").subscribe(function (resp) {
-            _this19.nextEventNum = Math.max.apply(Math, _toConsumableArray(resp.map(function (x) {
+            _this21.nextEventNum = Math.max.apply(Math, _toConsumableArray(resp.map(function (x) {
               return x.num;
             }))) + 1;
 
-            _this19.eventIDs$.next(resp);
+            _this21.eventIDs$.next(resp);
           });
           return this.eventIDs$.asObservable();
         }
@@ -3606,8 +3694,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "getSearchEvents",
-        value: function getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate) {
-          var _this20 = this;
+        value: function getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate, onlyIncludePinnedNoteEvents) {
+          var _this22 = this;
 
           var params = {
             eventTitle: eventTitle,
@@ -3615,14 +3703,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             eventMaxDate: eventMaxDate,
             noteDescription: noteDescription,
             noteMinDate: noteMinDate,
-            noteMaxDate: noteMaxDate
+            noteMaxDate: noteMaxDate,
+            onlyIncludePinnedNoteEvents: onlyIncludePinnedNoteEvents ? 1 : 0
           };
           var resultSubject = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
           this.httpGet("/events/search?".concat(Object.keys(params).map(function (key) {
             return "".concat(key, "=").concat(params[key]);
           }).join('&'))).subscribe(function (resp) {
             return Promise.all(resp.map(function (eventID) {
-              return _this20.getEvent(eventID).toPromise();
+              return _this22.getEvent(eventID).toPromise();
             })).then(function (events) {
               return resultSubject.next(events.filter(function (x) {
                 return x;
@@ -3739,12 +3828,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var Token = /*#__PURE__*/function () {
       function Token(token) {
-        var _this21 = this;
+        var _this23 = this;
 
         _classCallCheck(this, Token);
 
         Object.keys(token).forEach(function (key) {
-          return _this21[key] = token[key];
+          return _this23[key] = token[key];
         });
       }
 
