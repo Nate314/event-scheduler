@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
         const hour = new Date().getHours();
         return `Good ${
             hour < 12 ? 'morning'
-            : hour < 6 ? 'afternoon'
+            : hour < 18 ? 'afternoon'
             : 'evening'}`;
     })();
     public username: string = (() => {

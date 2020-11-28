@@ -29,6 +29,7 @@ export class NotesCreateComponent implements OnInit {
         }
     }
     @Output() doneSaving: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() noteValidity: EventEmitter<boolean> = new EventEmitter<boolean>();
     public noteIDs: number[] = [];
     public notesFormControls: FormControl[] = [];
     public noteDateFormControls: FormControl[] = [];
@@ -40,14 +41,33 @@ export class NotesCreateComponent implements OnInit {
 
     public ngOnInit(): void {
         if (this.eventID) {
-            const observable = this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(notes => {
+            this.eventSchedulerService.getNotesForEventID(this.eventID).subscribe(notes => {
                 this.noteIDs = notes.map(note => note.id);
                 this.notesFormControls = notes.map(note => new FormControl(note.description, [Validators.required]));
                 this.noteDateFormControls = notes.map(note => new FormControl(`${note.date}T00:00:00`, [Validators.required]));
                 this.notePinnedFormControls = notes.map(note => new FormControl(note.pinned, [Validators.required]));
-                observable.unsubscribe();
+                this.btnAddNote();
             });
+        } else {
+            this.btnAddNote();
         }
+    }
+
+    private setValidity(): void {
+        const notes = this.noteIDs.map((_, i) => ({
+            date: this.noteDateFormControls[i].value,
+            description: this.notesFormControls[i].value,
+        } as DBNote)).filter(x => x.description.split(' ').filter(v => v).length > 0);
+        this.noteValidity.next(notes.filter(x => !x.date).length === 0)
+    }
+
+    private addListeners(): void {
+        this.notesFormControls.forEach(x => {
+            x.valueChanges.subscribe(() => this.setValidity());
+        });
+        this.noteDateFormControls.forEach(x => {
+            x.valueChanges.subscribe(() => this.setValidity());
+        });
     }
 
     private saveNotes(eventID: number): void {
@@ -58,22 +78,29 @@ export class NotesCreateComponent implements OnInit {
             id: noteID,
             userID: null,
             pinned: this.notePinnedFormControls[i].value,
-        } as DBNote));
-        merge(
-            ...notes.map(note => {
-                return (this.isEditMode && note.id
-                    ? this.eventSchedulerService.putNoteUpdate(note)
-                    : this.eventSchedulerService.postNoteCreate(note)
-                );
-            })
-        ).subscribe(resp => this.doneSaving.next(resp));
+        } as DBNote)).filter(x => x.description.split(' ').filter(v => v).length > 0);
+        if (notes.filter(x => !x.date).length > 0) {
+            console.log(notes);
+            alert('Date must be entered for every note');
+        } else {
+            merge(
+                ...notes.map(note => {
+                    return (this.isEditMode && note.id
+                        ? this.eventSchedulerService.putNoteUpdate(note)
+                        : this.eventSchedulerService.postNoteCreate(note)
+                    );
+                })
+            ).subscribe(resp => this.doneSaving.next(resp));
+        }
     }
 
     public btnAddNote(): void {
+        console.log('adding note');
         this.noteIDs = [null].concat(this.noteIDs);
         this.notesFormControls = [new FormControl('', [Validators.required])].concat(this.notesFormControls);
         this.noteDateFormControls = [new FormControl('', [Validators.required])].concat(this.noteDateFormControls);
         this.notePinnedFormControls = [new FormControl(false, [Validators.required])].concat(this.notePinnedFormControls);
+        this.addListeners();
     }
 
     public btnDeleteNote(index: number): void {

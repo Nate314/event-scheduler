@@ -19,7 +19,7 @@ export class AuthenticationGuard implements CanActivate {
         if (token && !token.isExpired()) {
             return true;
         } else {
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
         }
     }
 }

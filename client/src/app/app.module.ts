@@ -26,6 +26,8 @@ import {
     MatProgressSpinnerModule,
     MatTabsModule,
     MatCheckboxModule,
+    MatMenuModule,
+    MatProgressBarModule,
 } from '@angular/material';
 import {
     EventViewNotesComponent,
@@ -63,6 +65,8 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatCheckboxModule,
+        MatMenuModule,
+        MatProgressBarModule,
         NgxMaterialTimepickerModule,
     ],
     exports: [
@@ -83,6 +87,8 @@ import {
         MatProgressSpinnerModule,
         MatTabsModule,
         MatCheckboxModule,
+        MatMenuModule,
+        MatProgressBarModule,
         NgxMaterialTimepickerModule,
     ],
 })

@@ -14,6 +14,7 @@ export class EventCreateComponent implements OnInit {
     @Input() eventInformation: DBEvent = { id: null } as DBEvent;
     @Input() isEditMode: boolean;
     @Output() onClose: EventEmitter<boolean> = new EventEmitter();
+    public validNotes = true;
     public savingEventID: number;
     public titleFormControl: FormControl = new FormControl('', [Validators.required]);
     public dateFormControl: FormControl = new FormControl('', [Validators.required]);
@@ -24,6 +25,7 @@ export class EventCreateComponent implements OnInit {
         return this.PisFormVisible;
     }
     public set isFormVisible(value: boolean) {
+        console.log(`isFormVisible: ${value}`);
         this.PisFormVisible = value;
         if (value === false) {
             [
@@ -61,17 +63,28 @@ export class EventCreateComponent implements OnInit {
     }
 
     public btnSave(): void {
-        const event = {
-            id: this.isEditMode ? this.eventInformation.id : null,
-            title: this.titleFormControl.value,
-            date: this.dateFormControl.value,
-            time: this.time,
-        } as DBEvent;
-        (this.isEditMode
-            ? this.eventSchedulerService.putEventUpdate(event)
-            : this.eventSchedulerService.postEventCreate(event)
-        ).subscribe(eventID => {
-            this.savingEventID = eventID;
-        });
+        if (this.validNotes) {
+            const event = {
+                id: this.isEditMode ? this.eventInformation.id : null,
+                title: this.titleFormControl.value,
+                date: this.dateFormControl.value,
+                time: this.time,
+            } as DBEvent;
+            (this.isEditMode
+                ? this.eventSchedulerService.putEventUpdate(event)
+                : this.eventSchedulerService.postEventCreate(event)
+            ).subscribe(eventID => {
+                this.savingEventID = eventID;
+            });
+        } else {
+            console.log(this.titleFormControl.valid);
+            console.log(this.dateFormControl.valid);
+            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
+            if (this.titleFormControl.valid && this.dateFormControl.valid) {
+                alert('Date must be entered for every note');
+            } else {
+                alert('Event Date and Title must be entered');
+            }
+        }
     }
 }

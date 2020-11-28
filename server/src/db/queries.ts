@@ -250,16 +250,19 @@ function getSearchParams() {
         },
         (search: Search) => search.minDate || '1600-01-01',
         (search: Search) => search.maxDate || '3000-01-01',
+        (search: Search) => search.onlyIncludePinnedNoteEvents,
     ]
 }
 
 const SELECT_EVENTIDS_WHERE_EVENT_SEARCH = new Query(`
-        SELECT id as eventID
+        SELECT DISTINCT events.id as eventID
         FROM events
-        WHERE userID = ? AND archived = 0
-            AND title LIKE ?
-            AND date >= ?
-            AND date <= ?
+        LEFT OUTER JOIN notes ON events.id = notes.eventID
+        WHERE events.userID = ? AND events.archived = 0
+            AND events.title LIKE ?
+            AND events.date >= ?
+            AND events.date <= ?
+            AND CASE WHEN ? = 1 THEN notes.pinned = 1 ELSE 1 = 1 END
     `,
     getSearchParams()
 );
@@ -271,6 +274,7 @@ const SELECT_EVENTIDS_WHERE_NOTES_SEARCH = new Query(`
             AND description LIKE ?
             AND date >= ?
             AND date <= ?
+            AND CASE WHEN ? = 1 THEN pinned = 1 ELSE 1 = 1 END
     `,
     getSearchParams()
 );

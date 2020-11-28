@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
             this.utilityService.deleteToken();
             this.eventSchedulerService.getUserCount().subscribe(resp => {
                 this.userCount = resp;
+            }, data => {
+                this.userCount = -1;
             });
         }
     }

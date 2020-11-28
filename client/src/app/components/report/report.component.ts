@@ -21,11 +21,12 @@ class YearInfo {
 })
 export class ReportComponent implements OnInit {
 
-    pastEvents: DBEvent[];
-    todayEvents: DBEvent[];
-    futureEvents: DBEvent[];
-    eventsByYear: YearInfo[];
-    monthLabels  = {
+    public loading: boolean;
+    public pastEvents: DBEvent[];
+    public todayEvents: DBEvent[];
+    public futureEvents: DBEvent[];
+    public eventsByYear: YearInfo[];
+    private monthLabels  = {
         '01': 'January',
         '02': 'February',
         '03': 'March',
@@ -48,6 +49,7 @@ export class ReportComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
+        this.loading = true;
         this.eventSchedulerService.getEventIDs().subscribe(events => {
             const today = this.utilityService.formatDateToString(new Date());
             const filterOnToday = (f: (date: string, t: string) => boolean): DBEvent[] =>
@@ -57,7 +59,6 @@ export class ReportComponent implements OnInit {
             this.futureEvents = filterOnToday((date, t) => date > t).reverse();
 
             const eventDates = events.map(x => x.date);
-            console.log(eventDates);
             const eventYears = this.utilityService.distinct(eventDates.map(x => x.split('-')[0]));
             this.eventsByYear = eventYears.map(year => {
                 const thisYearEvents = events.filter(x => x.date.startsWith(year));
@@ -74,6 +75,7 @@ export class ReportComponent implements OnInit {
                     }),
                 };
             });
+            this.loading = false;
         });
     }
 }

@@ -30,7 +30,8 @@ Hello, my name is Nathan Gawith. I am a senior at UMKC and
 graduating in December of 2020. This application was designed
 by me for my CS456 (Human Computer Interaction) course.
 You can check out other web applications I have made at my website
-<a href="https://nathangawith.com/" target="_blank">https://nathangawith.com/</a>`
+<a href="https://nathangawith.com/" target="_blank">https://nathangawith.com/</a>
+or contact me at <a href="mailto:nmg3hw@mail.umkc.edu">nmg3hw@mail.umkc.edu</a>`
             },
             {
                 title: 'Testimonial',

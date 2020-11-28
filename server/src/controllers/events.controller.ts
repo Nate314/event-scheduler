@@ -95,15 +95,18 @@ router.get('/search', async (req, res) => {
         noteDescription,
         noteMinDate,
         noteMaxDate,
+        onlyIncludePinnedNoteEvents,
     } = req.query;
     const eventIDsFromEventSearch =
         await repository.selectEventIDsWhereEventSearch(
             userID, eventTitle.toString(),
-            eventMinDate.toString(), eventMaxDate.toString());
+            eventMinDate.toString(), eventMaxDate.toString(),
+            Number(onlyIncludePinnedNoteEvents));
     const eventIDsFromNotesSearch =
         await repository.selectEventIDsWhereNotesSearch(
             userID, noteDescription.toString(),
-            noteMinDate.toString(), noteMaxDate.toString());
+            noteMinDate.toString(), noteMaxDate.toString(),
+            Number(onlyIncludePinnedNoteEvents));
     res.json(
         distinct(
             eventIDsFromEventSearch.concat(eventIDsFromNotesSearch)

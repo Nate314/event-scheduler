@@ -46,6 +46,7 @@
             [eventID]="eventInformation.id"
             [savingEventID]="savingEventID"
             [isFormVisible]="isFormVisible"
+            (noteValidity)="validNotes = $event"
             (doneSaving)="isFormVisible = false">
         </app-notes-create>
         <br />

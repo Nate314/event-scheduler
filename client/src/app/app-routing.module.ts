@@ -12,18 +12,18 @@ import {
 @Component({ template: '' })
 class NotFoundComponent {
     constructor(router: Router) {
-        router.navigate(['/']);
+        router.navigate(['/home']);
     }
 }
 
 const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'home', component: HomeComponent },
     { path: 'search', component: SearchComponent },
     { path: 'report', component: ReportComponent },
     { path: '**', component: NotFoundComponent }
 ].map(route => {
-    if (route.path !== '') {
+    if (route.path !== 'login') {
         return {
             path: route.path,
             component: route.component,

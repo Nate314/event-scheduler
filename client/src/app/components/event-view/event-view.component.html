@@ -11,6 +11,11 @@
     <ng-container *ngIf="eventInformation && !isEditMode">
         <app-event-view-notes [eventID]="eventInformation.id">
         </app-event-view-notes>
+        <button mat-button color="primary" style="float:right;"
+            (click)="isEditMode = !isEditMode">
+            <mat-icon>add</mat-icon> Note
+        </button>
+        <br />
         <br />
         <mat-action-row>
             <button mat-button color="primary" (click)="isEditMode = !isEditMode">

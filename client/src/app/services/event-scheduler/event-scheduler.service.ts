@@ -107,10 +107,12 @@ export class EventSchedulerService extends BaseService {
     public getSearchEvents(
         eventTitle: string, eventMinDate: string, eventMaxDate: string,
         noteDescription: string, noteMinDate: string, noteMaxDate: string,
+        onlyIncludePinnedNoteEvents: boolean,
         ): Observable<DBEvent[]> {
             const params = {
                 eventTitle, eventMinDate, eventMaxDate,
                 noteDescription, noteMinDate, noteMaxDate,
+                onlyIncludePinnedNoteEvents: onlyIncludePinnedNoteEvents ? 1 : 0,
             };
             const resultSubject = new Subject<DBEvent[]>();
             this.httpGet<number[]>(`/events/search?${

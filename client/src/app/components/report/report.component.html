@@ -1,54 +1,58 @@
-
-<h2 class="text-center">Event Totals Breakdown</h2>
-<mat-card class="mat-elevation-z6 text-center">
-    <div class="row">
-        <div class="col-4"><b>Past Events</b></div>
-        <div class="col-4"><b>Events Today</b></div>
-        <div class="col-4"><b>Future Events</b></div>
-    </div>
-    <div class="row">
-        <div class="col-4">{{ pastEvents.length }}</div>
-        <div class="col-4">{{ todayEvents.length }}</div>
-        <div class="col-4">{{ futureEvents.length }}</div>
-    </div>
-</mat-card>
-
-<br />
-
-<h2 class="text-center">Events by Year</h2>
-<ng-container *ngFor="let year of eventsByYear">
-    <mat-expansion-panel class="mat-elevation-z6">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                There are {{ year.total }} event(s) scheduled in {{ year.label }}
-            </mat-panel-title>
-            <mat-panel-description>
-                <span>{{displayedDate}}</span>
-                <mat-icon>info</mat-icon>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <ng-container *ngFor="let month of year.months">
-            <ng-container *ngIf="month.total !== 0">
-                <mat-expansion-panel class="mat-elevation-z6">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            There are {{ month.total }} event(s) scheduled in {{ month.label }}
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            <span>{{displayedDate}}</span>
-                            <mat-icon>info</mat-icon>
-                        </mat-panel-description>
-                    </mat-expansion-panel-header>
-                    <ng-container *ngFor="let eventID of month.events">
-                        <app-event-view
-                            [eventID]="eventID">
-                        </app-event-view>
-                        <br />
-                    </ng-container>
-                </mat-expansion-panel>
-                <br />
-            </ng-container>
-        </ng-container>
-    </mat-expansion-panel>
+<ng-container *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-container>
+<ng-container *ngIf="!loading">
+    <h2 class="text-center">Event Totals Breakdown</h2>
+    <mat-card class="mat-elevation-z6 text-center">
+        <div class="row">
+            <div class="col-4"><b>Past Events</b></div>
+            <div class="col-4"><b>Events Today</b></div>
+            <div class="col-4"><b>Future Events</b></div>
+        </div>
+        <div class="row">
+            <div class="col-4">{{ pastEvents && pastEvents.length }}</div>
+            <div class="col-4">{{ todayEvents && todayEvents.length }}</div>
+            <div class="col-4">{{ futureEvents && futureEvents.length }}</div>
+        </div>
+    </mat-card>
+    
     <br />
+    
+    <h2 class="text-center">Events by Year</h2>
+    <ng-container *ngFor="let year of eventsByYear">
+        <mat-expansion-panel class="mat-elevation-z6">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    There are {{ year.total }} event(s) scheduled in {{ year.label }}
+                </mat-panel-title>
+                <mat-panel-description>
+                    <span>{{displayedDate}}</span>
+                    <mat-icon>info</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ng-container *ngFor="let month of year.months">
+                <ng-container *ngIf="month.total !== 0">
+                    <mat-expansion-panel class="mat-elevation-z6">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                There are {{ month.total }} event(s) scheduled in {{ month.label }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <span>{{displayedDate}}</span>
+                                <mat-icon>info</mat-icon>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-container *ngFor="let eventID of month.events">
+                            <app-event-view
+                                [eventID]="eventID">
+                            </app-event-view>
+                            <br />
+                        </ng-container>
+                    </mat-expansion-panel>
+                    <br />
+                </ng-container>
+            </ng-container>
+        </mat-expansion-panel>
+        <br />
+    </ng-container>
 </ng-container>

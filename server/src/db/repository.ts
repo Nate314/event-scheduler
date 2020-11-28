@@ -17,6 +17,7 @@ export class Search {
     description: string;
     minDate: string;
     maxDate: string;
+    onlyIncludePinnedNoteEvents: number;
 }
 
 export class Repository {
@@ -137,14 +138,16 @@ export class Repository {
         return this.promisifiedDBTransaction(DELETE_NOTES_WHERE_EVENT_ID, event, event.convertFromAny);
     }
 
-    public selectEventIDsWhereEventSearch(userID: number, description: string, minDate: string, maxDate: string): Promise<number[]> {
-        const params = { userID, description, minDate, maxDate } as Search;
-        return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_EVENT_SEARCH, params, (x: any) => x.eventID);
+    public selectEventIDsWhereEventSearch(userID: number, description: string, minDate: string, maxDate: string,
+            onlyIncludePinnedNoteEvents: number): Promise<number[]> {
+            const params = { userID, description, minDate, maxDate, onlyIncludePinnedNoteEvents } as Search;
+            return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_EVENT_SEARCH, params, (x: any) => x.eventID);
     }
 
-    public selectEventIDsWhereNotesSearch(userID: number, description: string, minDate: string, maxDate: string): Promise<number[]> {
-        const params = { userID, description, minDate, maxDate } as Search;
-        return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_NOTES_SEARCH, params, (x: any) => x.eventID);
+    public selectEventIDsWhereNotesSearch(userID: number, description: string, minDate: string, maxDate: string,
+        onlyIncludePinnedNoteEvents: number): Promise<number[]> {
+            const params = { userID, description, minDate, maxDate, onlyIncludePinnedNoteEvents } as Search;
+            return this.promisifiedDBTransaction(SELECT_EVENTIDS_WHERE_NOTES_SEARCH, params, (x: any) => x.eventID);
     }
 
 }

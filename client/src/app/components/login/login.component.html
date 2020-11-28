@@ -1,10 +1,11 @@
 <br />
-<mat-card class="mat-elevation-z6">
+<mat-card *ngIf="![undefined, -1].includes(userCount)" class="mat-elevation-z6">
     <h1>Event Scheduler</h1>
     <br />
     <mat-form-field>
         <mat-label>Username</mat-label>
-        <input matInput [formControl]="usernameFormControl" placeholder="John.Smith" />
+        <input matInput [formControl]="usernameFormControl" placeholder="John.Smith"
+            (keyup.enter)="btnSubmit()"/>
         <mat-error *ngIf="usernameFormControl.hasError('required')">
             Required
         </mat-error>
@@ -12,7 +13,8 @@
     <br />
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput [formControl]="passwordFormControl" placeholder="••••••••" type="password" />
+        <input matInput [formControl]="passwordFormControl" placeholder="••••••••" type="password"
+            (keyup.enter)="btnSubmit()"/>
         <mat-error *ngIf="passwordFormControl.hasError('required')">
             Required
         </mat-error>
@@ -24,7 +26,8 @@
         <br />
         <mat-form-field>
             <mat-label>Confirm Password</mat-label>
-            <input matInput [formControl]="confirmPasswordFormControl" placeholder="••••••••" type="password" />
+            <input matInput [formControl]="confirmPasswordFormControl" placeholder="••••••••" type="password"
+                (keyup.enter)="btnSubmit()"/>
             <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
                 Required
             </mat-error>
@@ -44,6 +47,16 @@
 
 <br />
 
-<div *ngIf="userCount">
+<mat-card *ngIf="userCount === undefined" class="text-center" style="width:132px;">
+    <mat-spinner></mat-spinner>
+</mat-card>
+
+<div *ngIf="userCount > -1">
     Now with {{ userCount }} users!
 </div>
+
+<mat-card *ngIf="userCount === -1" class="mat-elevation-z6">
+    The event scheduler service seems to be offline. Please contact
+    <a href="mailto:nmg3hw@mail.umkc.edu">nmg3hw@mail.umkc.edu</a>
+    to get it up and running.
+</mat-card>

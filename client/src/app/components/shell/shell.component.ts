@@ -36,7 +36,7 @@ export class ShellComponent implements OnInit {
             icon: 'exit_to_app',
             func: (() => {
                 this.utilityService.deleteToken();
-                this.router.navigate(['/']);
+                this.router.navigate(['/login']);
             }).bind(this)
         },
     ];
@@ -56,8 +56,7 @@ export class ShellComponent implements OnInit {
     }
 
     public isOnLogin(): boolean {
-        const result = this.router.url === '/';
-        return result;
+        return this.router.url === '/login';
     }
 
     public btnSidenav(value): void {
