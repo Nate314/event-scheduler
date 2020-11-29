@@ -19,6 +19,7 @@
 - Name
 - Phone
 - Email
+  - Mailchimp checkbox on email
 - Notes
 
 ### Multiple Files per event

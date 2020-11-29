@@ -37,13 +37,14 @@ export class SearchComponent implements OnInit {
     }
 
     public getSeachParameters(): any {
+        console.log(this.eventMaxDateFormControl.value);
         return {
             eventTitle: this.eventTitleFormControl.value,
-            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)),
-            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)),
+            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value || 'Invalid Date')),
+            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value || 'Invalid Date')),
             notesDescription: this.noteDescriptionFormControl.value,
-            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)),
-            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value)),
+            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value || 'Invalid Date')),
+            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value || 'Invalid Date')),
             onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value,
         };
     }
