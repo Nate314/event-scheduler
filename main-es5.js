@@ -1538,7 +1538,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, {
             title: 'Testimonial',
             image: 'https://pbs.twimg.com/profile_images/857430767068004352/DshBij_v_400x400.jpg',
-            text: "\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam incidunt id vel!\nEnim impedit fugit culpa esse, eveniet et soluta, iusto repellendus delectus dolor\nexercitationem non recusandae. Veniam, praesentium autem?\n<a href=\"http://thepicandbow.com/\" target=\"_blank\">http://thepicandbow.com/</a>"
+            text: "\nHello, my name is Michelle Gawith. This program has helped me to streamline\ntwo documents into one application. The data is organized cleanly and easy to\nsearch through. Instead of searching a messy, 225-plus page document (as well\nas a second document), it's all right here. Thanks!\n<a href=\"http://thepicandbow.com/\" target=\"_blank\">http://thepicandbow.com/</a>"
           }];
         }
       }]);
@@ -2957,13 +2957,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSeachParameters",
         value: function getSeachParameters() {
+          console.log(this.eventMaxDateFormControl.value);
           return {
             eventTitle: this.eventTitleFormControl.value,
-            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value)),
-            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value)),
+            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value || 'Invalid Date')),
+            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value || 'Invalid Date')),
             notesDescription: this.noteDescriptionFormControl.value,
-            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value)),
-            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value)),
+            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value || 'Invalid Date')),
+            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value || 'Invalid Date')),
             onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value
           };
         }
