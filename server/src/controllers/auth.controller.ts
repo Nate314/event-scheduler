@@ -10,7 +10,6 @@ const router = express.Router();
 const repository = new Repository();
 
 const getEncryptedPassword = (plaintextPassword: string) => {
-    console.log('asdf');
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
     const hash = bcrypt.hashSync(plaintextPassword, salt);

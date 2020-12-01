@@ -32,27 +32,27 @@ export class SearchComponent implements OnInit {
         const year = now.year;
         const month = now.month;
         const day = now.date;
-        this.eventMinDateFormControl.setValue(new Date(`${year}-01-01`));
-        this.eventMaxDateFormControl.setValue(new Date(`${year}-${month}-${day}`));
+        this.eventMinDateFormControl.setValue(`${year}-01-01T00:00:00`);
+        this.eventMaxDateFormControl.setValue(`${year}-${month}-${day}T00:00:00`);
     }
 
     public getSeachParameters(): any {
-        console.log(this.eventMaxDateFormControl.value);
+        const dateOrEmpty = value => value ? this.utilityService.formatMomentToString(moment(value)) : '';
         return {
             eventTitle: this.eventTitleFormControl.value,
-            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value || 'Invalid Date')),
-            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value || 'Invalid Date')),
+            eventMinDate: dateOrEmpty(this.eventMinDateFormControl.value),
+            eventMaxDate: dateOrEmpty(this.eventMaxDateFormControl.value),
             notesDescription: this.noteDescriptionFormControl.value,
-            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value || 'Invalid Date')),
-            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value || 'Invalid Date')),
+            notesMinDate: dateOrEmpty(this.noteMinDateFormControl.value),
+            notesMaxDate: dateOrEmpty(this.noteMaxDateFormControl.value),
             onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value,
         };
     }
 
     public btnSearch(): void {
         this.searchParams = this.getSeachParameters();
-        console.log(this.searchParams);
         this.searchBtnDisabled = true;
+        console.log(this.searchParams);
         this.eventSchedulerService.getSearchEvents(
             this.searchParams.eventTitle,
             this.searchParams.eventMinDate,

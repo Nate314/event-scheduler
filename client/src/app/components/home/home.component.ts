@@ -2,6 +2,7 @@ import { EventSchedulerService } from 'src/app/services/event-scheduler/event-sc
 import { UtilityService } from 'src/app/services/utility/utility.service';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
     public todayEvents: { events: DBEvent[], label: string };
     public futureEvents: { events: DBEvent[], label: string };
     public greeting: string = (() => {
-        const hour = new Date().getHours();
+        const hour = moment().hours();
         return `Good ${
             hour < 12 ? 'morning'
             : hour < 18 ? 'afternoon'
@@ -34,9 +35,9 @@ export class HomeComponent implements OnInit {
     public ngOnInit(): void {
         this.eventSchedulerService.getApiInformation().subscribe(x => this.about = x);
         this.eventSchedulerService.getEventIDs().subscribe(resp => {
-            const today = this.utilityService.formatDateToString(new Date());
+            const today = this.utilityService.formatMomentToString(null).split(' ')[0];
             const filterOnToday = (f: (date: string, t: string) => boolean): DBEvent[] =>
-                resp.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+                resp.filter(x => f(x.date.split(' ')[0], today));
             this.pastEvents = { events: filterOnToday((date, t) => date < t), label: 'past' };
             this.todayEvents = { events: filterOnToday((date, t) => date === t), label: 'today' };
             this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse(), label: 'future' };

@@ -1,4 +1,4 @@
-<ng-container *ngIf="!isFormVisible && !isEditMode">
+<div [hidden]="!(!isFormVisible && !isEditMode)">
     <div class="text-center">
         <button mat-raised-button color="primary" style="width:150px;"
             (click)="btnAddEvent()">
@@ -7,8 +7,8 @@
         </button>
     </div>
     <br />
-</ng-container>
-<ng-container *ngIf="isFormVisible || isEditMode">
+</div>
+<div [hidden]="!(isFormVisible || isEditMode)">
     <mat-card class="mat-elevation-z6">
         <div>
             <span>Event Num: </span>
@@ -63,4 +63,4 @@
             </div>
         </mat-card-actions>
     </mat-card>
-</ng-container>
+</div>

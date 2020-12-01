@@ -1,5 +1,6 @@
 import { Inject } from '@angular/core';
 import jwt_decode from 'jwt-decode';
+import * as moment from 'moment';
 
 class Token {
     userID: number;
@@ -63,21 +64,21 @@ export class UtilityService {
         }
     }
 
-    public formatDateToString(date: Date, time?: string): string {
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1; // Month from 0 to 11
-        const day = date.getDate();
-        const result = `${
-            `${
-                year
-            }-${
-                padWithZero(month)
-            }-${
-                padWithZero(day)
-            }`
-        }${
-            time ? ' ' + this.formatTimeToString(time) : ''
-        }`;
-        return result === 'NaN-NaN-NaN' ? '' : result;
+    /**
+     * @param pDate date to format - pass null to get now
+     * @param pTime time to format
+     */
+    public formatMomentToString(pDate: moment.Moment, pTime?: string): string {
+        if (pDate !== undefined) {
+            const temp = (pDate === null
+                    ? moment()
+                    : pDate.utc().add(pDate.utcOffset(), 'm')
+                ).format('YYYY-MM-DDTHH:mm:ss');
+            const date = temp.split('T')[0];
+            const result = `${date}${pTime ? ' ' + this.formatTimeToString(pTime) : ''}`
+            return result === 'Invalid date' ? '' : result;
+        } else {
+            return '';
+        }
     }
 }

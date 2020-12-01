@@ -25,7 +25,6 @@ export class EventCreateComponent implements OnInit {
         return this.PisFormVisible;
     }
     public set isFormVisible(value: boolean) {
-        console.log(`isFormVisible: ${value}`);
         this.PisFormVisible = value;
         if (value === false) {
             [
@@ -43,8 +42,11 @@ export class EventCreateComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
+        if (!this.eventInformation || !this.eventInformation.id) {
+            return;
+        }
         this.titleFormControl = new FormControl(this.eventInformation.title, [Validators.required]);
-        this.dateFormControl = new FormControl(`${this.eventInformation.date}T00:00:00`, [Validators.required]);
+        this.dateFormControl = new FormControl(`${this.eventInformation.date.split(' ')[0]}T00:00:00`, [Validators.required]);
         if (this.isEditMode) {
             this.time = this.utilityService.formatTimeToString(this.eventInformation.time);
             this.eventNum = this.eventInformation.num;
@@ -63,27 +65,32 @@ export class EventCreateComponent implements OnInit {
     }
 
     public btnSave(): void {
-        if (this.validNotes) {
-            const event = {
-                id: this.isEditMode ? this.eventInformation.id : null,
-                title: this.titleFormControl.value,
-                date: this.dateFormControl.value,
-                time: this.time,
-            } as DBEvent;
-            (this.isEditMode
-                ? this.eventSchedulerService.putEventUpdate(event)
-                : this.eventSchedulerService.postEventCreate(event)
-            ).subscribe(eventID => {
-                this.savingEventID = eventID;
-            });
-        } else {
-            console.log(this.titleFormControl.valid);
-            console.log(this.dateFormControl.valid);
-            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
-            if (this.titleFormControl.valid && this.dateFormControl.valid) {
-                alert('Date must be entered for every note');
+        const alertIfNotValid = () => {
+            if (this.titleFormControl.valid && this.dateFormControl.valid && this.dateFormControl.value) {
+                return true;
             } else {
                 alert('Event Date and Title must be entered');
+                return false;
+            }
+        };
+        if (this.validNotes) {
+            if (alertIfNotValid()) {
+                const event = {
+                    id: this.isEditMode ? this.eventInformation.id : null,
+                    title: this.titleFormControl.value,
+                    date: this.dateFormControl.value,
+                    time: this.time,
+                } as DBEvent;
+                (this.isEditMode
+                    ? this.eventSchedulerService.putEventUpdate(event)
+                    : this.eventSchedulerService.postEventCreate(event)
+                ).subscribe(eventID => {
+                    this.savingEventID = eventID;
+                });
+            }
+        } else {
+            if (alertIfNotValid()) {
+                alert('Date must be entered for every note');
             }
         }
     }

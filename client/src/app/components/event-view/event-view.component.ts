@@ -2,6 +2,7 @@ import { EventSchedulerService } from 'src/app/services/event-scheduler/event-sc
 import { UtilityService } from 'src/app/services/utility/utility.service';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, Input, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-event-view',
@@ -23,8 +24,8 @@ export class EventViewComponent implements OnInit {
 
     public ngOnInit(): void {
         this.displayedTitle = this.eventID.title;
-        this.displayedDate = this.utilityService.formatDateToString(
-            new Date(`${this.eventID.date}T${this.eventID.time}`),
+        this.displayedDate = this.utilityService.formatMomentToString(
+            moment(this.eventID.date),
             this.eventID.time);
     }
 

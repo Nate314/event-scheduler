@@ -1,6 +1,7 @@
 import { EventSchedulerService, UtilityService } from 'src/app/services';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 class MonthInfo {
     label: string;
@@ -51,9 +52,9 @@ export class ReportComponent implements OnInit {
     public ngOnInit(): void {
         this.loading = true;
         this.eventSchedulerService.getEventIDs().subscribe(events => {
-            const today = this.utilityService.formatDateToString(new Date());
+            const today = this.utilityService.formatMomentToString(null).split(' ')[0];
             const filterOnToday = (f: (date: string, t: string) => boolean): DBEvent[] =>
-                events.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+                events.filter(x => f(this.utilityService.formatMomentToString(moment(x.date)).split(' ')[0], today));
             this.pastEvents = filterOnToday((date, t) => date < t);
             this.todayEvents = filterOnToday((date, t) => date === t);
             this.futureEvents = filterOnToday((date, t) => date > t).reverse();

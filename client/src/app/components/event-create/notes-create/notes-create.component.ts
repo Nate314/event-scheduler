@@ -80,22 +80,24 @@ export class NotesCreateComponent implements OnInit {
             pinned: this.notePinnedFormControls[i].value,
         } as DBNote)).filter(x => x.description.split(' ').filter(v => v).length > 0);
         if (notes.filter(x => !x.date).length > 0) {
-            console.log(notes);
             alert('Date must be entered for every note');
         } else {
-            merge(
-                ...notes.map(note => {
-                    return (this.isEditMode && note.id
-                        ? this.eventSchedulerService.putNoteUpdate(note)
-                        : this.eventSchedulerService.postNoteCreate(note)
-                    );
-                })
-            ).subscribe(resp => this.doneSaving.next(resp));
+            if (notes.length) {
+                merge(
+                    ...notes.map(note => {
+                        return (this.isEditMode && note.id
+                            ? this.eventSchedulerService.putNoteUpdate(note)
+                            : this.eventSchedulerService.postNoteCreate(note)
+                        );
+                    })
+                ).subscribe(resp => this.doneSaving.next(resp));
+            } else {
+                this.doneSaving.next(true);
+            }
         }
     }
 
     public btnAddNote(): void {
-        console.log('adding note');
         this.noteIDs = [null].concat(this.noteIDs);
         this.notesFormControls = [new FormControl('', [Validators.required])].concat(this.notesFormControls);
         this.noteDateFormControls = [new FormControl('', [Validators.required])].concat(this.noteDateFormControls);

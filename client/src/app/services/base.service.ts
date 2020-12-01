@@ -2,7 +2,7 @@ import { UtilityService } from './utility/utility.service';
 import { HttpClient } from '@angular/common/http';
 import { map, delay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
+import * as moment from 'moment';
 export class BaseService {
 
     private API_URL = 'http://pi.nathangawith.com:4300/api/v1';
@@ -19,7 +19,7 @@ export class BaseService {
     private mapDates<T>(obj: T): T {
         const replaceDate = x => {
             if (x.date) {
-                x.date = this.utilityService.formatDateToString(new Date(x.date));
+                x.date = this.utilityService.formatMomentToString(moment(x.date));
             }
             return x;
         };
