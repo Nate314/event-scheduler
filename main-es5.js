@@ -405,7 +405,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n";
+    __webpack_exports__["default"] = "<div [hidden]=\"!(!isFormVisible && !isEditMode)\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</div>\r\n<div [hidden]=\"!(isFormVisible || isEditMode)\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</div>\r\n";
     /***/
   },
 
@@ -1642,8 +1642,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(EventCreateComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          if (!this.eventInformation || !this.eventInformation.id) {
+            return;
+          }
+
           this.titleFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.eventInformation.title, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
-          this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]("".concat(this.eventInformation.date, "T00:00:00"), [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
+          this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]("".concat(this.eventInformation.date.split(' ')[0], "T00:00:00"), [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
 
           if (this.isEditMode) {
             this.time = this.utilityService.formatTimeToString(this.eventInformation.time);
@@ -1670,25 +1674,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function btnSave() {
           var _this2 = this;
 
-          if (this.validNotes) {
-            var event = {
-              id: this.isEditMode ? this.eventInformation.id : null,
-              title: this.titleFormControl.value,
-              date: this.dateFormControl.value,
-              time: this.time
-            };
-            (this.isEditMode ? this.eventSchedulerService.putEventUpdate(event) : this.eventSchedulerService.postEventCreate(event)).subscribe(function (eventID) {
-              _this2.savingEventID = eventID;
-            });
-          } else {
-            console.log(this.titleFormControl.valid);
-            console.log(this.dateFormControl.valid);
-            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
-
-            if (this.titleFormControl.valid && this.dateFormControl.valid) {
-              alert('Date must be entered for every note');
+          var alertIfNotValid = function alertIfNotValid() {
+            if (_this2.titleFormControl.valid && _this2.dateFormControl.valid && _this2.dateFormControl.value) {
+              return true;
             } else {
               alert('Event Date and Title must be entered');
+              return false;
+            }
+          };
+
+          if (this.validNotes) {
+            if (alertIfNotValid()) {
+              var event = {
+                id: this.isEditMode ? this.eventInformation.id : null,
+                title: this.titleFormControl.value,
+                date: this.dateFormControl.value,
+                time: this.time
+              };
+              (this.isEditMode ? this.eventSchedulerService.putEventUpdate(event) : this.eventSchedulerService.postEventCreate(event)).subscribe(function (eventID) {
+                _this2.savingEventID = eventID;
+              });
+            }
+          } else {
+            if (alertIfNotValid()) {
+              alert('Date must be entered for every note');
             }
           }
         }
@@ -1698,7 +1707,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.PisFormVisible;
         },
         set: function set(value) {
-          console.log("isFormVisible: ".concat(value));
           this.PisFormVisible = value;
 
           if (value === false) {
@@ -1903,20 +1911,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (notes.filter(function (x) {
             return !x.date;
           }).length > 0) {
-            console.log(notes);
             alert('Date must be entered for every note');
           } else {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"]).apply(void 0, _toConsumableArray(notes.map(function (note) {
-              return _this6.isEditMode && note.id ? _this6.eventSchedulerService.putNoteUpdate(note) : _this6.eventSchedulerService.postNoteCreate(note);
-            }))).subscribe(function (resp) {
-              return _this6.doneSaving.next(resp);
-            });
+            if (notes.length) {
+              Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"]).apply(void 0, _toConsumableArray(notes.map(function (note) {
+                return _this6.isEditMode && note.id ? _this6.eventSchedulerService.putNoteUpdate(note) : _this6.eventSchedulerService.postNoteCreate(note);
+              }))).subscribe(function (resp) {
+                return _this6.doneSaving.next(resp);
+              });
+            } else {
+              this.doneSaving.next(true);
+            }
           }
         }
       }, {
         key: "btnAddNote",
         value: function btnAddNote() {
-          console.log('adding note');
           this.noteIDs = [null].concat(this.noteIDs);
           this.notesFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notesFormControls);
           this.noteDateFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.noteDateFormControls);
@@ -2157,6 +2167,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 
     var EventViewComponent = /*#__PURE__*/function () {
       function EventViewComponent(eventSchedulerService, utilityService) {
@@ -2170,7 +2190,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {
           this.displayedTitle = this.eventID.title;
-          this.displayedDate = this.utilityService.formatDateToString(new Date("".concat(this.eventID.date, "T").concat(this.eventID.time)), this.eventID.time);
+          this.displayedDate = this.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_4__(this.eventID.date), this.eventID.time);
         }
       }, {
         key: "btnExpand",
@@ -2278,6 +2298,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 
     var HomeComponent = /*#__PURE__*/function () {
       function HomeComponent(eventSchedulerService, utilityService) {
@@ -2289,7 +2319,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.utilityService = utilityService;
 
         this.greeting = function () {
-          var hour = new Date().getHours();
+          var hour = moment__WEBPACK_IMPORTED_MODULE_4__().hours();
           return "Good ".concat(hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening');
         }();
 
@@ -2307,11 +2337,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return _this10.about = x;
           });
           this.eventSchedulerService.getEventIDs().subscribe(function (resp) {
-            var today = _this10.utilityService.formatDateToString(new Date());
+            var today = _this10.utilityService.formatMomentToString(null).split(' ')[0];
 
             var filterOnToday = function filterOnToday(f) {
               return resp.filter(function (x) {
-                return f(_this10.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
+                return f(x.date.split(' ')[0], today);
               });
             };
 
@@ -2744,6 +2774,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 
     var MonthInfo = function MonthInfo() {
       _classCallCheck(this, MonthInfo);
@@ -2783,11 +2823,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.loading = true;
           this.eventSchedulerService.getEventIDs().subscribe(function (events) {
-            var today = _this13.utilityService.formatDateToString(new Date());
+            var today = _this13.utilityService.formatMomentToString(null).split(' ')[0];
 
             var filterOnToday = function filterOnToday(f) {
               return events.filter(function (x) {
-                return f(_this13.utilityService.formatDateToString(new Date("".concat(x.date, "T00:00:00"))), today);
+                return f(_this13.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_3__(x.date)).split(' ')[0], today);
               });
             };
 
@@ -2951,34 +2991,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var year = now.year;
           var month = now.month;
           var day = now.date;
-          this.eventMinDateFormControl.setValue(new Date("".concat(year, "-01-01")));
-          this.eventMaxDateFormControl.setValue(new Date("".concat(year, "-").concat(month, "-").concat(day)));
+          this.eventMinDateFormControl.setValue("".concat(year, "-01-01T00:00:00"));
+          this.eventMaxDateFormControl.setValue("".concat(year, "-").concat(month, "-").concat(day, "T00:00:00"));
         }
       }, {
         key: "getSeachParameters",
         value: function getSeachParameters() {
-          console.log(this.eventMaxDateFormControl.value);
+          var _this14 = this;
+
+          var dateOrEmpty = function dateOrEmpty(value) {
+            return value ? _this14.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_4__(value)) : '';
+          };
+
           return {
             eventTitle: this.eventTitleFormControl.value,
-            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value || 'Invalid Date')),
-            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value || 'Invalid Date')),
+            eventMinDate: dateOrEmpty(this.eventMinDateFormControl.value),
+            eventMaxDate: dateOrEmpty(this.eventMaxDateFormControl.value),
             notesDescription: this.noteDescriptionFormControl.value,
-            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value || 'Invalid Date')),
-            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value || 'Invalid Date')),
+            notesMinDate: dateOrEmpty(this.noteMinDateFormControl.value),
+            notesMaxDate: dateOrEmpty(this.noteMaxDateFormControl.value),
             onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value
           };
         }
       }, {
         key: "btnSearch",
         value: function btnSearch() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.searchParams = this.getSeachParameters();
-          console.log(this.searchParams);
           this.searchBtnDisabled = true;
+          console.log(this.searchParams);
           this.eventSchedulerService.getSearchEvents(this.searchParams.eventTitle, this.searchParams.eventMinDate, this.searchParams.eventMaxDate, this.searchParams.notesDescription, this.searchParams.notesMinDate, this.searchParams.notesMaxDate, this.searchParams.onlyIncludePinnedNoteEvents).subscribe(function (resp) {
-            _this14.searchBtnDisabled = false;
-            _this14.searchResults = resp;
+            _this15.searchBtnDisabled = false;
+            _this15.searchResults = resp;
           });
         }
       }]);
@@ -3072,7 +3117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ShellComponent = /*#__PURE__*/function () {
       function ShellComponent(utilityService, router) {
-        var _this15 = this;
+        var _this16 = this;
 
         _classCallCheck(this, ShellComponent);
 
@@ -3082,27 +3127,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           label: 'Home',
           icon: 'home',
           func: function () {
-            _this15.router.navigate(['/home']);
+            _this16.router.navigate(['/home']);
           }.bind(this)
         }, {
           label: 'Search',
           icon: 'search',
           func: function () {
-            _this15.router.navigate(['/search']);
+            _this16.router.navigate(['/search']);
           }.bind(this)
         }, {
           label: 'Reports',
           icon: 'assignment',
           func: function () {
-            _this15.router.navigate(['/report']);
+            _this16.router.navigate(['/report']);
           }.bind(this)
         }, {
           label: 'Sign out',
           icon: 'exit_to_app',
           func: function () {
-            _this15.utilityService.deleteToken();
+            _this16.utilityService.deleteToken();
 
-            _this15.router.navigate(['/login']);
+            _this16.router.navigate(['/login']);
           }.bind(this)
         }];
         this.sidenavLinks = [{
@@ -3366,7 +3411,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ErrorInterceptor, [{
         key: "intercept",
         value: function intercept(request, next) {
-          var _this16 = this;
+          var _this17 = this;
 
           return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
             var errorMsg = '';
@@ -3378,7 +3423,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.error('this is server side error');
               errorMsg = "Error Code: ".concat(error.status, ",  Message: ").concat(error.message);
 
-              _this16.snackBar.open(errorMsg, '', {
+              _this17.snackBar.open(errorMsg, '', {
                 duration: 5000
               });
             }
@@ -3433,6 +3478,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 
     var BaseService = /*#__PURE__*/function () {
       function BaseService(http, utilityService) {
@@ -3451,11 +3506,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mapDates",
         value: function mapDates(obj) {
-          var _this17 = this;
+          var _this18 = this;
 
           var replaceDate = function replaceDate(x) {
             if (x.date) {
-              x.date = _this17.utilityService.formatDateToString(new Date(x.date));
+              x.date = _this18.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_2__(x.date));
             }
 
             return x;
@@ -3478,10 +3533,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pipe",
         value: function pipe(observable) {
-          var _this18 = this;
+          var _this19 = this;
 
           return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (resp) {
-            return _this18.mapDates(resp);
+            return _this19.mapDates(resp);
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(0));
         }
       }, {
@@ -3582,13 +3637,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var _super = _createSuper(EventSchedulerService);
 
       function EventSchedulerService(http, utilityService) {
-        var _this19;
+        var _this20;
 
         _classCallCheck(this, EventSchedulerService);
 
-        _this19 = _super.call(this, http, utilityService);
-        _this19.eventIDs$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
-        return _this19;
+        _this20 = _super.call(this, http, utilityService);
+        _this20.eventIDs$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        return _this20;
       }
 
       _createClass(EventSchedulerService, [{
@@ -3622,11 +3677,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pipeUpdateEventList",
         value: function pipeUpdateEventList(observable) {
-          var _this20 = this;
+          var _this21 = this;
 
           return observable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["tap"])(function (x) {
             if (x) {
-              _this20.getEventIDs().subscribe();
+              _this21.getEventIDs().subscribe();
             }
           }));
         }
@@ -3645,14 +3700,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getEventIDs",
         value: function getEventIDs() {
-          var _this21 = this;
+          var _this22 = this;
 
           this.httpGet("/events").subscribe(function (resp) {
-            _this21.nextEventNum = Math.max.apply(Math, _toConsumableArray(resp.map(function (x) {
+            _this22.nextEventNum = Math.max.apply(Math, _toConsumableArray(resp.map(function (x) {
               return x.num;
             }))) + 1;
 
-            _this21.eventIDs$.next(resp);
+            _this22.eventIDs$.next(resp);
           });
           return this.eventIDs$.asObservable();
         }
@@ -3696,7 +3751,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getSearchEvents",
         value: function getSearchEvents(eventTitle, eventMinDate, eventMaxDate, noteDescription, noteMinDate, noteMaxDate, onlyIncludePinnedNoteEvents) {
-          var _this22 = this;
+          var _this23 = this;
 
           var params = {
             eventTitle: eventTitle,
@@ -3712,7 +3767,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return "".concat(key, "=").concat(params[key]);
           }).join('&'))).subscribe(function (resp) {
             return Promise.all(resp.map(function (eventID) {
-              return _this22.getEvent(eventID).toPromise();
+              return _this23.getEvent(eventID).toPromise();
             })).then(function (events) {
               return resultSubject.next(events.filter(function (x) {
                 return x;
@@ -3826,15 +3881,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! jwt-decode */
     "./node_modules/jwt-decode/build/jwt-decode.esm.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 
     var Token = /*#__PURE__*/function () {
       function Token(token) {
-        var _this23 = this;
+        var _this24 = this;
 
         _classCallCheck(this, Token);
 
         Object.keys(token).forEach(function (key) {
-          return _this23[key] = token[key];
+          return _this24[key] = token[key];
         });
       }
 
@@ -3897,15 +3962,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return '12:00 AM';
           }
         }
-      }, {
-        key: "formatDateToString",
-        value: function formatDateToString(date, time) {
-          var year = date.getFullYear();
-          var month = date.getMonth() + 1; // Month from 0 to 11
+        /**
+         * @param pDate date to format - pass null to get now
+         * @param pTime time to format
+         */
 
-          var day = date.getDate();
-          var result = "".concat("".concat(year, "-").concat(padWithZero(month), "-").concat(padWithZero(day)), time ? ' ' + this.formatTimeToString(time) : '');
-          return result === 'NaN-NaN-NaN' ? '' : result;
+      }, {
+        key: "formatMomentToString",
+        value: function formatMomentToString(pDate, pTime) {
+          if (pDate !== undefined) {
+            var temp = (pDate === null ? moment__WEBPACK_IMPORTED_MODULE_3__() : pDate.utc().add(pDate.utcOffset(), 'm')).format('YYYY-MM-DDTHH:mm:ss');
+            var date = temp.split('T')[0];
+            var result = "".concat(date).concat(pTime ? ' ' + this.formatTimeToString(pTime) : '');
+            return result === 'Invalid date' ? '' : result;
+          } else {
+            return '';
+          }
         }
       }]);
 

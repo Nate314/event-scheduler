@@ -347,7 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng-container *ngIf=\"!isFormVisible && !isEditMode\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</ng-container>\r\n<ng-container *ngIf=\"isFormVisible || isEditMode\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</ng-container>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div [hidden]=\"!(!isFormVisible && !isEditMode)\">\r\n    <div class=\"text-center\">\r\n        <button mat-raised-button color=\"primary\" style=\"width:150px;\"\r\n            (click)=\"btnAddEvent()\">\r\n            <mat-icon>add</mat-icon>\r\n            <span>&nbsp;Add Event</span>\r\n        </button>\r\n    </div>\r\n    <br />\r\n</div>\r\n<div [hidden]=\"!(isFormVisible || isEditMode)\">\r\n    <mat-card class=\"mat-elevation-z6\">\r\n        <div>\r\n            <span>Event Num: </span>\r\n            <span>{{eventNum}}</span>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12\">\r\n                <mat-form-field>\r\n                    <mat-label>Title</mat-label>\r\n                    <input matInput [formControl]=\"titleFormControl\" placeholder=\"Event Title\" />\r\n                    <mat-error *ngIf=\"titleFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <mat-form-field>\r\n                    <mat-label>Follow up Date</mat-label>\r\n                    <input matInput [matDatepicker]=\"datePicker\" [formControl]=\"dateFormControl\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"datePicker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #datePicker></mat-datepicker>\r\n                    <mat-error *ngIf=\"dateFormControl.hasError('required')\">\r\n                        Required\r\n                    </mat-error>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6\">\r\n                <div class=\"py-3\">\r\n                    <ngx-timepicker-field [defaultTime]=\"time\" (timeChanged)=\"setTime($event)\"></ngx-timepicker-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <app-notes-create\r\n            [isEditMode]=\"isEditMode\"\r\n            [eventID]=\"eventInformation.id\"\r\n            [savingEventID]=\"savingEventID\"\r\n            [isFormVisible]=\"isFormVisible\"\r\n            (noteValidity)=\"validNotes = $event\"\r\n            (doneSaving)=\"isFormVisible = false\">\r\n        </app-notes-create>\r\n        <br />\r\n        <mat-card-actions>\r\n            <div class=\"text-right\">\r\n                <button mat-button color=\"warn\" (click)=\"isFormVisible = false\">\r\n                    <mat-icon>close</mat-icon>\r\n                    <span>&nbsp;Close Event</span>\r\n                </button>\r\n                <button mat-button color=\"primary\" (click)=\"btnSave()\">\r\n                    <mat-icon>save</mat-icon>\r\n                    <span>&nbsp;Save Event</span>\r\n                </button>\r\n            </div>\r\n        </mat-card-actions>\r\n    </mat-card>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1073,7 +1073,6 @@ let EventCreateComponent = class EventCreateComponent {
         return this.PisFormVisible;
     }
     set isFormVisible(value) {
-        console.log(`isFormVisible: ${value}`);
         this.PisFormVisible = value;
         if (value === false) {
             [
@@ -1085,8 +1084,11 @@ let EventCreateComponent = class EventCreateComponent {
         }
     }
     ngOnInit() {
+        if (!this.eventInformation || !this.eventInformation.id) {
+            return;
+        }
         this.titleFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.eventInformation.title, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
-        this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](`${this.eventInformation.date}T00:00:00`, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
+        this.dateFormControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](`${this.eventInformation.date.split(' ')[0]}T00:00:00`, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]);
         if (this.isEditMode) {
             this.time = this.utilityService.formatTimeToString(this.eventInformation.time);
             this.eventNum = this.eventInformation.num;
@@ -1102,28 +1104,33 @@ let EventCreateComponent = class EventCreateComponent {
         this.time = $event;
     }
     btnSave() {
-        if (this.validNotes) {
-            const event = {
-                id: this.isEditMode ? this.eventInformation.id : null,
-                title: this.titleFormControl.value,
-                date: this.dateFormControl.value,
-                time: this.time,
-            };
-            (this.isEditMode
-                ? this.eventSchedulerService.putEventUpdate(event)
-                : this.eventSchedulerService.postEventCreate(event)).subscribe(eventID => {
-                this.savingEventID = eventID;
-            });
-        }
-        else {
-            console.log(this.titleFormControl.valid);
-            console.log(this.dateFormControl.valid);
-            console.log(this.titleFormControl.valid && this.dateFormControl.valid);
-            if (this.titleFormControl.valid && this.dateFormControl.valid) {
-                alert('Date must be entered for every note');
+        const alertIfNotValid = () => {
+            if (this.titleFormControl.valid && this.dateFormControl.valid && this.dateFormControl.value) {
+                return true;
             }
             else {
                 alert('Event Date and Title must be entered');
+                return false;
+            }
+        };
+        if (this.validNotes) {
+            if (alertIfNotValid()) {
+                const event = {
+                    id: this.isEditMode ? this.eventInformation.id : null,
+                    title: this.titleFormControl.value,
+                    date: this.dateFormControl.value,
+                    time: this.time,
+                };
+                (this.isEditMode
+                    ? this.eventSchedulerService.putEventUpdate(event)
+                    : this.eventSchedulerService.postEventCreate(event)).subscribe(eventID => {
+                    this.savingEventID = eventID;
+                });
+            }
+        }
+        else {
+            if (alertIfNotValid()) {
+                alert('Date must be entered for every note');
             }
         }
     }
@@ -1248,19 +1255,22 @@ let NotesCreateComponent = class NotesCreateComponent {
             pinned: this.notePinnedFormControls[i].value,
         })).filter(x => x.description.split(' ').filter(v => v).length > 0);
         if (notes.filter(x => !x.date).length > 0) {
-            console.log(notes);
             alert('Date must be entered for every note');
         }
         else {
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"])(...notes.map(note => {
-                return (this.isEditMode && note.id
-                    ? this.eventSchedulerService.putNoteUpdate(note)
-                    : this.eventSchedulerService.postNoteCreate(note));
-            })).subscribe(resp => this.doneSaving.next(resp));
+            if (notes.length) {
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["merge"])(...notes.map(note => {
+                    return (this.isEditMode && note.id
+                        ? this.eventSchedulerService.putNoteUpdate(note)
+                        : this.eventSchedulerService.postNoteCreate(note));
+                })).subscribe(resp => this.doneSaving.next(resp));
+            }
+            else {
+                this.doneSaving.next(true);
+            }
         }
     }
     btnAddNote() {
-        console.log('adding note');
         this.noteIDs = [null].concat(this.noteIDs);
         this.notesFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.notesFormControls);
         this.noteDateFormControls = [new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])].concat(this.noteDateFormControls);
@@ -1397,6 +1407,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_event_scheduler_event_scheduler_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/event-scheduler/event-scheduler.service */ "./src/app/services/event-scheduler/event-scheduler.service.ts");
 /* harmony import */ var src_app_services_utility_utility_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/utility/utility.service */ "./src/app/services/utility/utility.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -1408,7 +1421,7 @@ let EventViewComponent = class EventViewComponent {
     }
     ngOnInit() {
         this.displayedTitle = this.eventID.title;
-        this.displayedDate = this.utilityService.formatDateToString(new Date(`${this.eventID.date}T${this.eventID.time}`), this.eventID.time);
+        this.displayedDate = this.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_4__(this.eventID.date), this.eventID.time);
     }
     btnExpand() {
         this.eventSchedulerService.getEvent(this.eventID.id)
@@ -1468,6 +1481,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_event_scheduler_event_scheduler_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/event-scheduler/event-scheduler.service */ "./src/app/services/event-scheduler/event-scheduler.service.ts");
 /* harmony import */ var src_app_services_utility_utility_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/utility/utility.service */ "./src/app/services/utility/utility.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -1477,7 +1493,7 @@ let HomeComponent = class HomeComponent {
         this.eventSchedulerService = eventSchedulerService;
         this.utilityService = utilityService;
         this.greeting = (() => {
-            const hour = new Date().getHours();
+            const hour = moment__WEBPACK_IMPORTED_MODULE_4__().hours();
             return `Good ${hour < 12 ? 'morning'
                 : hour < 18 ? 'afternoon'
                     : 'evening'}`;
@@ -1489,8 +1505,8 @@ let HomeComponent = class HomeComponent {
     ngOnInit() {
         this.eventSchedulerService.getApiInformation().subscribe(x => this.about = x);
         this.eventSchedulerService.getEventIDs().subscribe(resp => {
-            const today = this.utilityService.formatDateToString(new Date());
-            const filterOnToday = (f) => resp.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+            const today = this.utilityService.formatMomentToString(null).split(' ')[0];
+            const filterOnToday = (f) => resp.filter(x => f(x.date.split(' ')[0], today));
             this.pastEvents = { events: filterOnToday((date, t) => date < t), label: 'past' };
             this.todayEvents = { events: filterOnToday((date, t) => date === t), label: 'today' };
             this.futureEvents = { events: filterOnToday((date, t) => date > t).reverse(), label: 'future' };
@@ -1709,6 +1725,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var src_app_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services */ "./src/app/services/index.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -1739,8 +1758,8 @@ let ReportComponent = class ReportComponent {
     ngOnInit() {
         this.loading = true;
         this.eventSchedulerService.getEventIDs().subscribe(events => {
-            const today = this.utilityService.formatDateToString(new Date());
-            const filterOnToday = (f) => events.filter(x => f(this.utilityService.formatDateToString(new Date(`${x.date}T00:00:00`)), today));
+            const today = this.utilityService.formatMomentToString(null).split(' ')[0];
+            const filterOnToday = (f) => events.filter(x => f(this.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_3__(x.date)).split(' ')[0], today));
             this.pastEvents = filterOnToday((date, t) => date < t);
             this.todayEvents = filterOnToday((date, t) => date === t);
             this.futureEvents = filterOnToday((date, t) => date > t).reverse();
@@ -1832,25 +1851,25 @@ let SearchComponent = class SearchComponent {
         const year = now.year;
         const month = now.month;
         const day = now.date;
-        this.eventMinDateFormControl.setValue(new Date(`${year}-01-01`));
-        this.eventMaxDateFormControl.setValue(new Date(`${year}-${month}-${day}`));
+        this.eventMinDateFormControl.setValue(`${year}-01-01T00:00:00`);
+        this.eventMaxDateFormControl.setValue(`${year}-${month}-${day}T00:00:00`);
     }
     getSeachParameters() {
-        console.log(this.eventMaxDateFormControl.value);
+        const dateOrEmpty = value => value ? this.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_4__(value)) : '';
         return {
             eventTitle: this.eventTitleFormControl.value,
-            eventMinDate: this.utilityService.formatDateToString(new Date(this.eventMinDateFormControl.value || 'Invalid Date')),
-            eventMaxDate: this.utilityService.formatDateToString(new Date(this.eventMaxDateFormControl.value || 'Invalid Date')),
+            eventMinDate: dateOrEmpty(this.eventMinDateFormControl.value),
+            eventMaxDate: dateOrEmpty(this.eventMaxDateFormControl.value),
             notesDescription: this.noteDescriptionFormControl.value,
-            notesMinDate: this.utilityService.formatDateToString(new Date(this.noteMinDateFormControl.value || 'Invalid Date')),
-            notesMaxDate: this.utilityService.formatDateToString(new Date(this.noteMaxDateFormControl.value || 'Invalid Date')),
+            notesMinDate: dateOrEmpty(this.noteMinDateFormControl.value),
+            notesMaxDate: dateOrEmpty(this.noteMaxDateFormControl.value),
             onlyIncludePinnedNoteEvents: this.notePinnedFormControl.value,
         };
     }
     btnSearch() {
         this.searchParams = this.getSeachParameters();
-        console.log(this.searchParams);
         this.searchBtnDisabled = true;
+        console.log(this.searchParams);
         this.eventSchedulerService.getSearchEvents(this.searchParams.eventTitle, this.searchParams.eventMinDate, this.searchParams.eventMaxDate, this.searchParams.notesDescription, this.searchParams.notesMinDate, this.searchParams.notesMaxDate, this.searchParams.onlyIncludePinnedNoteEvents).subscribe(resp => {
             this.searchBtnDisabled = false;
             this.searchResults = resp;
@@ -2123,6 +2142,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseService", function() { return BaseService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 class BaseService {
@@ -2137,7 +2159,7 @@ class BaseService {
     mapDates(obj) {
         const replaceDate = x => {
             if (x.date) {
-                x.date = this.utilityService.formatDateToString(new Date(x.date));
+                x.date = this.utilityService.formatMomentToString(moment__WEBPACK_IMPORTED_MODULE_2__(x.date));
             }
             return x;
         };
@@ -2331,6 +2353,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/build/jwt-decode.esm.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -2372,12 +2397,22 @@ let UtilityService = class UtilityService {
             return '12:00 AM';
         }
     }
-    formatDateToString(date, time) {
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1; // Month from 0 to 11
-        const day = date.getDate();
-        const result = `${`${year}-${padWithZero(month)}-${padWithZero(day)}`}${time ? ' ' + this.formatTimeToString(time) : ''}`;
-        return result === 'NaN-NaN-NaN' ? '' : result;
+    /**
+     * @param pDate date to format - pass null to get now
+     * @param pTime time to format
+     */
+    formatMomentToString(pDate, pTime) {
+        if (pDate !== undefined) {
+            const temp = (pDate === null
+                ? moment__WEBPACK_IMPORTED_MODULE_3__()
+                : pDate.utc().add(pDate.utcOffset(), 'm')).format('YYYY-MM-DDTHH:mm:ss');
+            const date = temp.split('T')[0];
+            const result = `${date}${pTime ? ' ' + this.formatTimeToString(pTime) : ''}`;
+            return result === 'Invalid date' ? '' : result;
+        }
+        else {
+            return '';
+        }
     }
 };
 UtilityService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
