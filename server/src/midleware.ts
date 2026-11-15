@@ -1,5 +1,5 @@
 import { RequestHandler, ErrorRequestHandler } from 'express';
-import * as config from './config.json';
+import { config } from './config';
 import jwt from 'jsonwebtoken';
 
 const logger: RequestHandler = (req, res, next) => {
@@ -31,7 +31,8 @@ const notFound: RequestHandler = (req, res, next) => {
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
-    const statusCode = res.statusCode;
+    // Errors thrown by a route (forwarded by Express 5) leave the status at 200.
+    const statusCode = res.statusCode >= 400 ? res.statusCode : 500;
     res.status(statusCode);
     res.json({
         status: statusCode,

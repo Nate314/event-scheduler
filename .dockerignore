@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+**/.angular
+**/coverage
+.git
+.env
+compose-launcher
+e2e

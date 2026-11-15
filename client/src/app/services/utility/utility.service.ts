@@ -1,6 +1,6 @@
-import { Inject } from '@angular/core';
-import jwt_decode from 'jwt-decode';
-import * as moment from 'moment';
+import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
+import moment from 'moment';
 
 class Token {
     userID: number;
@@ -19,8 +19,8 @@ class Token {
 
 const padWithZero = x => x <= 9 ? '0' + x : x;
 
-@Inject({
-    provide: 'root'
+@Injectable({
+    providedIn: 'root'
 })
 export class UtilityService {
 
@@ -36,7 +36,7 @@ export class UtilityService {
 
     public getToken(): Token {
         const lsToken = this.getRawToken();
-        return lsToken ? new Token(jwt_decode(lsToken)) : null;
+        return lsToken ? new Token(jwtDecode<Token>(lsToken)) : null;
     }
 
     public deleteToken(): void {

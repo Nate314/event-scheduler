@@ -1,0 +1,14 @@
+{
+  "name": "event-scheduler-e2e",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright end-to-end tests, run against an already running stack",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.0"
+  }
+}
