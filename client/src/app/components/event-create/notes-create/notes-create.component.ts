@@ -1,10 +1,12 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { DBNote } from '../../../../../../shared-models/db/note.model';
 import { FormControl, Validators } from '@angular/forms';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { merge } from 'rxjs';
 
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-notes-create',
     templateUrl: './notes-create.component.html',
     styleUrls: ['./notes-create.component.scss']

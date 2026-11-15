@@ -1,5 +1,5 @@
 import { RequestHandler, ErrorRequestHandler } from 'express';
-import * as config from './config.json';
+import { config } from './config';
 import jwt from 'jsonwebtoken';
 
 const logger: RequestHandler = (req, res, next) => {

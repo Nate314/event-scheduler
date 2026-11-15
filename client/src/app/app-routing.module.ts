@@ -1,7 +1,7 @@
 import { AuthenticationGuard } from './guards/authentication.guard';
-import { Routes, RouterModule, Router } from '@angular/router';
-import { Component, NgModule } from '@angular/core';
-import { Route } from '@angular/compiler/src/core';
+import { Route, Routes, RouterModule, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+
 import {
     LoginComponent,
     HomeComponent,
@@ -9,7 +9,7 @@ import {
     ReportComponent,
 } from './components';
 
-@Component({ template: '' })
+@Component({ template: '', standalone: false, changeDetection: ChangeDetectionStrategy.Eager })
 class NotFoundComponent {
     constructor(router: Router) {
         router.navigate(['/home']);

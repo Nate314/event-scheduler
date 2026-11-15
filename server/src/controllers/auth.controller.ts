@@ -1,6 +1,6 @@
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Repository } from '../db/repository';
-import * as config from '../config.json';
+import { config } from '../config';
 import jwt from 'jsonwebtoken';
 import express from 'express';
 import bcrypt from 'bcrypt';

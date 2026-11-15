@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 export class Query<T> {
 
@@ -41,11 +41,11 @@ export class Database {
 
     connection: mysql.Connection;
 
-    constructor(config: mysql.ConnectionConfig) {
+    constructor(config: mysql.ConnectionOptions) {
         this.connection = mysql.createConnection(config);
     }
 
-    query<T>(query: Query<T>, obj: T, callback: mysql.queryCallback) {
+    query<T>(query: Query<T>, obj: T, callback: (err: mysql.QueryError | null, results?: any) => void) {
         const sql = query.sql;
         const params = query.params(obj);
         console.log(sql);

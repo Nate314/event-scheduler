@@ -1,5 +1,5 @@
 -- Create schema
-CREATE SCHEMA EventScheduler;
+CREATE SCHEMA IF NOT EXISTS EventScheduler;
 USE EventScheduler;
 
 -- Users Table
@@ -29,7 +29,7 @@ CREATE TABLE notes (
     date DATE NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (userID) REFERENCES Users(UserID),
-    FOREIGN KEY (eventID) REFERENCES events(eventID)
+    FOREIGN KEY (eventID) REFERENCES events(id)
 );
 
 ALTER TABLE notes ADD pinned TINYINT(1) NOT NULL;

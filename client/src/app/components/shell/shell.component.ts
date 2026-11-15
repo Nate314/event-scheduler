@@ -1,8 +1,10 @@
 import { UtilityService } from 'src/app/services/utility/utility.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-shell',
     templateUrl: './shell.component.html',
     styleUrls: ['./shell.component.scss']

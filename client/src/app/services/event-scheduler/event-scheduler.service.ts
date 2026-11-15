@@ -4,11 +4,11 @@ import { UtilityService } from '../utility/utility.service';
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from '../base.service';
 import { Observable, Subject } from 'rxjs';
-import { Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
-@Inject({
-    provide: 'root'
+@Injectable({
+    providedIn: 'root'
 })
 export class EventSchedulerService extends BaseService {
 

@@ -1,6 +1,6 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { AbstractControl, FormControl, ValidatorFn, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 
@@ -15,6 +15,8 @@ const passwordValidator: ValidatorFn = (control: AbstractControl): {[key: string
     return valid ? null : {password: true};
 };
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: [ './login.component.scss' ]

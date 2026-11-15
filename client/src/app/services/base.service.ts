@@ -2,10 +2,11 @@ import { UtilityService } from './utility/utility.service';
 import { HttpClient } from '@angular/common/http';
 import { map, delay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import * as moment from 'moment';
+import moment from 'moment';
 export class BaseService {
 
-    private API_URL = 'http://pi.nathangawith.com:4300/api/v1';
+    // Relative: nginx in the client container proxies /api to the server.
+    private API_URL = '/api/v1';
 
     constructor(
         private http: HttpClient,
