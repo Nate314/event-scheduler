@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
         const username = req.body.username.toLowerCase();
         const password = req.body.password;
         const user: DBUser = await repository.selectUserWhereUsername(new DBUser(null, username));
-        if (await bcrypt.compare(password, user.Password)) {
+        if (user && await bcrypt.compare(password, user.Password)) {
             const now = Math.floor(Date.now() / 1000);
             const tokenLifespan = config.jwtTokenLifespan * 60;
             res.json(jwt.sign({
