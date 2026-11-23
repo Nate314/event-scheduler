@@ -1,8 +1,10 @@
 import { EventSchedulerService, UtilityService } from 'src/app/services';
 import { DBNote } from '../../../../../../shared-models/db/note.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-event-view-notes',
     templateUrl: './event-view-notes.component.html',
     styleUrls: ['./event-view-notes.component.scss']

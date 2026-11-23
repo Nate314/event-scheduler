@@ -1,34 +1,32 @@
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import {
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatListModule,
-    MatDividerModule,
-    MatRippleModule,
-    MatSnackBarModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatExpansionModule,
-    MatProgressSpinnerModule,
-    MatTabsModule,
-    MatCheckboxModule,
-    MatMenuModule,
-    MatProgressBarModule,
-} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTimepickerModule } from '@angular/material/timepicker';
 import {
     EventViewNotesComponent,
     NotesCreateComponent,
@@ -67,7 +65,7 @@ import {
         MatCheckboxModule,
         MatMenuModule,
         MatProgressBarModule,
-        NgxMaterialTimepickerModule,
+        MatTimepickerModule,
     ],
     exports: [
         MatCardModule,
@@ -89,7 +87,7 @@ import {
         MatCheckboxModule,
         MatMenuModule,
         MatProgressBarModule,
-        NgxMaterialTimepickerModule,
+        MatTimepickerModule,
     ],
 })
 class MaterialModule { }

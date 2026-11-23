@@ -1,10 +1,12 @@
 import { EventSchedulerService } from 'src/app/services/event-scheduler/event-scheduler.service';
 import { UtilityService } from 'src/app/services/utility/utility.service';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
-import { Component, Input, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import moment from 'moment';
 
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-event-view',
     templateUrl: './event-view.component.html',
     styleUrls: ['./event-view.component.scss']

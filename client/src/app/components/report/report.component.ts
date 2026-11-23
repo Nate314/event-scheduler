@@ -1,7 +1,7 @@
 import { EventSchedulerService, UtilityService } from 'src/app/services';
 import { DBEvent } from '../../../../../shared-models/db/event.model';
-import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import moment from 'moment';
 
 class MonthInfo {
     label: string;
@@ -16,6 +16,8 @@ class YearInfo {
 }
 
 @Component({
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Eager,
     selector: 'app-report',
     templateUrl: './report.component.html',
     styleUrls: ['./report.component.scss']

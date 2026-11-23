@@ -1,6 +1,6 @@
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Repository } from '../db/repository';
-import * as config from '../config.json';
+import { config } from '../config';
 import jwt from 'jsonwebtoken';
 import express from 'express';
 import bcrypt from 'bcrypt';
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
         const username = req.body.username.toLowerCase();
         const password = req.body.password;
         const user: DBUser = await repository.selectUserWhereUsername(new DBUser(null, username));
-        if (await bcrypt.compare(password, user.Password)) {
+        if (user && await bcrypt.compare(password, user.Password)) {
             const now = Math.floor(Date.now() / 1000);
             const tokenLifespan = config.jwtTokenLifespan * 60;
             res.json(jwt.sign({

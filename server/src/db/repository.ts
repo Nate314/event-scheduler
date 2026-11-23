@@ -1,8 +1,8 @@
 import { DBEvent } from '../../../shared-models/db/event.model';
 import { DBUser } from '../../../shared-models/db/user.model';
 import { Database, Query } from './database';
-import * as config from '../config.json';
-import { MysqlError } from 'mysql';
+import { config } from '../config';
+import { QueryError } from 'mysql2';
 import {
     INSERT_USER, SELECT_USER_WHERE_USERNAME, SELECT_USER_WHERE_USERNAME_AND_PASSWORD, SELECT_USER_COUNT,
     INSERT_EVENT, UPDATE_EVENT, DELETE_EVENT, SELECT_EVENTS, SELECT_NEXT_EVENT_NUM, SELECT_EVENT_WHERE_ID,
@@ -27,6 +27,7 @@ export class Repository {
     constructor() {
         this.database = new Database({
             host: config.host,
+            port: config.port,
             user: config.user,
             password: config.password,
             database: config.database,
@@ -37,9 +38,10 @@ export class Repository {
     private promisifiedDBTransaction<T, U>(query: Query<T>, obj: T, genericConstructor: (x: any) => U, first?: boolean) {
         return new Promise<U[] | U | boolean | any>((resolve, reject) => {
             // console.log(query);
-            this.database.query(query, obj, (err: MysqlError | null, results?: any) => {
-                if (err === null) {
-                    results = results.length && results[results.length - 1].length ? results[results.length - 1] : results;
+            this.database.query(query, obj, (err: QueryError | null, results?: any) => {
+                if (!err) {
+                    // Multi-statement queries return one result per statement; keep the last (the SELECT), even when empty.
+                    results = Array.isArray(results) && Array.isArray(results[results.length - 1]) ? results[results.length - 1] : results;
                     if (results) {
                         // console.log(results);
                         if (results.length !== undefined) {
